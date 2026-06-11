@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>厨房背景拼装台</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="./background-builder.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.165.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.165.0/examples/jsm/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <main class="builder-shell">
+      <header class="builder-header">
+        <div>
+          <p class="eyebrow">Kitchen Background Composer</p>
+          <h1>厨房背景拼装台</h1>
+        </div>
+        <nav class="header-actions">
+          <a href="./preview.html">返回模型预览</a>
+          <button id="directorButton" type="button">应用导演布景</button>
+          <button id="guideToggleButton" type="button">隐藏参考线</button>
+          <button id="resetButton" type="button">恢复自动预设</button>
+          <button id="copyButton" type="button">复制背景 JSON</button>
+        </nav>
+      </header>
+
+      <section class="builder-layout">
+        <aside class="tool-panel">
+          <section class="panel-card">
+            <p class="eyebrow">镜头规则</p>
+            <ul class="rule-list">
+              <li><span class="dot dot-green"></span>绿色框：主游戏 16:9 镜头可见范围</li>
+              <li><span class="dot dot-yellow"></span>黄色框：水果主要飞行/切割区，背景只能做衬托</li>
+              <li><span class="dot dot-red"></span>红色块：HUD 遮挡区，别放核心视觉</li>
+              <li><span class="dot dot-blue"></span>蓝线：中心轴和柜台参考线</li>
+            </ul>
+          </section>
+
+          <section class="panel-card">
+            <p class="eyebrow">添加家具</p>
+            <select id="assetSelect"></select>
+            <button id="addButton" class="primary-button" type="button">添加到背景</button>
+            <p class="hint">优先用 kitchen、wall、floor、lamp、plant、table 相关模型。</p>
+          </section>
+
+          <section class="panel-card">
+            <p class="eyebrow">当前选中</p>
+            <h2 id="selectedTitle">未选择</h2>
+            <div class="control-grid">
+              <button data-action="move" data-axis="x" data-delta="-0.15">左</button>
+              <button data-action="move" data-axis="x" data-delta="0.15">右</button>
+              <button data-action="move" data-axis="y" data-delta="0.15">上</button>
+              <button data-action="move" data-axis="y" data-delta="-0.15">下</button>
+              <button data-action="move" data-axis="z" data-delta="-0.15">后</button>
+              <button data-action="move" data-axis="z" data-delta="0.15">前</button>
+              <button data-action="rotate" data-delta="-0.25">左转</button>
+              <button data-action="rotate" data-delta="0.25">右转</button>
+              <button data-action="scale" data-delta="-0.08">缩小</button>
+              <button data-action="scale" data-delta="0.08">放大</button>
+            </div>
+            <button id="removeButton" class="danger-button" type="button">删除选中</button>
+          </section>
+
+          <section class="panel-card">
+            <p class="eyebrow">场景对象</p>
+            <div id="itemList" class="item-list"></div>
+          </section>
+        </aside>
+
+        <section class="stage-card">
+          <canvas id="builderCanvas" aria-label="厨房背景 3D 预览"></canvas>
+          <div class="camera-legend" aria-hidden="true">
+            <span><i class="legend-green"></i>镜头范围</span>
+            <span><i class="legend-yellow"></i>动作区</span>
+            <span><i class="legend-red"></i>HUD 遮挡</span>
+            <span><i class="legend-blue"></i>中心/柜台线</span>
+          </div>
+          <div class="stage-caption">
+            <strong>导演布景预设</strong>
+            <span>按主游戏固定正交镜头摆放：上半部做厨房墙，底部做柜台，中心动作区保持干净。</span>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script type="module" src="./src/background-builder.js"></script>
+  </body>
+</html>

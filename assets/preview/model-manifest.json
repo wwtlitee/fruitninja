@@ -1,0 +1,6201 @@
+[
+  {
+    "id": "kenney-food-kit__advocado-half",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "advocado-half",
+    "role": "切开组合",
+    "tags": [
+      "food",
+      "advocado",
+      "half"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/advocado-half.png",
+    "model": "./assets/preview/kenney-food-kit/models/advocado-half.glb",
+    "sizeKb": 11.0,
+    "license": "CC0",
+    "cutPairId": "cutpair-avocado",
+    "cutPairRole": "half"
+  },
+  {
+    "id": "kenney-food-kit__apple-half",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "apple-half",
+    "role": "切开组合",
+    "tags": [
+      "food",
+      "apple",
+      "half"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/apple-half.png",
+    "model": "./assets/preview/kenney-food-kit/models/apple-half.glb",
+    "sizeKb": 10.7,
+    "license": "CC0",
+    "cutPairId": "cutpair-apple",
+    "cutPairRole": "half"
+  },
+  {
+    "id": "kenney-food-kit__apple",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "apple",
+    "role": "切开组合",
+    "tags": [
+      "food",
+      "apple"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/apple.png",
+    "model": "./assets/preview/kenney-food-kit/models/apple.glb",
+    "sizeKb": 14.0,
+    "license": "CC0",
+    "cutPairId": "cutpair-apple",
+    "cutPairRole": "full"
+  },
+  {
+    "id": "kenney-food-kit__avocado",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "avocado",
+    "role": "切开组合",
+    "tags": [
+      "food",
+      "avocado"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/avocado.png",
+    "model": "./assets/preview/kenney-food-kit/models/avocado.glb",
+    "sizeKb": 5.9,
+    "license": "CC0",
+    "cutPairId": "cutpair-avocado",
+    "cutPairRole": "full"
+  },
+  {
+    "id": "kenney-food-kit__bacon-raw",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "bacon-raw",
+    "role": "候选",
+    "tags": [
+      "food",
+      "bacon",
+      "raw"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/bacon-raw.png",
+    "model": "./assets/preview/kenney-food-kit/models/bacon-raw.glb",
+    "sizeKb": 5.6,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__bacon",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "bacon",
+    "role": "候选",
+    "tags": [
+      "food",
+      "bacon"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/bacon.png",
+    "model": "./assets/preview/kenney-food-kit/models/bacon.glb",
+    "sizeKb": 5.6,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__bag-flat",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "bag-flat",
+    "role": "候选",
+    "tags": [
+      "food",
+      "bag",
+      "flat"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/bag-flat.png",
+    "model": "./assets/preview/kenney-food-kit/models/bag-flat.glb",
+    "sizeKb": 11.0,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__bag",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "bag",
+    "role": "候选",
+    "tags": [
+      "food",
+      "bag"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/bag.png",
+    "model": "./assets/preview/kenney-food-kit/models/bag.glb",
+    "sizeKb": 6.3,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__banana",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "banana",
+    "role": "可切目标",
+    "tags": [
+      "food",
+      "banana"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/banana.png",
+    "model": "./assets/preview/kenney-food-kit/models/banana.glb",
+    "sizeKb": 12.1,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__barrel",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "barrel",
+    "role": "危险/道具",
+    "tags": [
+      "food",
+      "barrel"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/barrel.png",
+    "model": "./assets/preview/kenney-food-kit/models/barrel.glb",
+    "sizeKb": 26.2,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__beet",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "beet",
+    "role": "候选",
+    "tags": [
+      "food",
+      "beet"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/beet.png",
+    "model": "./assets/preview/kenney-food-kit/models/beet.glb",
+    "sizeKb": 10.1,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__bottle-ketchup",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "bottle-ketchup",
+    "role": "危险/道具",
+    "tags": [
+      "food",
+      "bottle",
+      "ketchup"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/bottle-ketchup.png",
+    "model": "./assets/preview/kenney-food-kit/models/bottle-ketchup.glb",
+    "sizeKb": 9.4,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__bottle-musterd",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "bottle-musterd",
+    "role": "危险/道具",
+    "tags": [
+      "food",
+      "bottle",
+      "musterd"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/bottle-musterd.png",
+    "model": "./assets/preview/kenney-food-kit/models/bottle-musterd.glb",
+    "sizeKb": 9.4,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__bottle-oil",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "bottle-oil",
+    "role": "危险/道具",
+    "tags": [
+      "food",
+      "bottle",
+      "oil"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/bottle-oil.png",
+    "model": "./assets/preview/kenney-food-kit/models/bottle-oil.glb",
+    "sizeKb": 10.3,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__bowl-broth",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "bowl-broth",
+    "role": "候选",
+    "tags": [
+      "food",
+      "bowl",
+      "broth"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/bowl-broth.png",
+    "model": "./assets/preview/kenney-food-kit/models/bowl-broth.glb",
+    "sizeKb": 16.2,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__bowl-cereal",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "bowl-cereal",
+    "role": "候选",
+    "tags": [
+      "food",
+      "bowl",
+      "cereal"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/bowl-cereal.png",
+    "model": "./assets/preview/kenney-food-kit/models/bowl-cereal.glb",
+    "sizeKb": 12.2,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__bowl-soup",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "bowl-soup",
+    "role": "候选",
+    "tags": [
+      "food",
+      "bowl",
+      "soup"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/bowl-soup.png",
+    "model": "./assets/preview/kenney-food-kit/models/bowl-soup.glb",
+    "sizeKb": 10.9,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__bowl",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "bowl",
+    "role": "候选",
+    "tags": [
+      "food",
+      "bowl"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/bowl.png",
+    "model": "./assets/preview/kenney-food-kit/models/bowl.glb",
+    "sizeKb": 6.2,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__bread",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "bread",
+    "role": "可切目标",
+    "tags": [
+      "food",
+      "bread"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/bread.png",
+    "model": "./assets/preview/kenney-food-kit/models/bread.glb",
+    "sizeKb": 9.2,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__broccoli",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "broccoli",
+    "role": "候选",
+    "tags": [
+      "food",
+      "broccoli"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/broccoli.png",
+    "model": "./assets/preview/kenney-food-kit/models/broccoli.glb",
+    "sizeKb": 20.0,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__burger-cheese-double",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "burger-cheese-double",
+    "role": "可切目标",
+    "tags": [
+      "food",
+      "burger",
+      "cheese",
+      "double"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/burger-cheese-double.png",
+    "model": "./assets/preview/kenney-food-kit/models/burger-cheese-double.glb",
+    "sizeKb": 43.4,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__burger-cheese",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "burger-cheese",
+    "role": "可切目标",
+    "tags": [
+      "food",
+      "burger",
+      "cheese"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/burger-cheese.png",
+    "model": "./assets/preview/kenney-food-kit/models/burger-cheese.glb",
+    "sizeKb": 25.3,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__burger-double",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "burger-double",
+    "role": "候选",
+    "tags": [
+      "food",
+      "burger",
+      "double"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/burger-double.png",
+    "model": "./assets/preview/kenney-food-kit/models/burger-double.glb",
+    "sizeKb": 54.4,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__burger",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "burger",
+    "role": "候选",
+    "tags": [
+      "food",
+      "burger"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/burger.png",
+    "model": "./assets/preview/kenney-food-kit/models/burger.glb",
+    "sizeKb": 33.7,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__cabbage",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "cabbage",
+    "role": "候选",
+    "tags": [
+      "food",
+      "cabbage"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/cabbage.png",
+    "model": "./assets/preview/kenney-food-kit/models/cabbage.glb",
+    "sizeKb": 15.0,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__cake-birthday",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "cake-birthday",
+    "role": "可切目标",
+    "tags": [
+      "food",
+      "cake",
+      "birthday"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/cake-birthday.png",
+    "model": "./assets/preview/kenney-food-kit/models/cake-birthday.glb",
+    "sizeKb": 112.6,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__cake-slicer",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "cake-slicer",
+    "role": "危险/道具",
+    "tags": [
+      "food",
+      "cake",
+      "slicer"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/cake-slicer.png",
+    "model": "./assets/preview/kenney-food-kit/models/cake-slicer.glb",
+    "sizeKb": 4.9,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__cake",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "cake",
+    "role": "可切目标",
+    "tags": [
+      "food",
+      "cake"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/cake.png",
+    "model": "./assets/preview/kenney-food-kit/models/cake.glb",
+    "sizeKb": 71.2,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__can-open",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "can-open",
+    "role": "危险/道具",
+    "tags": [
+      "food",
+      "can",
+      "open"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/can-open.png",
+    "model": "./assets/preview/kenney-food-kit/models/can-open.glb",
+    "sizeKb": 18.0,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__can-small",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "can-small",
+    "role": "危险/道具",
+    "tags": [
+      "food",
+      "can",
+      "small"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/can-small.png",
+    "model": "./assets/preview/kenney-food-kit/models/can-small.glb",
+    "sizeKb": 15.6,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__can",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "can",
+    "role": "危险/道具",
+    "tags": [
+      "food",
+      "can"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/can.png",
+    "model": "./assets/preview/kenney-food-kit/models/can.glb",
+    "sizeKb": 13.4,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__candy-bar-wrapper",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "candy-bar-wrapper",
+    "role": "危险/道具",
+    "tags": [
+      "food",
+      "candy",
+      "bar",
+      "wrapper"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/candy-bar-wrapper.png",
+    "model": "./assets/preview/kenney-food-kit/models/candy-bar-wrapper.glb",
+    "sizeKb": 6.0,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__candy-bar",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "candy-bar",
+    "role": "危险/道具",
+    "tags": [
+      "food",
+      "candy",
+      "bar"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/candy-bar.png",
+    "model": "./assets/preview/kenney-food-kit/models/candy-bar.glb",
+    "sizeKb": 7.3,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__carrot",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "carrot",
+    "role": "候选",
+    "tags": [
+      "food",
+      "carrot"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/carrot.png",
+    "model": "./assets/preview/kenney-food-kit/models/carrot.glb",
+    "sizeKb": 16.0,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__carton-small",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "carton-small",
+    "role": "候选",
+    "tags": [
+      "food",
+      "carton",
+      "small"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/carton-small.png",
+    "model": "./assets/preview/kenney-food-kit/models/carton-small.glb",
+    "sizeKb": 8.2,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__carton",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "carton",
+    "role": "候选",
+    "tags": [
+      "food",
+      "carton"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/carton.png",
+    "model": "./assets/preview/kenney-food-kit/models/carton.glb",
+    "sizeKb": 9.1,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__cauliflower",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "cauliflower",
+    "role": "候选",
+    "tags": [
+      "food",
+      "cauliflower"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/cauliflower.png",
+    "model": "./assets/preview/kenney-food-kit/models/cauliflower.glb",
+    "sizeKb": 16.2,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__celery-stick",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "celery-stick",
+    "role": "候选",
+    "tags": [
+      "food",
+      "celery",
+      "stick"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/celery-stick.png",
+    "model": "./assets/preview/kenney-food-kit/models/celery-stick.glb",
+    "sizeKb": 5.8,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__cheese-cut",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "cheese-cut",
+    "role": "可切目标",
+    "tags": [
+      "food",
+      "cheese",
+      "cut"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/cheese-cut.png",
+    "model": "./assets/preview/kenney-food-kit/models/cheese-cut.glb",
+    "sizeKb": 13.1,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__cheese-slicer",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "cheese-slicer",
+    "role": "危险/道具",
+    "tags": [
+      "food",
+      "cheese",
+      "slicer"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/cheese-slicer.png",
+    "model": "./assets/preview/kenney-food-kit/models/cheese-slicer.glb",
+    "sizeKb": 5.4,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__cheese",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "cheese",
+    "role": "可切目标",
+    "tags": [
+      "food",
+      "cheese"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/cheese.png",
+    "model": "./assets/preview/kenney-food-kit/models/cheese.glb",
+    "sizeKb": 59.5,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__cherries",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "cherries",
+    "role": "候选",
+    "tags": [
+      "food",
+      "cherries"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/cherries.png",
+    "model": "./assets/preview/kenney-food-kit/models/cherries.glb",
+    "sizeKb": 13.2,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__chinese",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "chinese",
+    "role": "候选",
+    "tags": [
+      "food",
+      "chinese"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/chinese.png",
+    "model": "./assets/preview/kenney-food-kit/models/chinese.glb",
+    "sizeKb": 18.9,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__chocolate-wrapper",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "chocolate-wrapper",
+    "role": "候选",
+    "tags": [
+      "food",
+      "chocolate",
+      "wrapper"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/chocolate-wrapper.png",
+    "model": "./assets/preview/kenney-food-kit/models/chocolate-wrapper.glb",
+    "sizeKb": 11.4,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__chocolate",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "chocolate",
+    "role": "候选",
+    "tags": [
+      "food",
+      "chocolate"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/chocolate.png",
+    "model": "./assets/preview/kenney-food-kit/models/chocolate.glb",
+    "sizeKb": 12.4,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__chopstic-decorative",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "chopstic-decorative",
+    "role": "候选",
+    "tags": [
+      "food",
+      "chopstic",
+      "decorative"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/chopstic-decorative.png",
+    "model": "./assets/preview/kenney-food-kit/models/chopstic-decorative.glb",
+    "sizeKb": 5.3,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__chopstick",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "chopstick",
+    "role": "候选",
+    "tags": [
+      "food",
+      "chopstick"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/chopstick.png",
+    "model": "./assets/preview/kenney-food-kit/models/chopstick.glb",
+    "sizeKb": 2.9,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__cocktail",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "cocktail",
+    "role": "候选",
+    "tags": [
+      "food",
+      "cocktail"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/cocktail.png",
+    "model": "./assets/preview/kenney-food-kit/models/cocktail.glb",
+    "sizeKb": 13.8,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__coconut-half",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "coconut-half",
+    "role": "切开组合",
+    "tags": [
+      "food",
+      "coconut",
+      "half"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/coconut-half.png",
+    "model": "./assets/preview/kenney-food-kit/models/coconut-half.glb",
+    "sizeKb": 8.1,
+    "license": "CC0",
+    "cutPairId": "cutpair-coconut",
+    "cutPairRole": "half"
+  },
+  {
+    "id": "kenney-food-kit__coconut",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "coconut",
+    "role": "切开组合",
+    "tags": [
+      "food",
+      "coconut"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/coconut.png",
+    "model": "./assets/preview/kenney-food-kit/models/coconut.glb",
+    "sizeKb": 8.8,
+    "license": "CC0",
+    "cutPairId": "cutpair-coconut",
+    "cutPairRole": "full"
+  },
+  {
+    "id": "kenney-food-kit__cookie-chocolate",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "cookie-chocolate",
+    "role": "可切目标",
+    "tags": [
+      "food",
+      "cookie",
+      "chocolate"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/cookie-chocolate.png",
+    "model": "./assets/preview/kenney-food-kit/models/cookie-chocolate.glb",
+    "sizeKb": 12.1,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__cookie",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "cookie",
+    "role": "可切目标",
+    "tags": [
+      "food",
+      "cookie"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/cookie.png",
+    "model": "./assets/preview/kenney-food-kit/models/cookie.glb",
+    "sizeKb": 7.4,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__cooking-fork",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "cooking-fork",
+    "role": "候选",
+    "tags": [
+      "food",
+      "cooking",
+      "fork"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/cooking-fork.png",
+    "model": "./assets/preview/kenney-food-kit/models/cooking-fork.glb",
+    "sizeKb": 4.8,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__cooking-knife-chopping",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "cooking-knife-chopping",
+    "role": "危险/道具",
+    "tags": [
+      "food",
+      "cooking",
+      "knife",
+      "chopping"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/cooking-knife-chopping.png",
+    "model": "./assets/preview/kenney-food-kit/models/cooking-knife-chopping.glb",
+    "sizeKb": 7.6,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__cooking-knife",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "cooking-knife",
+    "role": "危险/道具",
+    "tags": [
+      "food",
+      "cooking",
+      "knife"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/cooking-knife.png",
+    "model": "./assets/preview/kenney-food-kit/models/cooking-knife.glb",
+    "sizeKb": 5.3,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__cooking-spatula",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "cooking-spatula",
+    "role": "候选",
+    "tags": [
+      "food",
+      "cooking",
+      "spatula"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/cooking-spatula.png",
+    "model": "./assets/preview/kenney-food-kit/models/cooking-spatula.glb",
+    "sizeKb": 6.0,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__cooking-spoon",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "cooking-spoon",
+    "role": "候选",
+    "tags": [
+      "food",
+      "cooking",
+      "spoon"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/cooking-spoon.png",
+    "model": "./assets/preview/kenney-food-kit/models/cooking-spoon.glb",
+    "sizeKb": 6.6,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__corn-dog",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "corn-dog",
+    "role": "候选",
+    "tags": [
+      "food",
+      "corn",
+      "dog"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/corn-dog.png",
+    "model": "./assets/preview/kenney-food-kit/models/corn-dog.glb",
+    "sizeKb": 8.9,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__corn",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "corn",
+    "role": "候选",
+    "tags": [
+      "food",
+      "corn"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/corn.png",
+    "model": "./assets/preview/kenney-food-kit/models/corn.glb",
+    "sizeKb": 13.9,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__croissant",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "croissant",
+    "role": "候选",
+    "tags": [
+      "food",
+      "croissant"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/croissant.png",
+    "model": "./assets/preview/kenney-food-kit/models/croissant.glb",
+    "sizeKb": 14.0,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__cup-coffee",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "cup-coffee",
+    "role": "候选",
+    "tags": [
+      "food",
+      "cup",
+      "coffee"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/cup-coffee.png",
+    "model": "./assets/preview/kenney-food-kit/models/cup-coffee.glb",
+    "sizeKb": 7.7,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__cup-saucer",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "cup-saucer",
+    "role": "候选",
+    "tags": [
+      "food",
+      "cup",
+      "saucer"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/cup-saucer.png",
+    "model": "./assets/preview/kenney-food-kit/models/cup-saucer.glb",
+    "sizeKb": 7.7,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__cup-tea",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "cup-tea",
+    "role": "候选",
+    "tags": [
+      "food",
+      "cup",
+      "tea"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/cup-tea.png",
+    "model": "./assets/preview/kenney-food-kit/models/cup-tea.glb",
+    "sizeKb": 9.6,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__cup",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "cup",
+    "role": "候选",
+    "tags": [
+      "food",
+      "cup"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/cup.png",
+    "model": "./assets/preview/kenney-food-kit/models/cup.glb",
+    "sizeKb": 7.8,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__cupcake",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "cupcake",
+    "role": "可切目标",
+    "tags": [
+      "food",
+      "cupcake"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/cupcake.png",
+    "model": "./assets/preview/kenney-food-kit/models/cupcake.glb",
+    "sizeKb": 22.2,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__cutting-board-japanese",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "cutting-board-japanese",
+    "role": "候选",
+    "tags": [
+      "food",
+      "cutting",
+      "board",
+      "japanese"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/cutting-board-japanese.png",
+    "model": "./assets/preview/kenney-food-kit/models/cutting-board-japanese.glb",
+    "sizeKb": 9.6,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__cutting-board-round",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "cutting-board-round",
+    "role": "候选",
+    "tags": [
+      "food",
+      "cutting",
+      "board",
+      "round"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/cutting-board-round.png",
+    "model": "./assets/preview/kenney-food-kit/models/cutting-board-round.glb",
+    "sizeKb": 12.3,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__cutting-board",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "cutting-board",
+    "role": "候选",
+    "tags": [
+      "food",
+      "cutting",
+      "board"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/cutting-board.png",
+    "model": "./assets/preview/kenney-food-kit/models/cutting-board.glb",
+    "sizeKb": 10.4,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__dim-sum",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "dim-sum",
+    "role": "候选",
+    "tags": [
+      "food",
+      "dim",
+      "sum"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/dim-sum.png",
+    "model": "./assets/preview/kenney-food-kit/models/dim-sum.glb",
+    "sizeKb": 7.0,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__donut-chocolate",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "donut-chocolate",
+    "role": "可切目标",
+    "tags": [
+      "food",
+      "donut",
+      "chocolate"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/donut-chocolate.png",
+    "model": "./assets/preview/kenney-food-kit/models/donut-chocolate.glb",
+    "sizeKb": 12.3,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__donut-sprinkles",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "donut-sprinkles",
+    "role": "可切目标",
+    "tags": [
+      "food",
+      "donut",
+      "sprinkles"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/donut-sprinkles.png",
+    "model": "./assets/preview/kenney-food-kit/models/donut-sprinkles.glb",
+    "sizeKb": 19.5,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__donut",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "donut",
+    "role": "可切目标",
+    "tags": [
+      "food",
+      "donut"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/donut.png",
+    "model": "./assets/preview/kenney-food-kit/models/donut.glb",
+    "sizeKb": 11.1,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__egg-cooked",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "egg-cooked",
+    "role": "可切目标",
+    "tags": [
+      "food",
+      "egg",
+      "cooked"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/egg-cooked.png",
+    "model": "./assets/preview/kenney-food-kit/models/egg-cooked.glb",
+    "sizeKb": 6.6,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__egg-cup",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "egg-cup",
+    "role": "可切目标",
+    "tags": [
+      "food",
+      "egg",
+      "cup"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/egg-cup.png",
+    "model": "./assets/preview/kenney-food-kit/models/egg-cup.glb",
+    "sizeKb": 6.8,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__egg-half",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "egg-half",
+    "role": "切开组合",
+    "tags": [
+      "food",
+      "egg",
+      "half"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/egg-half.png",
+    "model": "./assets/preview/kenney-food-kit/models/egg-half.glb",
+    "sizeKb": 8.1,
+    "license": "CC0",
+    "cutPairId": "cutpair-egg",
+    "cutPairRole": "half"
+  },
+  {
+    "id": "kenney-food-kit__egg",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "egg",
+    "role": "切开组合",
+    "tags": [
+      "food",
+      "egg"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/egg.png",
+    "model": "./assets/preview/kenney-food-kit/models/egg.glb",
+    "sizeKb": 5.9,
+    "license": "CC0",
+    "cutPairId": "cutpair-egg",
+    "cutPairRole": "full"
+  },
+  {
+    "id": "kenney-food-kit__eggplant",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "eggplant",
+    "role": "可切目标",
+    "tags": [
+      "food",
+      "eggplant"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/eggplant.png",
+    "model": "./assets/preview/kenney-food-kit/models/eggplant.glb",
+    "sizeKb": 13.1,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__fish-bones",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "fish-bones",
+    "role": "候选",
+    "tags": [
+      "food",
+      "fish",
+      "bones"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/fish-bones.png",
+    "model": "./assets/preview/kenney-food-kit/models/fish-bones.glb",
+    "sizeKb": 33.3,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__fish",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "fish",
+    "role": "候选",
+    "tags": [
+      "food",
+      "fish"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/fish.png",
+    "model": "./assets/preview/kenney-food-kit/models/fish.glb",
+    "sizeKb": 30.9,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__frappe",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "frappe",
+    "role": "候选",
+    "tags": [
+      "food",
+      "frappe"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/frappe.png",
+    "model": "./assets/preview/kenney-food-kit/models/frappe.glb",
+    "sizeKb": 22.0,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__fries-empty",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "fries-empty",
+    "role": "候选",
+    "tags": [
+      "food",
+      "fries",
+      "empty"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/fries-empty.png",
+    "model": "./assets/preview/kenney-food-kit/models/fries-empty.glb",
+    "sizeKb": 11.1,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__fries",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "fries",
+    "role": "候选",
+    "tags": [
+      "food",
+      "fries"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/fries.png",
+    "model": "./assets/preview/kenney-food-kit/models/fries.glb",
+    "sizeKb": 57.8,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__frikandel-speciaal",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "frikandel-speciaal",
+    "role": "候选",
+    "tags": [
+      "food",
+      "frikandel",
+      "speciaal"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/frikandel-speciaal.png",
+    "model": "./assets/preview/kenney-food-kit/models/frikandel-speciaal.glb",
+    "sizeKb": 24.9,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__frying-pan-lid",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "frying-pan-lid",
+    "role": "候选",
+    "tags": [
+      "food",
+      "frying",
+      "pan",
+      "lid"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/frying-pan-lid.png",
+    "model": "./assets/preview/kenney-food-kit/models/frying-pan-lid.glb",
+    "sizeKb": 13.5,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__frying-pan",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "frying-pan",
+    "role": "候选",
+    "tags": [
+      "food",
+      "frying",
+      "pan"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/frying-pan.png",
+    "model": "./assets/preview/kenney-food-kit/models/frying-pan.glb",
+    "sizeKb": 18.8,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__ginger-bread-cutter",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "ginger-bread-cutter",
+    "role": "危险/道具",
+    "tags": [
+      "food",
+      "ginger",
+      "bread",
+      "cutter"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/ginger-bread-cutter.png",
+    "model": "./assets/preview/kenney-food-kit/models/ginger-bread-cutter.glb",
+    "sizeKb": 11.7,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__ginger-bread",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "ginger-bread",
+    "role": "可切目标",
+    "tags": [
+      "food",
+      "ginger",
+      "bread"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/ginger-bread.png",
+    "model": "./assets/preview/kenney-food-kit/models/ginger-bread.glb",
+    "sizeKb": 7.6,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__glass-wine",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "glass-wine",
+    "role": "候选",
+    "tags": [
+      "food",
+      "glass",
+      "wine"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/glass-wine.png",
+    "model": "./assets/preview/kenney-food-kit/models/glass-wine.glb",
+    "sizeKb": 23.4,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__glass",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "glass",
+    "role": "候选",
+    "tags": [
+      "food",
+      "glass"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/glass.png",
+    "model": "./assets/preview/kenney-food-kit/models/glass.glb",
+    "sizeKb": 4.1,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__grapes",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "grapes",
+    "role": "可切目标",
+    "tags": [
+      "food",
+      "grapes"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/grapes.png",
+    "model": "./assets/preview/kenney-food-kit/models/grapes.glb",
+    "sizeKb": 57.6,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__honey",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "honey",
+    "role": "可切目标",
+    "tags": [
+      "food",
+      "honey"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/honey.png",
+    "model": "./assets/preview/kenney-food-kit/models/honey.glb",
+    "sizeKb": 14.5,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__hot-dog-raw",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "hot-dog-raw",
+    "role": "候选",
+    "tags": [
+      "food",
+      "hot",
+      "dog",
+      "raw"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/hot-dog-raw.png",
+    "model": "./assets/preview/kenney-food-kit/models/hot-dog-raw.glb",
+    "sizeKb": 9.3,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__hot-dog",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "hot-dog",
+    "role": "候选",
+    "tags": [
+      "food",
+      "hot",
+      "dog"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/hot-dog.png",
+    "model": "./assets/preview/kenney-food-kit/models/hot-dog.glb",
+    "sizeKb": 27.1,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__ice-cream-cne",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "ice-cream-cne",
+    "role": "候选",
+    "tags": [
+      "food",
+      "ice",
+      "cream",
+      "cne"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/ice-cream-cne.png",
+    "model": "./assets/preview/kenney-food-kit/models/ice-cream-cne.glb",
+    "sizeKb": 5.3,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__ice-cream-cup",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "ice-cream-cup",
+    "role": "候选",
+    "tags": [
+      "food",
+      "ice",
+      "cream",
+      "cup"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/ice-cream-cup.png",
+    "model": "./assets/preview/kenney-food-kit/models/ice-cream-cup.glb",
+    "sizeKb": 7.6,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__ice-cream-scoop-chocolate",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "ice-cream-scoop-chocolate",
+    "role": "候选",
+    "tags": [
+      "food",
+      "ice",
+      "cream",
+      "scoop",
+      "chocolate"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/ice-cream-scoop-chocolate.png",
+    "model": "./assets/preview/kenney-food-kit/models/ice-cream-scoop-chocolate.glb",
+    "sizeKb": 8.8,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__ice-cream-scoop-mint",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "ice-cream-scoop-mint",
+    "role": "候选",
+    "tags": [
+      "food",
+      "ice",
+      "cream",
+      "scoop",
+      "mint"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/ice-cream-scoop-mint.png",
+    "model": "./assets/preview/kenney-food-kit/models/ice-cream-scoop-mint.glb",
+    "sizeKb": 7.1,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__ice-cream",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "ice-cream",
+    "role": "候选",
+    "tags": [
+      "food",
+      "ice",
+      "cream"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/ice-cream.png",
+    "model": "./assets/preview/kenney-food-kit/models/ice-cream.glb",
+    "sizeKb": 9.9,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__knife-block",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "knife-block",
+    "role": "危险/道具",
+    "tags": [
+      "food",
+      "knife",
+      "block"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/knife-block.png",
+    "model": "./assets/preview/kenney-food-kit/models/knife-block.glb",
+    "sizeKb": 19.7,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__leek",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "leek",
+    "role": "候选",
+    "tags": [
+      "food",
+      "leek"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/leek.png",
+    "model": "./assets/preview/kenney-food-kit/models/leek.glb",
+    "sizeKb": 16.3,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__lemon-half",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "lemon-half",
+    "role": "切开组合",
+    "tags": [
+      "food",
+      "lemon",
+      "half"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/lemon-half.png",
+    "model": "./assets/preview/kenney-food-kit/models/lemon-half.glb",
+    "sizeKb": 10.0,
+    "license": "CC0",
+    "cutPairId": "cutpair-lemon",
+    "cutPairRole": "half"
+  },
+  {
+    "id": "kenney-food-kit__lemon",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "lemon",
+    "role": "切开组合",
+    "tags": [
+      "food",
+      "lemon"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/lemon.png",
+    "model": "./assets/preview/kenney-food-kit/models/lemon.glb",
+    "sizeKb": 11.6,
+    "license": "CC0",
+    "cutPairId": "cutpair-lemon",
+    "cutPairRole": "full"
+  },
+  {
+    "id": "kenney-food-kit__loaf-baguette",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "loaf-baguette",
+    "role": "候选",
+    "tags": [
+      "food",
+      "loaf",
+      "baguette"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/loaf-baguette.png",
+    "model": "./assets/preview/kenney-food-kit/models/loaf-baguette.glb",
+    "sizeKb": 12.5,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__loaf-round",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "loaf-round",
+    "role": "候选",
+    "tags": [
+      "food",
+      "loaf",
+      "round"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/loaf-round.png",
+    "model": "./assets/preview/kenney-food-kit/models/loaf-round.glb",
+    "sizeKb": 10.9,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__loaf",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "loaf",
+    "role": "候选",
+    "tags": [
+      "food",
+      "loaf"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/loaf.png",
+    "model": "./assets/preview/kenney-food-kit/models/loaf.glb",
+    "sizeKb": 9.2,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__lollypop",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "lollypop",
+    "role": "候选",
+    "tags": [
+      "food",
+      "lollypop"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/lollypop.png",
+    "model": "./assets/preview/kenney-food-kit/models/lollypop.glb",
+    "sizeKb": 8.3,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__maki-roe",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "maki-roe",
+    "role": "候选",
+    "tags": [
+      "food",
+      "maki",
+      "roe"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/maki-roe.png",
+    "model": "./assets/preview/kenney-food-kit/models/maki-roe.glb",
+    "sizeKb": 6.4,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__maki-salmon",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "maki-salmon",
+    "role": "候选",
+    "tags": [
+      "food",
+      "maki",
+      "salmon"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/maki-salmon.png",
+    "model": "./assets/preview/kenney-food-kit/models/maki-salmon.glb",
+    "sizeKb": 5.9,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__maki-vegetable",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "maki-vegetable",
+    "role": "候选",
+    "tags": [
+      "food",
+      "maki",
+      "vegetable"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/maki-vegetable.png",
+    "model": "./assets/preview/kenney-food-kit/models/maki-vegetable.glb",
+    "sizeKb": 6.0,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__meat-cooked",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "meat-cooked",
+    "role": "候选",
+    "tags": [
+      "food",
+      "meat",
+      "cooked"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/meat-cooked.png",
+    "model": "./assets/preview/kenney-food-kit/models/meat-cooked.glb",
+    "sizeKb": 10.3,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__meat-patty",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "meat-patty",
+    "role": "候选",
+    "tags": [
+      "food",
+      "meat",
+      "patty"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/meat-patty.png",
+    "model": "./assets/preview/kenney-food-kit/models/meat-patty.glb",
+    "sizeKb": 8.9,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__meat-raw",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "meat-raw",
+    "role": "候选",
+    "tags": [
+      "food",
+      "meat",
+      "raw"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/meat-raw.png",
+    "model": "./assets/preview/kenney-food-kit/models/meat-raw.glb",
+    "sizeKb": 9.7,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__meat-ribs",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "meat-ribs",
+    "role": "候选",
+    "tags": [
+      "food",
+      "meat",
+      "ribs"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/meat-ribs.png",
+    "model": "./assets/preview/kenney-food-kit/models/meat-ribs.glb",
+    "sizeKb": 14.0,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__meat-sausage",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "meat-sausage",
+    "role": "候选",
+    "tags": [
+      "food",
+      "meat",
+      "sausage"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/meat-sausage.png",
+    "model": "./assets/preview/kenney-food-kit/models/meat-sausage.glb",
+    "sizeKb": 46.0,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__meat-tenderizer",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "meat-tenderizer",
+    "role": "候选",
+    "tags": [
+      "food",
+      "meat",
+      "tenderizer"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/meat-tenderizer.png",
+    "model": "./assets/preview/kenney-food-kit/models/meat-tenderizer.glb",
+    "sizeKb": 30.6,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__mincemeat-pie",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "mincemeat-pie",
+    "role": "候选",
+    "tags": [
+      "food",
+      "mincemeat",
+      "pie"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/mincemeat-pie.png",
+    "model": "./assets/preview/kenney-food-kit/models/mincemeat-pie.glb",
+    "sizeKb": 12.4,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__mortar-pestle",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "mortar-pestle",
+    "role": "候选",
+    "tags": [
+      "food",
+      "mortar",
+      "pestle"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/mortar-pestle.png",
+    "model": "./assets/preview/kenney-food-kit/models/mortar-pestle.glb",
+    "sizeKb": 7.1,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__mortar",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "mortar",
+    "role": "候选",
+    "tags": [
+      "food",
+      "mortar"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/mortar.png",
+    "model": "./assets/preview/kenney-food-kit/models/mortar.glb",
+    "sizeKb": 10.0,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__muffin",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "muffin",
+    "role": "候选",
+    "tags": [
+      "food",
+      "muffin"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/muffin.png",
+    "model": "./assets/preview/kenney-food-kit/models/muffin.glb",
+    "sizeKb": 10.0,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__mug",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "mug",
+    "role": "候选",
+    "tags": [
+      "food",
+      "mug"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/mug.png",
+    "model": "./assets/preview/kenney-food-kit/models/mug.glb",
+    "sizeKb": 19.8,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__mushroom-half",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "mushroom-half",
+    "role": "切开组合",
+    "tags": [
+      "food",
+      "mushroom",
+      "half"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/mushroom-half.png",
+    "model": "./assets/preview/kenney-food-kit/models/mushroom-half.glb",
+    "sizeKb": 6.9,
+    "license": "CC0",
+    "cutPairId": "cutpair-mushroom",
+    "cutPairRole": "half"
+  },
+  {
+    "id": "kenney-food-kit__mushroom",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "mushroom",
+    "role": "切开组合",
+    "tags": [
+      "food",
+      "mushroom"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/mushroom.png",
+    "model": "./assets/preview/kenney-food-kit/models/mushroom.glb",
+    "sizeKb": 8.2,
+    "license": "CC0",
+    "cutPairId": "cutpair-mushroom",
+    "cutPairRole": "full"
+  },
+  {
+    "id": "kenney-food-kit__mussel-open",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "mussel-open",
+    "role": "候选",
+    "tags": [
+      "food",
+      "mussel",
+      "open"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/mussel-open.png",
+    "model": "./assets/preview/kenney-food-kit/models/mussel-open.glb",
+    "sizeKb": 10.0,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__mussel",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "mussel",
+    "role": "候选",
+    "tags": [
+      "food",
+      "mussel"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/mussel.png",
+    "model": "./assets/preview/kenney-food-kit/models/mussel.glb",
+    "sizeKb": 5.2,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__onion-half",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "onion-half",
+    "role": "切开组合",
+    "tags": [
+      "food",
+      "onion",
+      "half"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/onion-half.png",
+    "model": "./assets/preview/kenney-food-kit/models/onion-half.glb",
+    "sizeKb": 8.9,
+    "license": "CC0",
+    "cutPairId": "cutpair-onion",
+    "cutPairRole": "half"
+  },
+  {
+    "id": "kenney-food-kit__onion",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "onion",
+    "role": "切开组合",
+    "tags": [
+      "food",
+      "onion"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/onion.png",
+    "model": "./assets/preview/kenney-food-kit/models/onion.glb",
+    "sizeKb": 8.2,
+    "license": "CC0",
+    "cutPairId": "cutpair-onion",
+    "cutPairRole": "full"
+  },
+  {
+    "id": "kenney-food-kit__orange",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "orange",
+    "role": "候选",
+    "tags": [
+      "food",
+      "orange"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/orange.png",
+    "model": "./assets/preview/kenney-food-kit/models/orange.glb",
+    "sizeKb": 12.8,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__pan-stew",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "pan-stew",
+    "role": "候选",
+    "tags": [
+      "food",
+      "pan",
+      "stew"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/pan-stew.png",
+    "model": "./assets/preview/kenney-food-kit/models/pan-stew.glb",
+    "sizeKb": 27.7,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__pan",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "pan",
+    "role": "候选",
+    "tags": [
+      "food",
+      "pan"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/pan.png",
+    "model": "./assets/preview/kenney-food-kit/models/pan.glb",
+    "sizeKb": 19.5,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__pancakes",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "pancakes",
+    "role": "可切目标",
+    "tags": [
+      "food",
+      "pancakes"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/pancakes.png",
+    "model": "./assets/preview/kenney-food-kit/models/pancakes.glb",
+    "sizeKb": 41.6,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__paprika-slice",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "paprika-slice",
+    "role": "候选",
+    "tags": [
+      "food",
+      "paprika",
+      "slice"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/paprika-slice.png",
+    "model": "./assets/preview/kenney-food-kit/models/paprika-slice.glb",
+    "sizeKb": 8.8,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__paprika",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "paprika",
+    "role": "候选",
+    "tags": [
+      "food",
+      "paprika"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/paprika.png",
+    "model": "./assets/preview/kenney-food-kit/models/paprika.glb",
+    "sizeKb": 14.8,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__peanut-butter",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "peanut-butter",
+    "role": "候选",
+    "tags": [
+      "food",
+      "peanut",
+      "butter"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/peanut-butter.png",
+    "model": "./assets/preview/kenney-food-kit/models/peanut-butter.glb",
+    "sizeKb": 17.0,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__pear-half",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "pear-half",
+    "role": "切开组合",
+    "tags": [
+      "food",
+      "pear",
+      "half"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/pear-half.png",
+    "model": "./assets/preview/kenney-food-kit/models/pear-half.glb",
+    "sizeKb": 11.1,
+    "license": "CC0",
+    "cutPairId": "cutpair-pear",
+    "cutPairRole": "half"
+  },
+  {
+    "id": "kenney-food-kit__pear",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "pear",
+    "role": "切开组合",
+    "tags": [
+      "food",
+      "pear"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/pear.png",
+    "model": "./assets/preview/kenney-food-kit/models/pear.glb",
+    "sizeKb": 15.2,
+    "license": "CC0",
+    "cutPairId": "cutpair-pear",
+    "cutPairRole": "full"
+  },
+  {
+    "id": "kenney-food-kit__pepper-mill",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "pepper-mill",
+    "role": "危险/道具",
+    "tags": [
+      "food",
+      "pepper",
+      "mill"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/pepper-mill.png",
+    "model": "./assets/preview/kenney-food-kit/models/pepper-mill.glb",
+    "sizeKb": 25.1,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__pepper",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "pepper",
+    "role": "危险/道具",
+    "tags": [
+      "food",
+      "pepper"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/pepper.png",
+    "model": "./assets/preview/kenney-food-kit/models/pepper.glb",
+    "sizeKb": 12.6,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__pie",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "pie",
+    "role": "候选",
+    "tags": [
+      "food",
+      "pie"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/pie.png",
+    "model": "./assets/preview/kenney-food-kit/models/pie.glb",
+    "sizeKb": 21.9,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__pineapple",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "pineapple",
+    "role": "可切目标",
+    "tags": [
+      "food",
+      "pineapple"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/pineapple.png",
+    "model": "./assets/preview/kenney-food-kit/models/pineapple.glb",
+    "sizeKb": 19.8,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__pizza-box",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "pizza-box",
+    "role": "候选",
+    "tags": [
+      "food",
+      "pizza",
+      "box"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/pizza-box.png",
+    "model": "./assets/preview/kenney-food-kit/models/pizza-box.glb",
+    "sizeKb": 8.6,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__pizza-cutter",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "pizza-cutter",
+    "role": "危险/道具",
+    "tags": [
+      "food",
+      "pizza",
+      "cutter"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/pizza-cutter.png",
+    "model": "./assets/preview/kenney-food-kit/models/pizza-cutter.glb",
+    "sizeKb": 8.4,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__pizza",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "pizza",
+    "role": "候选",
+    "tags": [
+      "food",
+      "pizza"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/pizza.png",
+    "model": "./assets/preview/kenney-food-kit/models/pizza.glb",
+    "sizeKb": 104.3,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__plate-broken",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "plate-broken",
+    "role": "候选",
+    "tags": [
+      "food",
+      "plate",
+      "broken"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/plate-broken.png",
+    "model": "./assets/preview/kenney-food-kit/models/plate-broken.glb",
+    "sizeKb": 32.4,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__plate-deep",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "plate-deep",
+    "role": "候选",
+    "tags": [
+      "food",
+      "plate",
+      "deep"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/plate-deep.png",
+    "model": "./assets/preview/kenney-food-kit/models/plate-deep.glb",
+    "sizeKb": 7.8,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__plate-dinner",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "plate-dinner",
+    "role": "候选",
+    "tags": [
+      "food",
+      "plate",
+      "dinner"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/plate-dinner.png",
+    "model": "./assets/preview/kenney-food-kit/models/plate-dinner.glb",
+    "sizeKb": 27.3,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__plate-rectangle",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "plate-rectangle",
+    "role": "候选",
+    "tags": [
+      "food",
+      "plate",
+      "rectangle"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/plate-rectangle.png",
+    "model": "./assets/preview/kenney-food-kit/models/plate-rectangle.glb",
+    "sizeKb": 6.6,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__plate-sauerkraut",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "plate-sauerkraut",
+    "role": "候选",
+    "tags": [
+      "food",
+      "plate",
+      "sauerkraut"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/plate-sauerkraut.png",
+    "model": "./assets/preview/kenney-food-kit/models/plate-sauerkraut.glb",
+    "sizeKb": 63.2,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__plate",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "plate",
+    "role": "候选",
+    "tags": [
+      "food",
+      "plate"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/plate.png",
+    "model": "./assets/preview/kenney-food-kit/models/plate.glb",
+    "sizeKb": 8.3,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__popsicle-chocolate",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "popsicle-chocolate",
+    "role": "候选",
+    "tags": [
+      "food",
+      "popsicle",
+      "chocolate"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/popsicle-chocolate.png",
+    "model": "./assets/preview/kenney-food-kit/models/popsicle-chocolate.glb",
+    "sizeKb": 11.5,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__popsicle-stick",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "popsicle-stick",
+    "role": "候选",
+    "tags": [
+      "food",
+      "popsicle",
+      "stick"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/popsicle-stick.png",
+    "model": "./assets/preview/kenney-food-kit/models/popsicle-stick.glb",
+    "sizeKb": 4.7,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__popsicle",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "popsicle",
+    "role": "候选",
+    "tags": [
+      "food",
+      "popsicle"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/popsicle.png",
+    "model": "./assets/preview/kenney-food-kit/models/popsicle.glb",
+    "sizeKb": 7.9,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__pot-lid",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "pot-lid",
+    "role": "候选",
+    "tags": [
+      "food",
+      "pot",
+      "lid"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/pot-lid.png",
+    "model": "./assets/preview/kenney-food-kit/models/pot-lid.glb",
+    "sizeKb": 10.7,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__pot-stew-lid",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "pot-stew-lid",
+    "role": "候选",
+    "tags": [
+      "food",
+      "pot",
+      "stew",
+      "lid"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/pot-stew-lid.png",
+    "model": "./assets/preview/kenney-food-kit/models/pot-stew-lid.glb",
+    "sizeKb": 15.5,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__pot-stew",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "pot-stew",
+    "role": "候选",
+    "tags": [
+      "food",
+      "pot",
+      "stew"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/pot-stew.png",
+    "model": "./assets/preview/kenney-food-kit/models/pot-stew.glb",
+    "sizeKb": 28.9,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__pot",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "pot",
+    "role": "候选",
+    "tags": [
+      "food",
+      "pot"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/pot.png",
+    "model": "./assets/preview/kenney-food-kit/models/pot.glb",
+    "sizeKb": 18.5,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__pudding",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "pudding",
+    "role": "候选",
+    "tags": [
+      "food",
+      "pudding"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/pudding.png",
+    "model": "./assets/preview/kenney-food-kit/models/pudding.glb",
+    "sizeKb": 6.5,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__pumpkin-basic",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "pumpkin-basic",
+    "role": "候选",
+    "tags": [
+      "food",
+      "pumpkin",
+      "basic"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/pumpkin-basic.png",
+    "model": "./assets/preview/kenney-food-kit/models/pumpkin-basic.glb",
+    "sizeKb": 8.3,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__pumpkin",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "pumpkin",
+    "role": "候选",
+    "tags": [
+      "food",
+      "pumpkin"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/pumpkin.png",
+    "model": "./assets/preview/kenney-food-kit/models/pumpkin.glb",
+    "sizeKb": 20.0,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__radish",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "radish",
+    "role": "候选",
+    "tags": [
+      "food",
+      "radish"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/radish.png",
+    "model": "./assets/preview/kenney-food-kit/models/radish.glb",
+    "sizeKb": 16.1,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__rice-ball",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "rice-ball",
+    "role": "候选",
+    "tags": [
+      "food",
+      "rice",
+      "ball"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/rice-ball.png",
+    "model": "./assets/preview/kenney-food-kit/models/rice-ball.glb",
+    "sizeKb": 6.1,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__rollingPin",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "rollingPin",
+    "role": "候选",
+    "tags": [
+      "food",
+      "rollingPin"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/rollingPin.png",
+    "model": "./assets/preview/kenney-food-kit/models/rollingPin.glb",
+    "sizeKb": 14.0,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__salad",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "salad",
+    "role": "候选",
+    "tags": [
+      "food",
+      "salad"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/salad.png",
+    "model": "./assets/preview/kenney-food-kit/models/salad.glb",
+    "sizeKb": 16.8,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__sandwich",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "sandwich",
+    "role": "候选",
+    "tags": [
+      "food",
+      "sandwich"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/sandwich.png",
+    "model": "./assets/preview/kenney-food-kit/models/sandwich.glb",
+    "sizeKb": 19.3,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__sausage-half",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "sausage-half",
+    "role": "切开组合",
+    "tags": [
+      "food",
+      "sausage",
+      "half"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/sausage-half.png",
+    "model": "./assets/preview/kenney-food-kit/models/sausage-half.glb",
+    "sizeKb": 8.6,
+    "license": "CC0",
+    "cutPairId": "cutpair-sausage",
+    "cutPairRole": "half"
+  },
+  {
+    "id": "kenney-food-kit__sausage",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "sausage",
+    "role": "切开组合",
+    "tags": [
+      "food",
+      "sausage"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/sausage.png",
+    "model": "./assets/preview/kenney-food-kit/models/sausage.glb",
+    "sizeKb": 9.3,
+    "license": "CC0",
+    "cutPairId": "cutpair-sausage",
+    "cutPairRole": "full"
+  },
+  {
+    "id": "kenney-food-kit__shaker-pepper",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "shaker-pepper",
+    "role": "危险/道具",
+    "tags": [
+      "food",
+      "shaker",
+      "pepper"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/shaker-pepper.png",
+    "model": "./assets/preview/kenney-food-kit/models/shaker-pepper.glb",
+    "sizeKb": 9.1,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__shaker-salt",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "shaker-salt",
+    "role": "候选",
+    "tags": [
+      "food",
+      "shaker",
+      "salt"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/shaker-salt.png",
+    "model": "./assets/preview/kenney-food-kit/models/shaker-salt.glb",
+    "sizeKb": 11.5,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__skewer-vegetables",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "skewer-vegetables",
+    "role": "候选",
+    "tags": [
+      "food",
+      "skewer",
+      "vegetables"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/skewer-vegetables.png",
+    "model": "./assets/preview/kenney-food-kit/models/skewer-vegetables.glb",
+    "sizeKb": 22.1,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__skewer",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "skewer",
+    "role": "候选",
+    "tags": [
+      "food",
+      "skewer"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/skewer.png",
+    "model": "./assets/preview/kenney-food-kit/models/skewer.glb",
+    "sizeKb": 16.2,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__soda-bottle",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "soda-bottle",
+    "role": "危险/道具",
+    "tags": [
+      "food",
+      "soda",
+      "bottle"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/soda-bottle.png",
+    "model": "./assets/preview/kenney-food-kit/models/soda-bottle.glb",
+    "sizeKb": 11.1,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__soda-can-crushed",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "soda-can-crushed",
+    "role": "危险/道具",
+    "tags": [
+      "food",
+      "soda",
+      "can",
+      "crushed"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/soda-can-crushed.png",
+    "model": "./assets/preview/kenney-food-kit/models/soda-can-crushed.glb",
+    "sizeKb": 20.8,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__soda-can",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "soda-can",
+    "role": "危险/道具",
+    "tags": [
+      "food",
+      "soda",
+      "can"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/soda-can.png",
+    "model": "./assets/preview/kenney-food-kit/models/soda-can.glb",
+    "sizeKb": 16.0,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__soda-glass",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "soda-glass",
+    "role": "候选",
+    "tags": [
+      "food",
+      "soda",
+      "glass"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/soda-glass.png",
+    "model": "./assets/preview/kenney-food-kit/models/soda-glass.glb",
+    "sizeKb": 12.6,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__soda",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "soda",
+    "role": "候选",
+    "tags": [
+      "food",
+      "soda"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/soda.png",
+    "model": "./assets/preview/kenney-food-kit/models/soda.glb",
+    "sizeKb": 12.1,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__soy",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "soy",
+    "role": "候选",
+    "tags": [
+      "food",
+      "soy"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/soy.png",
+    "model": "./assets/preview/kenney-food-kit/models/soy.glb",
+    "sizeKb": 5.0,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__steamer",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "steamer",
+    "role": "候选",
+    "tags": [
+      "food",
+      "steamer"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/steamer.png",
+    "model": "./assets/preview/kenney-food-kit/models/steamer.glb",
+    "sizeKb": 44.6,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__strawberry",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "strawberry",
+    "role": "候选",
+    "tags": [
+      "food",
+      "strawberry"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/strawberry.png",
+    "model": "./assets/preview/kenney-food-kit/models/strawberry.glb",
+    "sizeKb": 16.2,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__styrofoam-dinner",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "styrofoam-dinner",
+    "role": "候选",
+    "tags": [
+      "food",
+      "styrofoam",
+      "dinner"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/styrofoam-dinner.png",
+    "model": "./assets/preview/kenney-food-kit/models/styrofoam-dinner.glb",
+    "sizeKb": 23.9,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__styrofoam",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "styrofoam",
+    "role": "候选",
+    "tags": [
+      "food",
+      "styrofoam"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/styrofoam.png",
+    "model": "./assets/preview/kenney-food-kit/models/styrofoam.glb",
+    "sizeKb": 11.7,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__sub",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "sub",
+    "role": "候选",
+    "tags": [
+      "food",
+      "sub"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/sub.png",
+    "model": "./assets/preview/kenney-food-kit/models/sub.glb",
+    "sizeKb": 57.0,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__sundae",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "sundae",
+    "role": "候选",
+    "tags": [
+      "food",
+      "sundae"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/sundae.png",
+    "model": "./assets/preview/kenney-food-kit/models/sundae.glb",
+    "sizeKb": 25.8,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__sushi-egg",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "sushi-egg",
+    "role": "可切目标",
+    "tags": [
+      "food",
+      "sushi",
+      "egg"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/sushi-egg.png",
+    "model": "./assets/preview/kenney-food-kit/models/sushi-egg.glb",
+    "sizeKb": 7.5,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__sushi-salmon",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "sushi-salmon",
+    "role": "候选",
+    "tags": [
+      "food",
+      "sushi",
+      "salmon"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/sushi-salmon.png",
+    "model": "./assets/preview/kenney-food-kit/models/sushi-salmon.glb",
+    "sizeKb": 8.6,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__taco",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "taco",
+    "role": "候选",
+    "tags": [
+      "food",
+      "taco"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/taco.png",
+    "model": "./assets/preview/kenney-food-kit/models/taco.glb",
+    "sizeKb": 17.1,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__tajine-lid",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "tajine-lid",
+    "role": "候选",
+    "tags": [
+      "food",
+      "tajine",
+      "lid"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/tajine-lid.png",
+    "model": "./assets/preview/kenney-food-kit/models/tajine-lid.glb",
+    "sizeKb": 13.5,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__tajine",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "tajine",
+    "role": "候选",
+    "tags": [
+      "food",
+      "tajine"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/tajine.png",
+    "model": "./assets/preview/kenney-food-kit/models/tajine.glb",
+    "sizeKb": 15.3,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__tomato-slice",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "tomato-slice",
+    "role": "候选",
+    "tags": [
+      "food",
+      "tomato",
+      "slice"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/tomato-slice.png",
+    "model": "./assets/preview/kenney-food-kit/models/tomato-slice.glb",
+    "sizeKb": 12.1,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__tomato",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "tomato",
+    "role": "候选",
+    "tags": [
+      "food",
+      "tomato"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/tomato.png",
+    "model": "./assets/preview/kenney-food-kit/models/tomato.glb",
+    "sizeKb": 13.8,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__turkey",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "turkey",
+    "role": "候选",
+    "tags": [
+      "food",
+      "turkey"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/turkey.png",
+    "model": "./assets/preview/kenney-food-kit/models/turkey.glb",
+    "sizeKb": 36.3,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__utensil-fork",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "utensil-fork",
+    "role": "候选",
+    "tags": [
+      "food",
+      "utensil",
+      "fork"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/utensil-fork.png",
+    "model": "./assets/preview/kenney-food-kit/models/utensil-fork.glb",
+    "sizeKb": 4.7,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__utensil-knife",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "utensil-knife",
+    "role": "危险/道具",
+    "tags": [
+      "food",
+      "utensil",
+      "knife"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/utensil-knife.png",
+    "model": "./assets/preview/kenney-food-kit/models/utensil-knife.glb",
+    "sizeKb": 3.4,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__utensil-spoon",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "utensil-spoon",
+    "role": "候选",
+    "tags": [
+      "food",
+      "utensil",
+      "spoon"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/utensil-spoon.png",
+    "model": "./assets/preview/kenney-food-kit/models/utensil-spoon.glb",
+    "sizeKb": 6.0,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__waffle",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "waffle",
+    "role": "候选",
+    "tags": [
+      "food",
+      "waffle"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/waffle.png",
+    "model": "./assets/preview/kenney-food-kit/models/waffle.glb",
+    "sizeKb": 46.8,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__watermelon",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "watermelon",
+    "role": "可切目标",
+    "tags": [
+      "food",
+      "watermelon"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/watermelon.png",
+    "model": "./assets/preview/kenney-food-kit/models/watermelon.glb",
+    "sizeKb": 91.7,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__whipped-cream",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "whipped-cream",
+    "role": "候选",
+    "tags": [
+      "food",
+      "whipped",
+      "cream"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/whipped-cream.png",
+    "model": "./assets/preview/kenney-food-kit/models/whipped-cream.glb",
+    "sizeKb": 4.8,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__whisk",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "whisk",
+    "role": "候选",
+    "tags": [
+      "food",
+      "whisk"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/whisk.png",
+    "model": "./assets/preview/kenney-food-kit/models/whisk.glb",
+    "sizeKb": 10.0,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__whole-ham",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "whole-ham",
+    "role": "候选",
+    "tags": [
+      "food",
+      "whole",
+      "ham"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/whole-ham.png",
+    "model": "./assets/preview/kenney-food-kit/models/whole-ham.glb",
+    "sizeKb": 11.5,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__wholer-ham",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "wholer-ham",
+    "role": "候选",
+    "tags": [
+      "food",
+      "wholer",
+      "ham"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/wholer-ham.png",
+    "model": "./assets/preview/kenney-food-kit/models/wholer-ham.glb",
+    "sizeKb": 12.6,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__wine-red",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "wine-red",
+    "role": "候选",
+    "tags": [
+      "food",
+      "wine",
+      "red"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/wine-red.png",
+    "model": "./assets/preview/kenney-food-kit/models/wine-red.glb",
+    "sizeKb": 13.9,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-food-kit__wine-white",
+    "pack": "kenney-food-kit",
+    "packLabel": "Kenney Food Kit",
+    "sourceZip": "kenney_food-kit.zip",
+    "name": "wine-white",
+    "role": "候选",
+    "tags": [
+      "food",
+      "wine",
+      "white"
+    ],
+    "thumbnail": "./assets/preview/kenney-food-kit/previews/wine-white.png",
+    "model": "./assets/preview/kenney-food-kit/models/wine-white.glb",
+    "sizeKb": 13.2,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-cube-pets__animal-beaver",
+    "pack": "kenney-cube-pets",
+    "packLabel": "Kenney Cube Pets",
+    "sourceZip": "kenney_cube-pets_1.0.zip",
+    "name": "animal-beaver",
+    "role": "吉祥物/背景",
+    "tags": [
+      "pets",
+      "animal",
+      "beaver"
+    ],
+    "thumbnail": "./assets/preview/kenney-cube-pets/previews/animal-beaver.png",
+    "model": "./assets/preview/kenney-cube-pets/models/animal-beaver.glb",
+    "sizeKb": 146.2,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-cube-pets__animal-bee",
+    "pack": "kenney-cube-pets",
+    "packLabel": "Kenney Cube Pets",
+    "sourceZip": "kenney_cube-pets_1.0.zip",
+    "name": "animal-bee",
+    "role": "吉祥物/背景",
+    "tags": [
+      "pets",
+      "animal",
+      "bee"
+    ],
+    "thumbnail": "./assets/preview/kenney-cube-pets/previews/animal-bee.png",
+    "model": "./assets/preview/kenney-cube-pets/models/animal-bee.glb",
+    "sizeKb": 160.5,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-cube-pets__animal-bunny",
+    "pack": "kenney-cube-pets",
+    "packLabel": "Kenney Cube Pets",
+    "sourceZip": "kenney_cube-pets_1.0.zip",
+    "name": "animal-bunny",
+    "role": "吉祥物/背景",
+    "tags": [
+      "pets",
+      "animal",
+      "bunny"
+    ],
+    "thumbnail": "./assets/preview/kenney-cube-pets/previews/animal-bunny.png",
+    "model": "./assets/preview/kenney-cube-pets/models/animal-bunny.glb",
+    "sizeKb": 128.5,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-cube-pets__animal-cat",
+    "pack": "kenney-cube-pets",
+    "packLabel": "Kenney Cube Pets",
+    "sourceZip": "kenney_cube-pets_1.0.zip",
+    "name": "animal-cat",
+    "role": "吉祥物/背景",
+    "tags": [
+      "pets",
+      "animal",
+      "cat"
+    ],
+    "thumbnail": "./assets/preview/kenney-cube-pets/previews/animal-cat.png",
+    "model": "./assets/preview/kenney-cube-pets/models/animal-cat.glb",
+    "sizeKb": 161.3,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-cube-pets__animal-caterpillar",
+    "pack": "kenney-cube-pets",
+    "packLabel": "Kenney Cube Pets",
+    "sourceZip": "kenney_cube-pets_1.0.zip",
+    "name": "animal-caterpillar",
+    "role": "吉祥物/背景",
+    "tags": [
+      "pets",
+      "animal",
+      "caterpillar"
+    ],
+    "thumbnail": "./assets/preview/kenney-cube-pets/previews/animal-caterpillar.png",
+    "model": "./assets/preview/kenney-cube-pets/models/animal-caterpillar.glb",
+    "sizeKb": 127.9,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-cube-pets__animal-chick",
+    "pack": "kenney-cube-pets",
+    "packLabel": "Kenney Cube Pets",
+    "sourceZip": "kenney_cube-pets_1.0.zip",
+    "name": "animal-chick",
+    "role": "吉祥物/背景",
+    "tags": [
+      "pets",
+      "animal",
+      "chick"
+    ],
+    "thumbnail": "./assets/preview/kenney-cube-pets/previews/animal-chick.png",
+    "model": "./assets/preview/kenney-cube-pets/models/animal-chick.glb",
+    "sizeKb": 122.5,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-cube-pets__animal-cow",
+    "pack": "kenney-cube-pets",
+    "packLabel": "Kenney Cube Pets",
+    "sourceZip": "kenney_cube-pets_1.0.zip",
+    "name": "animal-cow",
+    "role": "吉祥物/背景",
+    "tags": [
+      "pets",
+      "animal",
+      "cow"
+    ],
+    "thumbnail": "./assets/preview/kenney-cube-pets/previews/animal-cow.png",
+    "model": "./assets/preview/kenney-cube-pets/models/animal-cow.glb",
+    "sizeKb": 125.1,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-cube-pets__animal-crab",
+    "pack": "kenney-cube-pets",
+    "packLabel": "Kenney Cube Pets",
+    "sourceZip": "kenney_cube-pets_1.0.zip",
+    "name": "animal-crab",
+    "role": "吉祥物/背景",
+    "tags": [
+      "pets",
+      "animal",
+      "crab"
+    ],
+    "thumbnail": "./assets/preview/kenney-cube-pets/previews/animal-crab.png",
+    "model": "./assets/preview/kenney-cube-pets/models/animal-crab.glb",
+    "sizeKb": 147.2,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-cube-pets__animal-deer",
+    "pack": "kenney-cube-pets",
+    "packLabel": "Kenney Cube Pets",
+    "sourceZip": "kenney_cube-pets_1.0.zip",
+    "name": "animal-deer",
+    "role": "吉祥物/背景",
+    "tags": [
+      "pets",
+      "animal",
+      "deer"
+    ],
+    "thumbnail": "./assets/preview/kenney-cube-pets/previews/animal-deer.png",
+    "model": "./assets/preview/kenney-cube-pets/models/animal-deer.glb",
+    "sizeKb": 146.9,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-cube-pets__animal-dog",
+    "pack": "kenney-cube-pets",
+    "packLabel": "Kenney Cube Pets",
+    "sourceZip": "kenney_cube-pets_1.0.zip",
+    "name": "animal-dog",
+    "role": "吉祥物/背景",
+    "tags": [
+      "pets",
+      "animal",
+      "dog"
+    ],
+    "thumbnail": "./assets/preview/kenney-cube-pets/previews/animal-dog.png",
+    "model": "./assets/preview/kenney-cube-pets/models/animal-dog.glb",
+    "sizeKb": 116.7,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-cube-pets__animal-elephant",
+    "pack": "kenney-cube-pets",
+    "packLabel": "Kenney Cube Pets",
+    "sourceZip": "kenney_cube-pets_1.0.zip",
+    "name": "animal-elephant",
+    "role": "吉祥物/背景",
+    "tags": [
+      "pets",
+      "animal",
+      "elephant"
+    ],
+    "thumbnail": "./assets/preview/kenney-cube-pets/previews/animal-elephant.png",
+    "model": "./assets/preview/kenney-cube-pets/models/animal-elephant.glb",
+    "sizeKb": 145.4,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-cube-pets__animal-fish",
+    "pack": "kenney-cube-pets",
+    "packLabel": "Kenney Cube Pets",
+    "sourceZip": "kenney_cube-pets_1.0.zip",
+    "name": "animal-fish",
+    "role": "吉祥物/背景",
+    "tags": [
+      "pets",
+      "animal",
+      "fish"
+    ],
+    "thumbnail": "./assets/preview/kenney-cube-pets/previews/animal-fish.png",
+    "model": "./assets/preview/kenney-cube-pets/models/animal-fish.glb",
+    "sizeKb": 89.4,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-cube-pets__animal-fox",
+    "pack": "kenney-cube-pets",
+    "packLabel": "Kenney Cube Pets",
+    "sourceZip": "kenney_cube-pets_1.0.zip",
+    "name": "animal-fox",
+    "role": "吉祥物/背景",
+    "tags": [
+      "pets",
+      "animal",
+      "fox"
+    ],
+    "thumbnail": "./assets/preview/kenney-cube-pets/previews/animal-fox.png",
+    "model": "./assets/preview/kenney-cube-pets/models/animal-fox.glb",
+    "sizeKb": 138.6,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-cube-pets__animal-giraffe",
+    "pack": "kenney-cube-pets",
+    "packLabel": "Kenney Cube Pets",
+    "sourceZip": "kenney_cube-pets_1.0.zip",
+    "name": "animal-giraffe",
+    "role": "吉祥物/背景",
+    "tags": [
+      "pets",
+      "animal",
+      "giraffe"
+    ],
+    "thumbnail": "./assets/preview/kenney-cube-pets/previews/animal-giraffe.png",
+    "model": "./assets/preview/kenney-cube-pets/models/animal-giraffe.glb",
+    "sizeKb": 129.6,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-cube-pets__animal-hog",
+    "pack": "kenney-cube-pets",
+    "packLabel": "Kenney Cube Pets",
+    "sourceZip": "kenney_cube-pets_1.0.zip",
+    "name": "animal-hog",
+    "role": "吉祥物/背景",
+    "tags": [
+      "pets",
+      "animal",
+      "hog"
+    ],
+    "thumbnail": "./assets/preview/kenney-cube-pets/previews/animal-hog.png",
+    "model": "./assets/preview/kenney-cube-pets/models/animal-hog.glb",
+    "sizeKb": 138.3,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-cube-pets__animal-koala",
+    "pack": "kenney-cube-pets",
+    "packLabel": "Kenney Cube Pets",
+    "sourceZip": "kenney_cube-pets_1.0.zip",
+    "name": "animal-koala",
+    "role": "吉祥物/背景",
+    "tags": [
+      "pets",
+      "animal",
+      "koala"
+    ],
+    "thumbnail": "./assets/preview/kenney-cube-pets/previews/animal-koala.png",
+    "model": "./assets/preview/kenney-cube-pets/models/animal-koala.glb",
+    "sizeKb": 127.9,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-cube-pets__animal-lion",
+    "pack": "kenney-cube-pets",
+    "packLabel": "Kenney Cube Pets",
+    "sourceZip": "kenney_cube-pets_1.0.zip",
+    "name": "animal-lion",
+    "role": "吉祥物/背景",
+    "tags": [
+      "pets",
+      "animal",
+      "lion"
+    ],
+    "thumbnail": "./assets/preview/kenney-cube-pets/previews/animal-lion.png",
+    "model": "./assets/preview/kenney-cube-pets/models/animal-lion.glb",
+    "sizeKb": 168.9,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-cube-pets__animal-monkey",
+    "pack": "kenney-cube-pets",
+    "packLabel": "Kenney Cube Pets",
+    "sourceZip": "kenney_cube-pets_1.0.zip",
+    "name": "animal-monkey",
+    "role": "吉祥物/背景",
+    "tags": [
+      "pets",
+      "animal",
+      "monkey"
+    ],
+    "thumbnail": "./assets/preview/kenney-cube-pets/previews/animal-monkey.png",
+    "model": "./assets/preview/kenney-cube-pets/models/animal-monkey.glb",
+    "sizeKb": 170.8,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-cube-pets__animal-panda",
+    "pack": "kenney-cube-pets",
+    "packLabel": "Kenney Cube Pets",
+    "sourceZip": "kenney_cube-pets_1.0.zip",
+    "name": "animal-panda",
+    "role": "吉祥物/背景",
+    "tags": [
+      "pets",
+      "animal",
+      "panda"
+    ],
+    "thumbnail": "./assets/preview/kenney-cube-pets/previews/animal-panda.png",
+    "model": "./assets/preview/kenney-cube-pets/models/animal-panda.glb",
+    "sizeKb": 130.5,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-cube-pets__animal-parrot",
+    "pack": "kenney-cube-pets",
+    "packLabel": "Kenney Cube Pets",
+    "sourceZip": "kenney_cube-pets_1.0.zip",
+    "name": "animal-parrot",
+    "role": "吉祥物/背景",
+    "tags": [
+      "pets",
+      "animal",
+      "parrot"
+    ],
+    "thumbnail": "./assets/preview/kenney-cube-pets/previews/animal-parrot.png",
+    "model": "./assets/preview/kenney-cube-pets/models/animal-parrot.glb",
+    "sizeKb": 150.5,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-cube-pets__animal-penguin",
+    "pack": "kenney-cube-pets",
+    "packLabel": "Kenney Cube Pets",
+    "sourceZip": "kenney_cube-pets_1.0.zip",
+    "name": "animal-penguin",
+    "role": "吉祥物/背景",
+    "tags": [
+      "pets",
+      "animal",
+      "penguin"
+    ],
+    "thumbnail": "./assets/preview/kenney-cube-pets/previews/animal-penguin.png",
+    "model": "./assets/preview/kenney-cube-pets/models/animal-penguin.glb",
+    "sizeKb": 127.3,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-cube-pets__animal-pig",
+    "pack": "kenney-cube-pets",
+    "packLabel": "Kenney Cube Pets",
+    "sourceZip": "kenney_cube-pets_1.0.zip",
+    "name": "animal-pig",
+    "role": "吉祥物/背景",
+    "tags": [
+      "pets",
+      "animal",
+      "pig"
+    ],
+    "thumbnail": "./assets/preview/kenney-cube-pets/previews/animal-pig.png",
+    "model": "./assets/preview/kenney-cube-pets/models/animal-pig.glb",
+    "sizeKb": 124.1,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-cube-pets__animal-polar",
+    "pack": "kenney-cube-pets",
+    "packLabel": "Kenney Cube Pets",
+    "sourceZip": "kenney_cube-pets_1.0.zip",
+    "name": "animal-polar",
+    "role": "吉祥物/背景",
+    "tags": [
+      "pets",
+      "animal",
+      "polar"
+    ],
+    "thumbnail": "./assets/preview/kenney-cube-pets/previews/animal-polar.png",
+    "model": "./assets/preview/kenney-cube-pets/models/animal-polar.glb",
+    "sizeKb": 96.6,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-cube-pets__animal-tiger",
+    "pack": "kenney-cube-pets",
+    "packLabel": "Kenney Cube Pets",
+    "sourceZip": "kenney_cube-pets_1.0.zip",
+    "name": "animal-tiger",
+    "role": "吉祥物/背景",
+    "tags": [
+      "pets",
+      "animal",
+      "tiger"
+    ],
+    "thumbnail": "./assets/preview/kenney-cube-pets/previews/animal-tiger.png",
+    "model": "./assets/preview/kenney-cube-pets/models/animal-tiger.glb",
+    "sizeKb": 168.3,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__bathroomCabinet",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "bathroomCabinet",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "bathroom",
+      "Cabinet"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/bathroomCabinet.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/bathroomCabinet.glb",
+    "sizeKb": 7.0,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__bathroomCabinetDrawer",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "bathroomCabinetDrawer",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "bathroom",
+      "Cabinet",
+      "Drawer"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/bathroomCabinetDrawer.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/bathroomCabinetDrawer.glb",
+    "sizeKb": 33.9,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__bathroomMirror",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "bathroomMirror",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "bathroom",
+      "Mirror"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/bathroomMirror.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/bathroomMirror.glb",
+    "sizeKb": 6.6,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__bathroomSink",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "bathroomSink",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "bathroom",
+      "Sink"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/bathroomSink.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/bathroomSink.glb",
+    "sizeKb": 22.0,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__bathroomSinkSquare",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "bathroomSinkSquare",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "bathroom",
+      "Sink",
+      "Square"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/bathroomSinkSquare.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/bathroomSinkSquare.glb",
+    "sizeKb": 14.8,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__bathtub",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "bathtub",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "bathtub"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/bathtub.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/bathtub.glb",
+    "sizeKb": 34.7,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__bear",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "bear",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "bear"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/bear.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/bear.glb",
+    "sizeKb": 11.6,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__bedBunk",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "bedBunk",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "bed",
+      "Bunk"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/bedBunk.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/bedBunk.glb",
+    "sizeKb": 39.8,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__bedDouble",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "bedDouble",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "bed",
+      "Double"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/bedDouble.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/bedDouble.glb",
+    "sizeKb": 22.8,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__bedSingle",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "bedSingle",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "bed",
+      "Single"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/bedSingle.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/bedSingle.glb",
+    "sizeKb": 18.2,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__bench",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "bench",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "bench"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/bench.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/bench.glb",
+    "sizeKb": 10.5,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__benchCushion",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "benchCushion",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "bench",
+      "Cushion"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/benchCushion.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/benchCushion.glb",
+    "sizeKb": 12.2,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__benchCushionLow",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "benchCushionLow",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "bench",
+      "Cushion",
+      "Low"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/benchCushionLow.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/benchCushionLow.glb",
+    "sizeKb": 10.0,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__bookcaseClosed",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "bookcaseClosed",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "bookcase",
+      "Closed"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/bookcaseClosed.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/bookcaseClosed.glb",
+    "sizeKb": 22.6,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__bookcaseClosedDoors",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "bookcaseClosedDoors",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "bookcase",
+      "Closed",
+      "Doors"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/bookcaseClosedDoors.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/bookcaseClosedDoors.glb",
+    "sizeKb": 22.1,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__bookcaseClosedWide",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "bookcaseClosedWide",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "bookcase",
+      "Closed",
+      "Wide"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/bookcaseClosedWide.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/bookcaseClosedWide.glb",
+    "sizeKb": 22.6,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__bookcaseOpen",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "bookcaseOpen",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "bookcase",
+      "Open"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/bookcaseOpen.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/bookcaseOpen.glb",
+    "sizeKb": 17.6,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__bookcaseOpenLow",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "bookcaseOpenLow",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "bookcase",
+      "Open",
+      "Low"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/bookcaseOpenLow.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/bookcaseOpenLow.glb",
+    "sizeKb": 11.2,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__books",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "books",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "books"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/books.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/books.glb",
+    "sizeKb": 6.7,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__cabinetBed",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "cabinetBed",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "cabinet",
+      "Bed"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/cabinetBed.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/cabinetBed.glb",
+    "sizeKb": 7.3,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__cabinetBedDrawer",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "cabinetBedDrawer",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "cabinet",
+      "Bed",
+      "Drawer"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/cabinetBedDrawer.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/cabinetBedDrawer.glb",
+    "sizeKb": 15.7,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__cabinetBedDrawerTable",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "cabinetBedDrawerTable",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "cabinet",
+      "Bed",
+      "Drawer",
+      "Table"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/cabinetBedDrawerTable.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/cabinetBedDrawerTable.glb",
+    "sizeKb": 11.9,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__cabinetTelevision",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "cabinetTelevision",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "cabinet",
+      "Television"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/cabinetTelevision.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/cabinetTelevision.glb",
+    "sizeKb": 10.3,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__cabinetTelevisionDoors",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "cabinetTelevisionDoors",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "cabinet",
+      "Television",
+      "Doors"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/cabinetTelevisionDoors.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/cabinetTelevisionDoors.glb",
+    "sizeKb": 16.5,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__cardboardBoxClosed",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "cardboardBoxClosed",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "cardboard",
+      "Box",
+      "Closed"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/cardboardBoxClosed.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/cardboardBoxClosed.glb",
+    "sizeKb": 5.3,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__cardboardBoxOpen",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "cardboardBoxOpen",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "cardboard",
+      "Box",
+      "Open"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/cardboardBoxOpen.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/cardboardBoxOpen.glb",
+    "sizeKb": 5.3,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__ceilingFan",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "ceilingFan",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "ceiling",
+      "Fan"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/ceilingFan.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/ceilingFan.glb",
+    "sizeKb": 14.9,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__chair",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "chair",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "chair"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/chair.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/chair.glb",
+    "sizeKb": 10.5,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__chairCushion",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "chairCushion",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "chair",
+      "Cushion"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/chairCushion.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/chairCushion.glb",
+    "sizeKb": 12.3,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__chairDesk",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "chairDesk",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "chair",
+      "Desk"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/chairDesk.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/chairDesk.glb",
+    "sizeKb": 38.1,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__chairModernCushion",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "chairModernCushion",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "chair",
+      "Modern",
+      "Cushion"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/chairModernCushion.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/chairModernCushion.glb",
+    "sizeKb": 7.2,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__chairModernFrameCushion",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "chairModernFrameCushion",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "chair",
+      "Modern",
+      "Frame",
+      "Cushion"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/chairModernFrameCushion.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/chairModernFrameCushion.glb",
+    "sizeKb": 18.2,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__chairRounded",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "chairRounded",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "chair",
+      "Rounded"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/chairRounded.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/chairRounded.glb",
+    "sizeKb": 16.8,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__coatRack",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "coatRack",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "coat",
+      "Rack"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/coatRack.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/coatRack.glb",
+    "sizeKb": 9.7,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__coatRackStanding",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "coatRackStanding",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "coat",
+      "Rack",
+      "Standing"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/coatRackStanding.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/coatRackStanding.glb",
+    "sizeKb": 13.0,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__computerKeyboard",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "computerKeyboard",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "computer",
+      "Keyboard"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/computerKeyboard.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/computerKeyboard.glb",
+    "sizeKb": 3.4,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__computerMouse",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "computerMouse",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "computer",
+      "Mouse"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/computerMouse.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/computerMouse.glb",
+    "sizeKb": 5.7,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__computerScreen",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "computerScreen",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "computer",
+      "Screen"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/computerScreen.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/computerScreen.glb",
+    "sizeKb": 6.3,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__desk",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "desk",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "desk"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/desk.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/desk.glb",
+    "sizeKb": 14.7,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__deskCorner",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "deskCorner",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "desk",
+      "Corner"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/deskCorner.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/deskCorner.glb",
+    "sizeKb": 17.6,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__doorway",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "doorway",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "doorway"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/doorway.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/doorway.glb",
+    "sizeKb": 14.2,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__doorwayFront",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "doorwayFront",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "doorway",
+      "Front"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/doorwayFront.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/doorwayFront.glb",
+    "sizeKb": 12.7,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__doorwayOpen",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "doorwayOpen",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "doorway",
+      "Open"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/doorwayOpen.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/doorwayOpen.glb",
+    "sizeKb": 3.2,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__dryer",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "dryer",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "dryer"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/dryer.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/dryer.glb",
+    "sizeKb": 17.3,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__floorCorner",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "floorCorner",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "floor",
+      "Corner"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/floorCorner.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/floorCorner.glb",
+    "sizeKb": 2.5,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__floorCornerRound",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "floorCornerRound",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "floor",
+      "Corner",
+      "Round"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/floorCornerRound.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/floorCornerRound.glb",
+    "sizeKb": 5.0,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__floorFull",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "floorFull",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "floor",
+      "Full"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/floorFull.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/floorFull.glb",
+    "sizeKb": 2.2,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__floorHalf",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "floorHalf",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "floor",
+      "Half"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/floorHalf.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/floorHalf.glb",
+    "sizeKb": 2.2,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__hoodLarge",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "hoodLarge",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "hood",
+      "Large"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/hoodLarge.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/hoodLarge.glb",
+    "sizeKb": 4.5,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__hoodModern",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "hoodModern",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "hood",
+      "Modern"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/hoodModern.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/hoodModern.glb",
+    "sizeKb": 3.9,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__kitchenBar",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "kitchenBar",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "kitchen",
+      "Bar"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/kitchenBar.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/kitchenBar.glb",
+    "sizeKb": 5.9,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__kitchenBarEnd",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "kitchenBarEnd",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "kitchen",
+      "Bar",
+      "End"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/kitchenBarEnd.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/kitchenBarEnd.glb",
+    "sizeKb": 10.8,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__kitchenBlender",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "kitchenBlender",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "kitchen",
+      "Blender"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/kitchenBlender.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/kitchenBlender.glb",
+    "sizeKb": 18.3,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__kitchenCabinet",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "kitchenCabinet",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "kitchen",
+      "Cabinet"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/kitchenCabinet.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/kitchenCabinet.glb",
+    "sizeKb": 10.2,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__kitchenCabinetCornerInner",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "kitchenCabinetCornerInner",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "kitchen",
+      "Cabinet",
+      "Corner",
+      "Inner"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/kitchenCabinetCornerInner.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/kitchenCabinetCornerInner.glb",
+    "sizeKb": 5.1,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__kitchenCabinetCornerRound",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "kitchenCabinetCornerRound",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "kitchen",
+      "Cabinet",
+      "Corner",
+      "Round"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/kitchenCabinetCornerRound.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/kitchenCabinetCornerRound.glb",
+    "sizeKb": 13.3,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__kitchenCabinetDrawer",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "kitchenCabinetDrawer",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "kitchen",
+      "Cabinet",
+      "Drawer"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/kitchenCabinetDrawer.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/kitchenCabinetDrawer.glb",
+    "sizeKb": 15.0,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__kitchenCabinetUpper",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "kitchenCabinetUpper",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "kitchen",
+      "Cabinet",
+      "Upper"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/kitchenCabinetUpper.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/kitchenCabinetUpper.glb",
+    "sizeKb": 8.0,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__kitchenCabinetUpperCorner",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "kitchenCabinetUpperCorner",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "kitchen",
+      "Cabinet",
+      "Upper",
+      "Corner"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/kitchenCabinetUpperCorner.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/kitchenCabinetUpperCorner.glb",
+    "sizeKb": 13.4,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__kitchenCabinetUpperDouble",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "kitchenCabinetUpperDouble",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "kitchen",
+      "Cabinet",
+      "Upper",
+      "Double"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/kitchenCabinetUpperDouble.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/kitchenCabinetUpperDouble.glb",
+    "sizeKb": 17.8,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__kitchenCabinetUpperLow",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "kitchenCabinetUpperLow",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "kitchen",
+      "Cabinet",
+      "Upper",
+      "Low"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/kitchenCabinetUpperLow.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/kitchenCabinetUpperLow.glb",
+    "sizeKb": 7.0,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__kitchenCoffeeMachine",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "kitchenCoffeeMachine",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "kitchen",
+      "Coffee",
+      "Machine"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/kitchenCoffeeMachine.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/kitchenCoffeeMachine.glb",
+    "sizeKb": 13.0,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__kitchenFridge",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "kitchenFridge",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "kitchen",
+      "Fridge"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/kitchenFridge.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/kitchenFridge.glb",
+    "sizeKb": 19.6,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__kitchenFridgeBuiltIn",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "kitchenFridgeBuiltIn",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "kitchen",
+      "Fridge",
+      "Built",
+      "In"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/kitchenFridgeBuiltIn.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/kitchenFridgeBuiltIn.glb",
+    "sizeKb": 22.1,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__kitchenFridgeLarge",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "kitchenFridgeLarge",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "kitchen",
+      "Fridge",
+      "Large"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/kitchenFridgeLarge.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/kitchenFridgeLarge.glb",
+    "sizeKb": 29.9,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__kitchenFridgeSmall",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "kitchenFridgeSmall",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "kitchen",
+      "Fridge",
+      "Small"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/kitchenFridgeSmall.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/kitchenFridgeSmall.glb",
+    "sizeKb": 12.7,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__kitchenMicrowave",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "kitchenMicrowave",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "kitchen",
+      "Microwave"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/kitchenMicrowave.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/kitchenMicrowave.glb",
+    "sizeKb": 11.0,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__kitchenSink",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "kitchenSink",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "kitchen",
+      "Sink"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/kitchenSink.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/kitchenSink.glb",
+    "sizeKb": 22.9,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__kitchenStove",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "kitchenStove",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "kitchen",
+      "Stove"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/kitchenStove.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/kitchenStove.glb",
+    "sizeKb": 53.1,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__kitchenStoveElectric",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "kitchenStoveElectric",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "kitchen",
+      "Stove",
+      "Electric"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/kitchenStoveElectric.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/kitchenStoveElectric.glb",
+    "sizeKb": 18.2,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__lampRoundFloor",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "lampRoundFloor",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "lamp",
+      "Round",
+      "Floor"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/lampRoundFloor.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/lampRoundFloor.glb",
+    "sizeKb": 6.4,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__lampRoundTable",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "lampRoundTable",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "lamp",
+      "Round",
+      "Table"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/lampRoundTable.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/lampRoundTable.glb",
+    "sizeKb": 6.4,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__lampSquareCeiling",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "lampSquareCeiling",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "lamp",
+      "Square",
+      "Ceiling"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/lampSquareCeiling.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/lampSquareCeiling.glb",
+    "sizeKb": 5.5,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__lampSquareFloor",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "lampSquareFloor",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "lamp",
+      "Square",
+      "Floor"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/lampSquareFloor.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/lampSquareFloor.glb",
+    "sizeKb": 5.5,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__lampSquareTable",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "lampSquareTable",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "lamp",
+      "Square",
+      "Table"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/lampSquareTable.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/lampSquareTable.glb",
+    "sizeKb": 5.5,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__lampWall",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "lampWall",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "lamp",
+      "Wall"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/lampWall.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/lampWall.glb",
+    "sizeKb": 4.7,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__laptop",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "laptop",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "laptop"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/laptop.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/laptop.glb",
+    "sizeKb": 5.4,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__loungeChair",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "loungeChair",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "lounge",
+      "Chair"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/loungeChair.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/loungeChair.glb",
+    "sizeKb": 9.4,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__loungeChairRelax",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "loungeChairRelax",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "lounge",
+      "Chair",
+      "Relax"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/loungeChairRelax.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/loungeChairRelax.glb",
+    "sizeKb": 13.6,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__loungeDesignChair",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "loungeDesignChair",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "lounge",
+      "Design",
+      "Chair"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/loungeDesignChair.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/loungeDesignChair.glb",
+    "sizeKb": 8.9,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__loungeDesignSofa",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "loungeDesignSofa",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "lounge",
+      "Design",
+      "Sofa"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/loungeDesignSofa.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/loungeDesignSofa.glb",
+    "sizeKb": 8.9,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__loungeDesignSofaCorner",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "loungeDesignSofaCorner",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "lounge",
+      "Design",
+      "Sofa",
+      "Corner"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/loungeDesignSofaCorner.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/loungeDesignSofaCorner.glb",
+    "sizeKb": 13.4,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__loungeSofa",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "loungeSofa",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "lounge",
+      "Sofa"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/loungeSofa.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/loungeSofa.glb",
+    "sizeKb": 9.4,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__loungeSofaCorner",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "loungeSofaCorner",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "lounge",
+      "Sofa",
+      "Corner"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/loungeSofaCorner.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/loungeSofaCorner.glb",
+    "sizeKb": 13.1,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__loungeSofaLong",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "loungeSofaLong",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "lounge",
+      "Sofa",
+      "Long"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/loungeSofaLong.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/loungeSofaLong.glb",
+    "sizeKb": 12.8,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__loungeSofaOttoman",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "loungeSofaOttoman",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "lounge",
+      "Sofa",
+      "Ottoman"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/loungeSofaOttoman.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/loungeSofaOttoman.glb",
+    "sizeKb": 6.8,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__paneling",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "paneling",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "paneling"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/paneling.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/paneling.glb",
+    "sizeKb": 3.9,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__pillow",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "pillow",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "pillow"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/pillow.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/pillow.glb",
+    "sizeKb": 4.9,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__pillowBlue",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "pillowBlue",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "pillow",
+      "Blue"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/pillowBlue.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/pillowBlue.glb",
+    "sizeKb": 4.9,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__pillowBlueLong",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "pillowBlueLong",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "pillow",
+      "Blue",
+      "Long"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/pillowBlueLong.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/pillowBlueLong.glb",
+    "sizeKb": 5.0,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__pillowLong",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "pillowLong",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "pillow",
+      "Long"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/pillowLong.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/pillowLong.glb",
+    "sizeKb": 5.0,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__plantSmall1",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "plantSmall1",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "plant",
+      "Small1"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/plantSmall1.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/plantSmall1.glb",
+    "sizeKb": 8.0,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__plantSmall2",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "plantSmall2",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "plant",
+      "Small2"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/plantSmall2.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/plantSmall2.glb",
+    "sizeKb": 12.7,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__plantSmall3",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "plantSmall3",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "plant",
+      "Small3"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/plantSmall3.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/plantSmall3.glb",
+    "sizeKb": 8.2,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__pottedPlant",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "pottedPlant",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "potted",
+      "Plant"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/pottedPlant.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/pottedPlant.glb",
+    "sizeKb": 7.4,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__radio",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "radio",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "radio"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/radio.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/radio.glb",
+    "sizeKb": 24.4,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__rugDoormat",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "rugDoormat",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "rug",
+      "Doormat"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/rugDoormat.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/rugDoormat.glb",
+    "sizeKb": 13.5,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__rugRectangle",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "rugRectangle",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "rug",
+      "Rectangle"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/rugRectangle.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/rugRectangle.glb",
+    "sizeKb": 3.1,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__rugRound",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "rugRound",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "rug",
+      "Round"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/rugRound.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/rugRound.glb",
+    "sizeKb": 9.9,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__rugRounded",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "rugRounded",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "rug",
+      "Rounded"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/rugRounded.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/rugRounded.glb",
+    "sizeKb": 10.6,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__rugSquare",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "rugSquare",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "rug",
+      "Square"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/rugSquare.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/rugSquare.glb",
+    "sizeKb": 3.1,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__shower",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "shower",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "shower"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/shower.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/shower.glb",
+    "sizeKb": 50.8,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__showerRound",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "showerRound",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "shower",
+      "Round"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/showerRound.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/showerRound.glb",
+    "sizeKb": 70.4,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__sideTable",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "sideTable",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "side",
+      "Table"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/sideTable.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/sideTable.glb",
+    "sizeKb": 8.6,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__sideTableDrawers",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "sideTableDrawers",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "side",
+      "Table",
+      "Drawers"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/sideTableDrawers.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/sideTableDrawers.glb",
+    "sizeKb": 18.6,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__speaker",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "speaker",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "speaker"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/speaker.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/speaker.glb",
+    "sizeKb": 15.4,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__speakerSmall",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "speakerSmall",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "speaker",
+      "Small"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/speakerSmall.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/speakerSmall.glb",
+    "sizeKb": 14.9,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__stairs",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "stairs",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "stairs"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/stairs.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/stairs.glb",
+    "sizeKb": 21.1,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__stairsCorner",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "stairsCorner",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "stairs",
+      "Corner"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/stairsCorner.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/stairsCorner.glb",
+    "sizeKb": 21.1,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__stairsOpen",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "stairsOpen",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "stairs",
+      "Open"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/stairsOpen.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/stairsOpen.glb",
+    "sizeKb": 39.0,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__stairsOpenSingle",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "stairsOpenSingle",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "stairs",
+      "Open",
+      "Single"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/stairsOpenSingle.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/stairsOpenSingle.glb",
+    "sizeKb": 24.0,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__stoolBar",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "stoolBar",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "stool",
+      "Bar"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/stoolBar.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/stoolBar.glb",
+    "sizeKb": 11.5,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__stoolBarSquare",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "stoolBarSquare",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "stool",
+      "Bar",
+      "Square"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/stoolBarSquare.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/stoolBarSquare.glb",
+    "sizeKb": 9.6,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__table",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "table",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "table"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/table.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/table.glb",
+    "sizeKb": 8.0,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__tableCloth",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "tableCloth",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "table",
+      "Cloth"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/tableCloth.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/tableCloth.glb",
+    "sizeKb": 9.7,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__tableCoffee",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "tableCoffee",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "table",
+      "Coffee"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/tableCoffee.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/tableCoffee.glb",
+    "sizeKb": 8.1,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__tableCoffeeGlass",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "tableCoffeeGlass",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "table",
+      "Coffee",
+      "Glass"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/tableCoffeeGlass.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/tableCoffeeGlass.glb",
+    "sizeKb": 9.2,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__tableCoffeeGlassSquare",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "tableCoffeeGlassSquare",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "table",
+      "Coffee",
+      "Glass",
+      "Square"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/tableCoffeeGlassSquare.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/tableCoffeeGlassSquare.glb",
+    "sizeKb": 9.2,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__tableCoffeeSquare",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "tableCoffeeSquare",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "table",
+      "Coffee",
+      "Square"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/tableCoffeeSquare.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/tableCoffeeSquare.glb",
+    "sizeKb": 8.1,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__tableCross",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "tableCross",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "table",
+      "Cross"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/tableCross.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/tableCross.glb",
+    "sizeKb": 11.9,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__tableCrossCloth",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "tableCrossCloth",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "table",
+      "Cross",
+      "Cloth"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/tableCrossCloth.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/tableCrossCloth.glb",
+    "sizeKb": 13.5,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__tableGlass",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "tableGlass",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "table",
+      "Glass"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/tableGlass.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/tableGlass.glb",
+    "sizeKb": 9.6,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__tableRound",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "tableRound",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "table",
+      "Round"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/tableRound.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/tableRound.glb",
+    "sizeKb": 6.3,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__televisionAntenna",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "televisionAntenna",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "television",
+      "Antenna"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/televisionAntenna.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/televisionAntenna.glb",
+    "sizeKb": 4.4,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__televisionModern",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "televisionModern",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "television",
+      "Modern"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/televisionModern.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/televisionModern.glb",
+    "sizeKb": 6.2,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__televisionVintage",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "televisionVintage",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "television",
+      "Vintage"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/televisionVintage.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/televisionVintage.glb",
+    "sizeKb": 18.9,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__toaster",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "toaster",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "toaster"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/toaster.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/toaster.glb",
+    "sizeKb": 14.6,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__toilet",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "toilet",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "toilet"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/toilet.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/toilet.glb",
+    "sizeKb": 17.7,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__toiletSquare",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "toiletSquare",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "toilet",
+      "Square"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/toiletSquare.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/toiletSquare.glb",
+    "sizeKb": 17.1,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__trashcan",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "trashcan",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "trashcan"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/trashcan.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/trashcan.glb",
+    "sizeKb": 6.3,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__wall",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "wall",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "wall"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/wall.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/wall.glb",
+    "sizeKb": 3.3,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__wallCorner",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "wallCorner",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "wall",
+      "Corner"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/wallCorner.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/wallCorner.glb",
+    "sizeKb": 4.4,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__wallCornerRond",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "wallCornerRond",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "wall",
+      "Corner",
+      "Rond"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/wallCornerRond.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/wallCornerRond.glb",
+    "sizeKb": 10.2,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__wallDoorway",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "wallDoorway",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "wall",
+      "Doorway"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/wallDoorway.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/wallDoorway.glb",
+    "sizeKb": 6.3,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__wallDoorwayWide",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "wallDoorwayWide",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "wall",
+      "Doorway",
+      "Wide"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/wallDoorwayWide.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/wallDoorwayWide.glb",
+    "sizeKb": 6.3,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__wallHalf",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "wallHalf",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "wall",
+      "Half"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/wallHalf.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/wallHalf.glb",
+    "sizeKb": 3.3,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__wallWindow",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "wallWindow",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "wall",
+      "Window"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/wallWindow.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/wallWindow.glb",
+    "sizeKb": 10.5,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__wallWindowSlide",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "wallWindowSlide",
+    "role": "厨房背景",
+    "tags": [
+      "furniture",
+      "wall",
+      "Window",
+      "Slide"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/wallWindowSlide.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/wallWindowSlide.glb",
+    "sizeKb": 14.2,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__washer",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "washer",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "washer"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/washer.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/washer.glb",
+    "sizeKb": 47.0,
+    "license": "CC0"
+  },
+  {
+    "id": "kenney-furniture-kit__washerDryerStacked",
+    "pack": "kenney-furniture-kit",
+    "packLabel": "Kenney Furniture Kit",
+    "sourceZip": "kenney_furniture-kit.zip",
+    "name": "washerDryerStacked",
+    "role": "家具候选",
+    "tags": [
+      "furniture",
+      "washer",
+      "Dryer",
+      "Stacked"
+    ],
+    "thumbnail": "./assets/preview/kenney-furniture-kit/previews/washerDryerStacked.png",
+    "model": "./assets/preview/kenney-furniture-kit/models/washerDryerStacked.glb",
+    "sizeKb": 62.6,
+    "license": "CC0"
+  }
+]

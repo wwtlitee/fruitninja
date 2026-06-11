@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>果切幸存者 3D 模型预览</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="./preview.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.165.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.165.0/examples/jsm/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <main class="preview-shell">
+      <section class="topbar">
+        <div>
+          <p class="eyebrow">Kenney CC0 Asset Browser</p>
+          <h1>3D 模型预览室</h1>
+        </div>
+        <div class="stats">
+          <a class="nav-link" href="./background-builder.html">厨房背景工具</a>
+          <span id="totalCount">全部 0</span>
+          <span id="visibleCount">当前 0</span>
+          <span id="favoriteCount">收藏 0</span>
+        </div>
+      </section>
+
+      <section class="controls">
+        <label class="search-box">
+          <span>搜索</span>
+          <input id="searchInput" type="search" placeholder="cheese / egg / cow / barrel..." />
+        </label>
+        <div class="filter-group" aria-label="来源筛选">
+          <button class="filter-button active" data-filter-group="pack" data-filter-value="all">全部包</button>
+          <button class="filter-button" data-filter-group="pack" data-filter-value="kenney-food-kit">Food Kit</button>
+          <button class="filter-button" data-filter-group="pack" data-filter-value="kenney-cube-pets">Cube Pets</button>
+        </div>
+        <div class="filter-group" aria-label="用途筛选">
+          <button class="filter-button active" data-filter-group="role" data-filter-value="all">全部用途</button>
+          <button class="filter-button" data-filter-group="role" data-filter-value="切开组合">切开组合</button>
+          <button class="filter-button" data-filter-group="role" data-filter-value="可切目标">可切目标</button>
+          <button class="filter-button" data-filter-group="role" data-filter-value="危险/道具">危险/道具</button>
+          <button class="filter-button" data-filter-group="role" data-filter-value="吉祥物/背景">吉祥物/背景</button>
+          <button class="filter-button" data-filter-group="role" data-filter-value="厨房背景">厨房背景</button>
+        </div>
+        <button id="favoritesOnlyButton" class="ghost-button" type="button">只看收藏</button>
+        <button id="copyFavoritesButton" class="ghost-button" type="button">复制收藏清单</button>
+      </section>
+
+      <section class="workspace">
+        <aside class="viewer-panel">
+          <div class="viewer-card">
+            <canvas id="previewCanvas" aria-label="当前选中模型的 3D 预览"></canvas>
+            <div class="viewer-empty" id="viewerEmpty">
+              <strong>点一个模型</strong>
+              <span>右侧会加载真实 GLB 旋转预览</span>
+            </div>
+          </div>
+          <div class="model-info">
+            <p class="eyebrow">当前模型</p>
+            <h2 id="selectedName">未选择</h2>
+            <dl>
+              <div><dt>来源</dt><dd id="selectedPack">-</dd></div>
+              <div><dt>用途</dt><dd id="selectedRole">-</dd></div>
+              <div><dt>大小</dt><dd id="selectedSize">-</dd></div>
+              <div><dt>授权</dt><dd id="selectedLicense">-</dd></div>
+            </dl>
+            <p id="selectedPath" class="model-path">点击模型后显示路径</p>
+          </div>
+        </aside>
+
+        <section class="gallery-wrap">
+          <div id="gallery" class="gallery" aria-live="polite"></div>
+        </section>
+      </section>
+    </main>
+
+    <script type="module" src="./src/model-preview.js"></script>
+  </body>
+</html>

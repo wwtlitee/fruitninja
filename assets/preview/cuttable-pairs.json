@@ -1,0 +1,101 @@
+[
+  {
+    "id": "cutpair-apple",
+    "name": "apple",
+    "full": "./assets/preview/kenney-food-kit/models/apple.glb",
+    "half": "./assets/preview/kenney-food-kit/models/apple-half.glb",
+    "fullThumbnail": "./assets/preview/kenney-food-kit/previews/apple.png",
+    "halfThumbnail": "./assets/preview/kenney-food-kit/previews/apple-half.png",
+    "fullSizeKb": 14.0,
+    "halfSizeKb": 10.7,
+    "license": "CC0"
+  },
+  {
+    "id": "cutpair-avocado",
+    "name": "avocado",
+    "full": "./assets/preview/kenney-food-kit/models/avocado.glb",
+    "half": "./assets/preview/kenney-food-kit/models/advocado-half.glb",
+    "fullThumbnail": "./assets/preview/kenney-food-kit/previews/avocado.png",
+    "halfThumbnail": "./assets/preview/kenney-food-kit/previews/advocado-half.png",
+    "fullSizeKb": 5.9,
+    "halfSizeKb": 11.0,
+    "license": "CC0"
+  },
+  {
+    "id": "cutpair-coconut",
+    "name": "coconut",
+    "full": "./assets/preview/kenney-food-kit/models/coconut.glb",
+    "half": "./assets/preview/kenney-food-kit/models/coconut-half.glb",
+    "fullThumbnail": "./assets/preview/kenney-food-kit/previews/coconut.png",
+    "halfThumbnail": "./assets/preview/kenney-food-kit/previews/coconut-half.png",
+    "fullSizeKb": 8.8,
+    "halfSizeKb": 8.1,
+    "license": "CC0"
+  },
+  {
+    "id": "cutpair-egg",
+    "name": "egg",
+    "full": "./assets/preview/kenney-food-kit/models/egg.glb",
+    "half": "./assets/preview/kenney-food-kit/models/egg-half.glb",
+    "fullThumbnail": "./assets/preview/kenney-food-kit/previews/egg.png",
+    "halfThumbnail": "./assets/preview/kenney-food-kit/previews/egg-half.png",
+    "fullSizeKb": 5.9,
+    "halfSizeKb": 8.1,
+    "license": "CC0"
+  },
+  {
+    "id": "cutpair-lemon",
+    "name": "lemon",
+    "full": "./assets/preview/kenney-food-kit/models/lemon.glb",
+    "half": "./assets/preview/kenney-food-kit/models/lemon-half.glb",
+    "fullThumbnail": "./assets/preview/kenney-food-kit/previews/lemon.png",
+    "halfThumbnail": "./assets/preview/kenney-food-kit/previews/lemon-half.png",
+    "fullSizeKb": 11.6,
+    "halfSizeKb": 10.0,
+    "license": "CC0"
+  },
+  {
+    "id": "cutpair-mushroom",
+    "name": "mushroom",
+    "full": "./assets/preview/kenney-food-kit/models/mushroom.glb",
+    "half": "./assets/preview/kenney-food-kit/models/mushroom-half.glb",
+    "fullThumbnail": "./assets/preview/kenney-food-kit/previews/mushroom.png",
+    "halfThumbnail": "./assets/preview/kenney-food-kit/previews/mushroom-half.png",
+    "fullSizeKb": 8.2,
+    "halfSizeKb": 6.9,
+    "license": "CC0"
+  },
+  {
+    "id": "cutpair-onion",
+    "name": "onion",
+    "full": "./assets/preview/kenney-food-kit/models/onion.glb",
+    "half": "./assets/preview/kenney-food-kit/models/onion-half.glb",
+    "fullThumbnail": "./assets/preview/kenney-food-kit/previews/onion.png",
+    "halfThumbnail": "./assets/preview/kenney-food-kit/previews/onion-half.png",
+    "fullSizeKb": 8.2,
+    "halfSizeKb": 8.9,
+    "license": "CC0"
+  },
+  {
+    "id": "cutpair-pear",
+    "name": "pear",
+    "full": "./assets/preview/kenney-food-kit/models/pear.glb",
+    "half": "./assets/preview/kenney-food-kit/models/pear-half.glb",
+    "fullThumbnail": "./assets/preview/kenney-food-kit/previews/pear.png",
+    "halfThumbnail": "./assets/preview/kenney-food-kit/previews/pear-half.png",
+    "fullSizeKb": 15.2,
+    "halfSizeKb": 11.1,
+    "license": "CC0"
+  },
+  {
+    "id": "cutpair-sausage",
+    "name": "sausage",
+    "full": "./assets/preview/kenney-food-kit/models/sausage.glb",
+    "half": "./assets/preview/kenney-food-kit/models/sausage-half.glb",
+    "fullThumbnail": "./assets/preview/kenney-food-kit/previews/sausage.png",
+    "halfThumbnail": "./assets/preview/kenney-food-kit/previews/sausage-half.png",
+    "fullSizeKb": 9.3,
+    "halfSizeKb": 8.6,
+    "license": "CC0"
+  }
+]

@@ -1,0 +1,52 @@
+{
+  "version": "v1.1.0",
+  "source": "Kenney Furniture Kit CC0",
+  "camera": "fixed-orthographic-front",
+  "proceduralSurfaces": {
+    "wall": { "width": 9.35, "height": 6.25, "position": [0, 1.4, -2.52], "color": "#18342a" },
+    "floor": { "width": 9.35, "height": 1.85, "position": [0, -4.45, -2.5], "color": "#1f4a3d" },
+    "counter": { "width": 9.1, "height": 0.22, "position": [0, -2.08, -1.32], "color": "#ffd79a" },
+    "backsplash": { "width": 9.15, "height": 0.52, "position": [0, -2.42, -1.45], "color": "#2f5c4a" }
+  },
+  "cameraGuide": {
+    "visibleWidth": 9.6,
+    "visibleHeight": 10.8,
+    "actionWidth": 8.9,
+    "actionHeight": 8.35,
+    "actionY": -0.55,
+    "hud": {
+      "x": -3.25,
+      "y": 4.15,
+      "width": 2.75,
+      "height": 1.75
+    },
+    "counterY": -3.15
+  },
+  "items": [
+    { "name": "wallHalf", "model": "./assets/preview/kenney-furniture-kit/models/wallHalf.glb", "position": [-3.85, 3.2, -2.08], "rotationY": 0, "scale": 0.95 },
+    { "name": "wallWindow", "model": "./assets/preview/kenney-furniture-kit/models/wallWindow.glb", "position": [-2.55, 3.18, -2.08], "rotationY": 0, "scale": 0.98 },
+    { "name": "wall", "model": "./assets/preview/kenney-furniture-kit/models/wall.glb", "position": [-1.15, 3.2, -2.08], "rotationY": 0, "scale": 0.95 },
+    { "name": "wallHalf", "model": "./assets/preview/kenney-furniture-kit/models/wallHalf.glb", "position": [0.15, 3.2, -2.08], "rotationY": 0, "scale": 0.95 },
+    { "name": "wallWindowSlide", "model": "./assets/preview/kenney-furniture-kit/models/wallWindowSlide.glb", "position": [1.55, 3.17, -2.08], "rotationY": 0, "scale": 0.9 },
+    { "name": "wallDoorwayWide", "model": "./assets/preview/kenney-furniture-kit/models/wallDoorwayWide.glb", "position": [3.25, 3.14, -2.08], "rotationY": 0, "scale": 0.95 },
+    { "name": "floorFull", "model": "./assets/preview/kenney-furniture-kit/models/floorFull.glb", "position": [-2.85, -4.75, -1.62], "rotationY": 0, "scale": 1.65 },
+    { "name": "floorFull", "model": "./assets/preview/kenney-furniture-kit/models/floorFull.glb", "position": [-0.95, -4.75, -1.62], "rotationY": 0, "scale": 1.65 },
+    { "name": "floorFull", "model": "./assets/preview/kenney-furniture-kit/models/floorFull.glb", "position": [0.95, -4.75, -1.62], "rotationY": 0, "scale": 1.65 },
+    { "name": "floorFull", "model": "./assets/preview/kenney-furniture-kit/models/floorFull.glb", "position": [2.85, -4.75, -1.62], "rotationY": 0, "scale": 1.65 },
+    { "name": "kitchenFridgeLarge", "model": "./assets/preview/kenney-furniture-kit/models/kitchenFridgeLarge.glb", "position": [-4.0, -2.28, -0.95], "rotationY": 0, "scale": 1.28 },
+    { "name": "kitchenCabinet", "model": "./assets/preview/kenney-furniture-kit/models/kitchenCabinet.glb", "position": [-2.45, -2.78, -0.8], "rotationY": 0, "scale": 1.32 },
+    { "name": "kitchenSink", "model": "./assets/preview/kenney-furniture-kit/models/kitchenSink.glb", "position": [-1.12, -2.74, -0.78], "rotationY": 0, "scale": 1.3 },
+    { "name": "kitchenCabinetDrawer", "model": "./assets/preview/kenney-furniture-kit/models/kitchenCabinetDrawer.glb", "position": [0.25, -2.74, -0.78], "rotationY": 0, "scale": 1.3 },
+    { "name": "kitchenStoveElectric", "model": "./assets/preview/kenney-furniture-kit/models/kitchenStoveElectric.glb", "position": [1.62, -2.7, -0.78], "rotationY": 0, "scale": 1.3 },
+    { "name": "kitchenBarEnd", "model": "./assets/preview/kenney-furniture-kit/models/kitchenBarEnd.glb", "position": [3.0, -2.7, -0.8], "rotationY": 0, "scale": 1.22 },
+    { "name": "kitchenCabinetUpperDouble", "model": "./assets/preview/kenney-furniture-kit/models/kitchenCabinetUpperDouble.glb", "position": [-1.65, 0.92, -0.92], "rotationY": 0, "scale": 1.05 },
+    { "name": "kitchenCabinetUpper", "model": "./assets/preview/kenney-furniture-kit/models/kitchenCabinetUpper.glb", "position": [-0.38, 0.92, -0.92], "rotationY": 0, "scale": 1.0 },
+    { "name": "kitchenMicrowave", "model": "./assets/preview/kenney-furniture-kit/models/kitchenMicrowave.glb", "position": [0.75, 0.78, -0.85], "rotationY": 0, "scale": 0.98 },
+    { "name": "hoodModern", "model": "./assets/preview/kenney-furniture-kit/models/hoodModern.glb", "position": [1.68, 0.9, -0.84], "rotationY": 0, "scale": 1.0 },
+    { "name": "kitchenCoffeeMachine", "model": "./assets/preview/kenney-furniture-kit/models/kitchenCoffeeMachine.glb", "position": [-2.15, -1.52, -0.36], "rotationY": 0, "scale": 0.8 },
+    { "name": "kitchenBlender", "model": "./assets/preview/kenney-furniture-kit/models/kitchenBlender.glb", "position": [-0.1, -1.46, -0.36], "rotationY": 0, "scale": 0.72 },
+    { "name": "lampSquareCeiling", "model": "./assets/preview/kenney-furniture-kit/models/lampSquareCeiling.glb", "position": [0.05, 4.28, -0.55], "rotationY": 0, "scale": 1.1 },
+    { "name": "plantSmall2", "model": "./assets/preview/kenney-furniture-kit/models/plantSmall2.glb", "position": [3.9, -3.45, -0.6], "rotationY": 0, "scale": 0.98 },
+    { "name": "rugRectangle", "model": "./assets/preview/kenney-furniture-kit/models/rugRectangle.glb", "position": [0.35, -4.15, -0.22], "rotationY": 0, "scale": 1.65 }
+  ]
+}
