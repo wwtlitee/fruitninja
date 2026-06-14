@@ -12,7 +12,10 @@ const ui = {
   combo: document.getElementById("comboValue"),
   flow: document.getElementById("flowValue"),
   level: document.getElementById("levelValue"),
+  stageBar: document.getElementById("stageBar"),
   xpBar: document.getElementById("xpBar"),
+  xpValue: document.getElementById("xpValue"),
+  assetStatus: document.getElementById("assetStatusValue"),
   startOverlay: document.getElementById("startOverlay"),
   levelOverlay: document.getElementById("levelOverlay"),
   resultOverlay: document.getElementById("resultOverlay"),
@@ -28,11 +31,97 @@ const ui = {
   resultScore: document.getElementById("resultScore"),
   resultCombo: document.getElementById("resultCombo"),
   resultFlow: document.getElementById("resultFlow"),
+  resultFrenzy: document.getElementById("resultFrenzy"),
+  resultBoss: document.getElementById("resultBoss"),
+  resultPenalty: document.getElementById("resultPenalty"),
   resultReason: document.getElementById("resultReason"),
   resultCompare: document.getElementById("resultCompare"),
+  bestScore: document.getElementById("bestScoreValue"),
+  bestStage: document.getElementById("bestStageValue"),
+  pauseButton: document.getElementById("pauseButton"),
+  settingsButton: document.getElementById("settingsButton"),
+  settingsOverlay: document.getElementById("settingsOverlay"),
+  soundToggle: document.getElementById("soundToggle"),
+  hapticToggle: document.getElementById("hapticToggle"),
+  batteryToggle: document.getElementById("batteryToggle"),
+  replayTutorialButton: document.getElementById("replayTutorialButton"),
+  clearRecordsButton: document.getElementById("clearRecordsButton"),
+  closeSettingsButton: document.getElementById("closeSettingsButton"),
+  pauseOverlay: document.getElementById("pauseOverlay"),
+  pauseState: document.getElementById("pauseState"),
+  resumeButton: document.getElementById("resumeButton"),
+  restartButton: document.getElementById("restartButton"),
+  homeButton: document.getElementById("homeButton"),
+  tutorialOverlay: document.getElementById("tutorialOverlay"),
+  tutorialTitle: document.getElementById("tutorialTitle"),
+  tutorialText: document.getElementById("tutorialText"),
+  tutorialDots: document.getElementById("tutorialDots"),
+  tutorialSkipButton: document.getElementById("tutorialSkipButton"),
+  tutorialNextButton: document.getElementById("tutorialNextButton"),
+  debugPanel: document.getElementById("debugPanel"),
+  debugText: document.getElementById("debugText"),
   startButton: document.getElementById("startButton"),
   retryButton: document.getElementById("retryButton"),
   copyButton: document.getElementById("copyButton"),
+  downloadCardButton: document.getElementById("downloadCardButton"),
+};
+
+const STORAGE_KEYS = {
+  bestScore: "fruit-survivor-3d-best-score",
+  bestStage: "fruit-survivor-3d-best-stage",
+  settings: "fruit-survivor-3d-settings",
+  tutorialSeen: "fruit-survivor-3d-tutorial-seen",
+};
+const DEBUG_PARAMS = new URLSearchParams(window.location.search);
+const DEBUG_MODE = DEBUG_PARAMS.get("debug") === "1";
+const DEBUG_SCENARIO = DEBUG_PARAMS.get("scenario") || "";
+const DEBUG_RUNTIME = {
+  speed: Number(DEBUG_PARAMS.get("speed") || 1) || 1,
+  noPenalty: DEBUG_PARAMS.get("noPenalty") === "1",
+};
+const FORCE_TUTORIAL = DEBUG_PARAMS.get("tutorial") === "1";
+const FX_LIMITS = {
+  particles: 80,
+  slashFx: 16,
+  cutPieces: 40,
+  slashMarks: 16,
+  floatingTexts: 24,
+};
+const PERFORMANCE_TIERS = {
+  high: { frameMs: 18, dpr: 1.25, particleScale: 1 },
+  medium: { frameMs: 28, dpr: 1, particleScale: 0.75 },
+  low: { frameMs: Infinity, dpr: 0.85, particleScale: 0.5 },
+};
+const DEFAULT_SETTINGS = {
+  sound: true,
+  haptics: true,
+  batterySaver: false,
+};
+const TUTORIAL_STEPS = [
+  { title: "一刀多切", text: "按住划过多个食材，一刀切中 3 个以上会额外加分。" },
+  { title: "切得越准分越高", text: "靠近中心是 PERFECT，中段是 GREAT，擦边是 GOOD。" },
+  { title: "危险桶只扣分", text: "漏食材会断连但不扣分，切危险桶扣当前关卡分 10%，没有血条。" },
+  { title: "金光草莓要抢", text: "30 秒会出现小草莓，切中后进入 5 秒纯水果喷涌。" },
+  { title: "Boss 破核狂切", text: "关末清场后进入 Boss，5 秒内狂切，20 刀提前裂核。" },
+];
+const platform = createPlatformAdapter();
+const settings = loadSettings();
+const tutorial = {
+  index: 0,
+  afterClose: null,
+};
+const perfState = {
+  tier: settings.batterySaver ? "low" : "high",
+  samples: [],
+  stable: settings.batterySaver,
+};
+const audioState = {
+  ctx: null,
+  master: null,
+  lastPlayed: new Map(),
+};
+const objectPools = {
+  wrappers: [],
 };
 
 const ROUND_SECONDS = 60;
@@ -54,6 +143,7 @@ const FRENZY_FRUITS_PER_PACK = 5;
 const FRENZY_FRUIT_STAGGER = 0.05;
 const FRENZY_FINISHER_PACKS = 3;
 const MAX_ACTIVE_OBJECTS = 14;
+const FRENZY_ACTIVE_OBJECTS = 24;
 const MIN_SWIPE_COMBO = 3;
 const CUTTABLE_ASSET_URL = "./assets/preview/cuttable-pairs.json";
 const DANGER_MODEL_URL = "./assets/preview/kenney-food-kit/models/barrel.glb";
@@ -71,6 +161,206 @@ const WORLD = {
   depthFar: -0.75,
 };
 
+function createPlatformAdapter() {
+  return {
+    env: { name: "web", isMiniGame: false },
+    storage: {
+      get(key, fallback = null) {
+        try {
+          return localStorage.getItem(key) ?? fallback;
+        } catch {
+          return fallback;
+        }
+      },
+      set(key, value) {
+        try {
+          localStorage.setItem(key, String(value));
+          return true;
+        } catch {
+          return false;
+        }
+      },
+      getNumber(key, fallback = 0) {
+        const value = this.get(key, null);
+        const number = Number(value);
+        return Number.isFinite(number) ? number : fallback;
+      },
+      setNumber(key, value) {
+        return this.set(key, value);
+      },
+      getJson(key, fallback = null) {
+        try {
+          const raw = this.get(key, null);
+          return raw ? JSON.parse(raw) : fallback;
+        } catch {
+          return fallback;
+        }
+      },
+      setJson(key, value) {
+        return this.set(key, JSON.stringify(value));
+      },
+      remove(key) {
+        try {
+          localStorage.removeItem(key);
+          return true;
+        } catch {
+          return false;
+        }
+      },
+    },
+    clipboard: {
+      async writeText(text) {
+        try {
+          await navigator.clipboard.writeText(text);
+          return { ok: true };
+        } catch (error) {
+          return { ok: false, reason: error?.message || "clipboard unavailable" };
+        }
+      },
+    },
+    device: {
+      getViewport() {
+        return { width: window.innerWidth, height: window.innerHeight };
+      },
+      getPixelRatio() {
+        return Math.min(window.devicePixelRatio || 1, getPerformanceBudget().dpr);
+      },
+    },
+    haptics: {
+      light() {
+        if (!settings.haptics) return;
+        try { navigator.vibrate?.(10); } catch {}
+      },
+      medium() {
+        if (!settings.haptics) return;
+        try { navigator.vibrate?.(24); } catch {}
+      },
+      heavy() {
+        if (!settings.haptics) return;
+        try { navigator.vibrate?.([32, 28, 32]); } catch {}
+      },
+    },
+    lifecycle: {
+      onHide(callback) {
+        document.addEventListener("visibilitychange", () => {
+          if (document.hidden) callback();
+        });
+      },
+      onShow(callback) {
+        document.addEventListener("visibilitychange", () => {
+          if (!document.hidden) callback();
+        });
+      },
+    },
+    perf: {
+      now() {
+        return performance.now();
+      },
+    },
+  };
+}
+
+function loadSettings() {
+  const saved = platform.storage.getJson(STORAGE_KEYS.settings, {});
+  return { ...DEFAULT_SETTINGS, ...(saved || {}) };
+}
+
+function saveSettings() {
+  platform.storage.setJson(STORAGE_KEYS.settings, settings);
+}
+
+function applyPerformancePreference() {
+  if (settings.batterySaver) {
+    perfState.tier = "low";
+    perfState.stable = true;
+  } else {
+    perfState.tier = "high";
+    perfState.samples = [];
+    perfState.stable = false;
+  }
+  renderer.setPixelRatio(platform.device.getPixelRatio());
+}
+
+function getPerformanceBudget() {
+  return PERFORMANCE_TIERS[perfState.tier] || PERFORMANCE_TIERS.high;
+}
+
+function nowSeconds() {
+  return platform.perf.now() / 1000;
+}
+
+function unlockAudio() {
+  if (!settings.sound) return;
+  if (!audioState.ctx) {
+    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContextClass) return;
+    audioState.ctx = new AudioContextClass();
+    audioState.master = audioState.ctx.createGain();
+    audioState.master.gain.value = 0.18;
+    audioState.master.connect(audioState.ctx.destination);
+  }
+  audioState.ctx.resume?.();
+}
+
+function playSound(name) {
+  if (!settings.sound) return;
+  unlockAudio();
+  const ctx = audioState.ctx;
+  if (!ctx || !audioState.master) return;
+
+  const now = ctx.currentTime;
+  const throttleKey = name === "cut" || name === "frenzyCut" ? "cut-family" : name;
+  const minGap = name === "bossHit" ? 0.075 : name === "cut" || name === "frenzyCut" ? 0.045 : 0.12;
+  if ((audioState.lastPlayed.get(throttleKey) || 0) + minGap > now) return;
+  audioState.lastPlayed.set(throttleKey, now);
+
+  const presets = {
+    start: [520, 0.14, "sine"],
+    cut: [520, 0.045, "triangle"],
+    perfect: [880, 0.08, "sine"],
+    combo: [660, 0.1, "triangle"],
+    penalty: [120, 0.16, "sawtooth"],
+    strawberry: [920, 0.18, "sine"],
+    frenzyCut: [740, 0.035, "triangle"],
+    bossWarning: [180, 0.18, "square"],
+    bossHit: [210, 0.06, "square"],
+    bossCrack: [95, 0.22, "sawtooth"],
+    record: [980, 0.2, "sine"],
+  };
+  const [frequency, duration, type] = presets[name] || presets.cut;
+  const oscillator = ctx.createOscillator();
+  const gain = ctx.createGain();
+  oscillator.type = type;
+  oscillator.frequency.setValueAtTime(frequency, now);
+  if (name === "combo" || name === "strawberry" || name === "record") {
+    oscillator.frequency.exponentialRampToValueAtTime(frequency * 1.5, now + duration);
+  }
+  gain.gain.setValueAtTime(0.0001, now);
+  gain.gain.exponentialRampToValueAtTime(name === "penalty" ? 0.08 : 0.16, now + 0.01);
+  gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+  oscillator.connect(gain);
+  gain.connect(audioState.master);
+  oscillator.start(now);
+  oscillator.stop(now + duration + 0.03);
+}
+
+function reportFrameCost(dt) {
+  if (perfState.stable) return;
+  perfState.samples.push(dt * 1000);
+  if (perfState.samples.length > 60) perfState.samples.shift();
+  if (perfState.samples.length < 60) return;
+
+  const average = perfState.samples.reduce((sum, value) => sum + value, 0) / perfState.samples.length;
+  if (perfState.tier === "high" && average > PERFORMANCE_TIERS.high.frameMs) {
+    perfState.tier = "medium";
+    renderer.setPixelRatio(platform.device.getPixelRatio());
+  } else if (perfState.tier === "medium" && average > PERFORMANCE_TIERS.medium.frameMs) {
+    perfState.tier = "low";
+    perfState.stable = true;
+    renderer.setPixelRatio(platform.device.getPixelRatio());
+  }
+}
+
 const FRUITS = {
   apple: { label: "苹果", color: 0xff4d5e, score: 10, size: 0.58, assetName: "apple" },
   pear: { label: "梨", color: 0xa7df64, score: 12, size: 0.6, assetName: "pear" },
@@ -86,172 +376,155 @@ const FRUITS = {
 };
 
 const NORMAL_FRUIT_POOL = ["apple", "pear", "lemon", "egg", "avocado", "coconut", "mushroom", "onion", "sausage"];
+const FRUIT_FACTION_IDS = [...NORMAL_FRUIT_POOL];
+const FACTION_COPY_SCORE_SCALE = 0.65;
+const FACTION_EXTRA_SPAWN_BUFFER = 4;
+const FACTION_TIER_THRESHOLDS = [3, 6, 10, 15];
+const FRUIT_BASE_SKILL_IDS = ["assimilate", "split", "value"];
+const UPGRADE_PRIORITY_SLOT_CHANCE = 0.4;
 
-const TALENTS = [
-  {
-    id: "combo_window",
-    tag: "combo",
-    name: "连斩达人",
-    desc: "连击窗口更长。",
-    apply: () => {
-      state.mods.comboWindow += 0.22;
-      state.flow.combo += 1;
+const FRUIT_FACTIONS = {
+  apple: { name: "苹果连击流", talentName: "苹果连击", flowPack: "combo", desc: "苹果三件套 + 旧连击流技能包。" },
+  pear: { name: "梨心保连流", talentName: "梨心保连", flowPack: "combo_guard", desc: "梨三件套 + 连击回响/保连技能包。" },
+  lemon: { name: "柠檬准心流", talentName: "柠檬准心", flowPack: "precision", desc: "柠檬三件套 + 旧准心完切技能包。" },
+  egg: { name: "咕咕经验流", talentName: "咕咕经验", flowPack: "xp", desc: "咕咕蛋三件套 + 旧经验飞升技能包。" },
+  avocado: { name: "牛油果稳手流", talentName: "牛油果稳手", flowPack: "survival", desc: "牛油果三件套 + 旧稳手保分技能包。" },
+  coconut: { name: "椰子爆汁流", talentName: "椰子爆汁", flowPack: "burst", desc: "椰子三件套 + 旧爆汁清屏技能包。" },
+  mushroom: { name: "蘑菇雷链流", talentName: "蘑菇雷链", flowPack: "lightning", desc: "蘑菇三件套 + 旧雷光追切技能包。" },
+  onion: { name: "洋葱慢切流", talentName: "洋葱慢切", flowPack: "precision_slow", desc: "洋葱三件套 + 旧准心容错技能包。" },
+  sausage: { name: "香肠残影流", talentName: "香肠残影", flowPack: "combo_shadow", desc: "香肠三件套 + 旧残影/多目标技能包。" },
+};
+
+const FRUIT_BASE_SKILL_DEFS = {
+  assimilate: {
+    label: "同化",
+    maxLevel: 5,
+    minMastery: 0,
+    describe: (type, nextLevel) => `未投资自然水果有 ${nextLevel * 20}% 概率转成${FRUITS[type].label}。`,
+  },
+  split: {
+    label: "分裂",
+    maxLevel: 10,
+    minMastery: 0,
+    describe: (_type, nextLevel) => {
+      const power = nextLevel * 0.2;
+      const guaranteed = Math.floor(power);
+      const chance = Math.round((power - guaranteed) * 100);
+      return `自然出场时额外复制能量 ${Math.round(power * 100)}%，当前为稳定 +${guaranteed}${chance > 0 ? `，再 ${chance}% 额外 +1` : ""}。`;
     },
   },
-  {
-    id: "combo_score",
-    tag: "combo",
-    name: "连击爆分",
-    desc: "连击分数成长更快。",
-    apply: () => {
-      state.mods.comboBonus += 0.16;
-      state.flow.combo += 1;
-    },
+  value: {
+    label: "果价",
+    maxLevel: 5,
+    minMastery: 0,
+    describe: (type, nextLevel) => `${FRUITS[type].label}基础分 +${nextLevel * 2}${nextLevel >= 5 ? "，并触发该水果最终分数 x2" : ""}。`,
   },
-  {
-    id: "afterimage",
-    tag: "combo",
-    name: "残影刀痕",
-    desc: "划切后追加残影命中。",
-    apply: () => {
-      state.mods.afterimage = true;
-      state.flow.combo += 2;
-    },
-  },
-  {
-    id: "wider_cut",
-    tag: "combo",
-    name: "疾风追切",
-    desc: "切割判定稍微变宽。",
-    apply: () => {
-      state.mods.hitPadding += 0.08;
-      state.flow.combo += 1;
-    },
-  },
-  {
-    id: "precision_focus",
-    tag: "precision",
-    name: "刀心校准",
-    desc: "GOOD/GREAT/PERFECT 得分倍率提高。",
-    apply: () => {
-      state.mods.gradeBonus += 0.12;
-      state.flow.precision += 2;
-    },
-  },
-  {
-    id: "splash",
-    tag: "burst",
-    name: "果汁四溅",
-    desc: "命中会炸到附近目标。",
-    apply: () => {
-      state.mods.splashRadius += 0.92;
-      state.mods.splashTargets += 1;
-      state.flow.burst += 2;
-    },
-  },
-  {
-    id: "splash_big",
-    tag: "burst",
-    name: "爆汁扩散",
-    desc: "爆汁范围扩大。",
-    apply: () => {
-      state.mods.splashRadius += 0.72;
-      state.flow.burst += 1;
-    },
-  },
-  {
-    id: "coconut_blast",
-    tag: "burst",
-    name: "椰壳热浪",
-    desc: "椰壳触发额外爆汁。",
-    apply: () => {
-      state.mods.coconutBonus += 18;
-      state.mods.splashTargets += 1;
-      state.flow.burst += 1;
-    },
-  },
-  {
-    id: "pulse",
-    tag: "burst",
-    name: "清屏脉冲",
-    desc: "18 连击清掉几个目标。",
-    apply: () => {
-      state.mods.pulse = true;
-      state.flow.burst += 2;
-    },
-  },
-  {
-    id: "chain",
-    tag: "lightning",
-    name: "雷霆果刀",
-    desc: "命中后连锁附近水果。",
-    apply: () => {
-      state.mods.chainCount += 1;
-      state.flow.lightning += 2;
-    },
-  },
-  {
-    id: "chain_plus",
-    tag: "lightning",
-    name: "静电增幅",
-    desc: "雷电多跳一次。",
-    apply: () => {
-      state.mods.chainCount += 1;
-      state.mods.chainRadius += 0.4;
-      state.flow.lightning += 1;
-    },
-  },
-  {
-    id: "beam",
-    tag: "lightning",
-    name: "天罚刀光",
-    desc: "净切落下一道纵向刀光。",
-    apply: () => {
-      state.mods.beam = true;
-      state.flow.lightning += 2;
-    },
-  },
-  {
-    id: "overload",
-    tag: "lightning",
-    name: "雷暴过载",
-    desc: "连锁命中额外给分。",
-    apply: () => {
-      state.mods.lightningScore += 9;
-      state.flow.lightning += 1;
-    },
-  },
-  {
-    id: "boss_score",
-    tag: "boss",
-    name: "破核手速",
-    desc: "Boss 狂切得分提高。",
-    apply: () => {
-      state.mods.bossScoreBonus += 0.25;
-      state.flow.boss += 2;
-    },
-  },
-  {
-    id: "boss_time",
-    tag: "boss",
-    name: "多一口气",
-    desc: "Boss 时间延长 0.8 秒。",
-    apply: () => {
-      state.mods.bossTimeBonus += 0.8;
-      state.flow.boss += 1;
-    },
-  },
-  {
-    id: "steady_hand",
-    tag: "survival",
-    name: "稳手围裙",
-    desc: "漏切和危险桶扣分降低。",
-    apply: () => {
-      state.mods.penaltyReduction += 0.22;
-      state.flow.survival += 2;
-    },
-  },
-];
+};
+
+const FRUIT_FLOW_SKILL_PACKS = {
+  apple: [
+    { id: "combo_window", label: "连斩达人", maxLevel: 5, describe: () => "苹果命中时连击倍率成长更快。" },
+    { id: "combo_score", label: "连击爆分", maxLevel: 5, describe: () => "苹果按当前连击获得额外条件分。" },
+    { id: "combo_limit", label: "连击突破", maxLevel: 3, minMastery: 4, describe: () => "苹果高连击时提高本次连击倍率上限。" },
+    { id: "combo_fever", label: "连击狂热", maxLevel: 5, minMastery: 6, describe: () => "连击 20+ 时苹果获得额外条件分。" },
+  ],
+  pear: [
+    { id: "combo_echo", label: "连击回响", maxLevel: 5, describe: () => "梨命中积累保连护盾，漏果或危险桶优先消耗护盾。" },
+    { id: "combo_window", label: "连斩达人", maxLevel: 5, describe: () => "梨命中额外抬高连击，帮助续连。" },
+    { id: "steady_hand", label: "稳手围裙", maxLevel: 5, minMastery: 4, describe: () => "危险桶扣分降低。" },
+    { id: "precision_shield", label: "完美护盾", maxLevel: 3, minMastery: 6, describe: () => "梨的 PERFECT 命中更容易保住连击。" },
+  ],
+  lemon: [
+    { id: "precision_focus", label: "刀心校准", maxLevel: 5, describe: () => "柠檬 GOOD/GREAT/PERFECT 得分倍率提高。" },
+    { id: "precision_aura", label: "完美光环", maxLevel: 3, minMastery: 4, describe: () => "柠檬 GOOD 判定获得额外容错。" },
+    { id: "precision_cap", label: "完美突破", maxLevel: 3, minMastery: 6, describe: () => "柠檬 PERFECT 连续命中收益上限提高。" },
+    { id: "beam", label: "天罚刀光", maxLevel: 3, minMastery: 8, describe: () => "柠檬 PERFECT 有概率落下纵向刀光。" },
+  ],
+  egg: [
+    { id: "xp_boost", label: "经验汲取", maxLevel: 5, describe: () => "切咕咕蛋额外获得经验。" },
+    { id: "xp_speed", label: "飞升加速", maxLevel: 5, describe: () => "升级所需经验降低。" },
+    { id: "xp_double", label: "升级狂热", maxLevel: 5, minMastery: 5, describe: () => "升级时有概率额外获得升级点。" },
+    { id: "xp_overflow", label: "经验溢出", maxLevel: 3, minMastery: 8, describe: () => "阶段升级点已拿到后，溢出经验可转成分数。" },
+  ],
+  avocado: [
+    { id: "steady_hand", label: "稳手围裙", maxLevel: 5, describe: () => "危险桶扣分降低。" },
+    { id: "combo_echo", label: "连击回响", maxLevel: 5, describe: () => "牛油果命中积累护切层，优先保住连击。" },
+    { id: "perfect_shield", label: "完美护盾", maxLevel: 3, minMastery: 5, describe: () => "PERFECT 牛油果额外提供护盾。" },
+    { id: "boss_time", label: "多一口气", maxLevel: 3, minMastery: 8, describe: () => "Boss 时间轻微延长。" },
+  ],
+  coconut: [
+    { id: "splash", label: "果汁四溅", maxLevel: 5, describe: () => "椰子命中会爆汁打到附近目标。" },
+    { id: "splash_big", label: "爆汁扩散", maxLevel: 5, describe: () => "椰子爆汁范围扩大。" },
+    { id: "burst_nova", label: "爆汁新星", maxLevel: 5, minMastery: 5, describe: () => "多次椰子爆汁后触发脉冲清目标。" },
+    { id: "burst_overload", label: "爆汁过载", maxLevel: 3, minMastery: 7, describe: () => "椰子爆汁可追加二段小爆汁。" },
+    { id: "burst_coconut", label: "椰壳共鸣", maxLevel: 3, minMastery: 9, describe: () => "椰子爆汁目标数进一步提高。" },
+  ],
+  mushroom: [
+    { id: "chain", label: "雷霆果刀", maxLevel: 5, describe: () => "蘑菇命中后连锁附近水果。" },
+    { id: "chain_plus", label: "静电增幅", maxLevel: 5, describe: () => "蘑菇连锁半径和次数提高。" },
+    { id: "chain_overload", label: "雷暴过载", maxLevel: 5, minMastery: 5, describe: () => "蘑菇连锁命中额外给分。" },
+    { id: "chain_spread", label: "雷电扩散", maxLevel: 3, minMastery: 7, describe: () => "蘑菇连锁后追加小范围扩散。" },
+    { id: "chain_beam", label: "天罚刀光", maxLevel: 3, minMastery: 9, describe: () => "蘑菇 PERFECT 有概率落纵向刀光。" },
+  ],
+  onion: [
+    { id: "precision_focus", label: "刀心校准", maxLevel: 5, describe: () => "洋葱慢切时提高评分倍率。" },
+    { id: "precision_shield", label: "完美护盾", maxLevel: 3, minMastery: 4, describe: () => "洋葱 GOOD/PERFECT 判定更容易保连。" },
+    { id: "precision_aura", label: "完美光环", maxLevel: 3, minMastery: 6, describe: () => "洋葱命中产生短暂慢切容错区。" },
+    { id: "precision_cap", label: "完美突破", maxLevel: 3, minMastery: 8, describe: () => "洋葱 PERFECT 连续收益上限提高。" },
+  ],
+  sausage: [
+    { id: "wider_cut", label: "疾风追切", maxLevel: 5, describe: () => "香肠切割判定稍微变宽。" },
+    { id: "afterimage", label: "残影刀痕", maxLevel: 3, describe: () => "香肠命中后概率追加残影刀。" },
+    { id: "combo_storm", label: "连击风暴", maxLevel: 3, minMastery: 5, describe: () => "高连击时香肠命中可追加追切。" },
+    { id: "combo_score", label: "连击爆分", maxLevel: 5, minMastery: 6, describe: () => "香肠按当前连击获得额外条件分。" },
+  ],
+};
+
+function getFruitSkillEntries(type) {
+  const baseSkills = FRUIT_BASE_SKILL_IDS.map((id) => ({ id, ...FRUIT_BASE_SKILL_DEFS[id] }));
+  return [...baseSkills, ...(FRUIT_FLOW_SKILL_PACKS[type] || [])];
+}
+
+function getFruitSkillIds(type) {
+  return getFruitSkillEntries(type).map((skill) => skill.id);
+}
+
+function getFruitSkillDef(type, skillId) {
+  return getFruitSkillEntries(type).find((skill) => skill.id === skillId) || null;
+}
+
+const FLOWS = {
+  apple: { name: "苹果丰收流", icon: "🍎", desc: "苹果就是力量" },
+  pear: { name: "梨心保鲜流", icon: "🍐", desc: "连击越养越稳" },
+  coconut: { name: "椰壳爆破流", icon: "🥥", desc: "椰壳炸裂全场" },
+  egg: { name: "鸡蛋连爆流", icon: "🥚", desc: "鸡蛋连击无上限" },
+  lemon: { name: "柠檬榨取流", icon: "🍋", desc: "越晚切分越高" },
+  avocado: { name: "牛油果护切流", icon: "🥑", desc: "断连保护更厚" },
+  mushroom: { name: "毒菇扩散流", icon: "🍄", desc: "毒雾控场" },
+  onion: { name: "洋葱慢切流", icon: "🧅", desc: "慢切也能上分" },
+  sausage: { name: "香肠分裂流", icon: "🌭", desc: "越切越多" },
+};
+
+const FRUIT_FACTION_TALENTS = FRUIT_FACTION_IDS.flatMap((type) =>
+  getFruitSkillEntries(type).map((skill) => {
+    const skillId = skill.id;
+    return {
+      id: `fruit_${type}_${skillId}`,
+      tag: type,
+      fruitType: type,
+      skillId,
+      skillLabel: skill.label,
+      name: `${FRUIT_FACTIONS[type].talentName}·${skill.label}`,
+      repeatable: true,
+      maxLevel: skill.maxLevel,
+      minMastery: skill.minMastery || 0,
+      describe: (nextLevel) => skill.describe(type, nextLevel),
+      apply: () => upgradeFruitFactionSkill(type, skillId),
+    };
+  })
+);
+
+const ALL_TALENTS = [...FRUIT_FACTION_TALENTS];
 
 const renderer = new THREE.WebGLRenderer({
   canvas,
@@ -259,7 +532,7 @@ const renderer = new THREE.WebGLRenderer({
   alpha: true,
   powerPreference: "high-performance",
 });
-renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.25));
+renderer.setPixelRatio(platform.device.getPixelRatio());
 renderer.shadowMap.enabled = false;
 renderer.setClearColor(0x000000, 0);
 
@@ -290,6 +563,12 @@ const reusable = {
   plane: new THREE.PlaneGeometry(1, 1),
 };
 
+const STAGE_TARGETS = [1000, 2000, 4000, 7000, 11000, 16000, 22000, 29000, 37000, 46000];
+
+function getStageTarget(stage) {
+  return STAGE_TARGETS[Math.min(stage - 1, STAGE_TARGETS.length - 1)];
+}
+
 const state = createInitialState();
 const assetState = {
   ready: false,
@@ -299,7 +578,170 @@ const assetState = {
   full: new Map(),
   half: new Map(),
   danger: new Map(),
+  failed: [],
+  fallbackTypes: new Set(),
 };
+
+function getObjectWrapper() {
+  return objectPools.wrappers.pop() || {};
+}
+
+function releaseObjectWrapper(object) {
+  if (!object) return;
+  Object.keys(object).forEach((key) => {
+    delete object[key];
+  });
+  if (objectPools.wrappers.length < 72) objectPools.wrappers.push(object);
+}
+
+function createFactionState(type) {
+  return {
+    type,
+    skills: Object.fromEntries(getFruitSkillIds(type).map((skillId) => [skillId, 0])),
+  };
+}
+
+function createInitialFactions() {
+  return Object.fromEntries(FRUIT_FACTION_IDS.map((type) => [type, createFactionState(type)]));
+}
+
+function createInitialFactionRuntime() {
+  return Object.fromEntries(FRUIT_FACTION_IDS.map((type) => [type, {
+    marks: 0,
+    shieldMarks: 0,
+    extraSpawns: 0,
+  }]));
+}
+
+function getFaction(type) {
+  if (!FRUIT_FACTION_IDS.includes(type)) return null;
+  if (!state.factions[type]) state.factions[type] = createFactionState(type);
+  if (!state.factions[type].skills) {
+    const legacyLevel = Math.max(0, state.factions[type].level || 0);
+    state.factions[type].skills = Object.fromEntries(getFruitSkillIds(type).map((skillId) => [skillId, 0]));
+    state.factions[type].skills.assimilate = Math.min(FRUIT_BASE_SKILL_DEFS.assimilate.maxLevel, legacyLevel);
+  } else {
+    getFruitSkillIds(type).forEach((skillId) => {
+      if (state.factions[type].skills[skillId] === undefined) state.factions[type].skills[skillId] = 0;
+    });
+  }
+  return state.factions[type];
+}
+
+function getFruitSkillLevel(type, skillId) {
+  return getFaction(type)?.skills?.[skillId] || 0;
+}
+
+function getFactionMastery(type) {
+  const skills = getFaction(type)?.skills;
+  if (!skills) return 0;
+  return getFruitSkillIds(type).reduce((sum, skillId) => sum + (skills[skillId] || 0), 0);
+}
+
+function getFactionTier(type) {
+  const mastery = getFactionMastery(type);
+  return FACTION_TIER_THRESHOLDS.reduce((tier, threshold) => tier + (mastery >= threshold ? 1 : 0), 0);
+}
+
+function getDominantFactionType() {
+  let bestType = null;
+  let bestMastery = 0;
+  FRUIT_FACTION_IDS.forEach((type) => {
+    const mastery = getFactionMastery(type);
+    if (mastery > bestMastery) {
+      bestType = type;
+      bestMastery = mastery;
+    }
+  });
+  return bestType;
+}
+
+function getFactionRuntime(type) {
+  if (!state.factionRuntime) state.factionRuntime = createInitialFactionRuntime();
+  if (!state.factionRuntime[type]) state.factionRuntime[type] = { marks: 0, shieldMarks: 0, extraSpawns: 0 };
+  return state.factionRuntime[type];
+}
+
+function upgradeFruitFactionSkill(type, skillId) {
+  const faction = getFaction(type);
+  const skill = getFruitSkillDef(type, skillId);
+  if (!faction || !skill) return false;
+
+  const currentLevel = faction.skills[skillId] || 0;
+  if (currentLevel >= skill.maxLevel) return false;
+
+  faction.skills[skillId] = currentLevel + 1;
+  state.flow.tagCount[type] = (state.flow.tagCount[type] || 0) + 1;
+
+  const mastery = getFactionMastery(type);
+  showFloatingText(centerScreenPoint(), `${FRUIT_FACTIONS[type].talentName}·${skill.label} Lv.${faction.skills[skillId]}｜流派Lv.${mastery}`, "upgrade");
+  return true;
+}
+
+function upgradeFruitFaction(type) {
+  upgradeFruitFactionSkill(type, "assimilate");
+}
+
+function getFactionLevel(type) {
+  return getFactionMastery(type);
+}
+
+function getFactionSkillLevel(type) {
+  return getFactionMastery(type);
+}
+
+function getFactionAssimilationRate(type) {
+  return Math.min(1, getFruitSkillLevel(type, "assimilate") * 0.2);
+}
+
+function getFactionCopyPreview(level) {
+  const power = Math.max(0, level) * 0.2;
+  const guaranteed = Math.floor(power);
+  const chance = Math.round((power - guaranteed) * 100);
+  return chance > 0 ? `${guaranteed}+${chance}%` : `${guaranteed}`;
+}
+
+function getFactionCopyCount(type) {
+  const power = getFruitSkillLevel(type, "split") * 0.2;
+  let extraCopies = Math.floor(power);
+  if (Math.random() < power - extraCopies) extraCopies += 1;
+  return 1 + Math.min(2, Math.max(0, extraCopies));
+}
+
+function pickAssimilationFaction(baseType) {
+  if (getFactionMastery(baseType) > 0) return null;
+
+  const candidates = FRUIT_FACTION_IDS
+    .filter((type) => type !== baseType && getFruitSkillLevel(type, "assimilate") > 0)
+    .filter((type) => Math.random() < getFactionAssimilationRate(type))
+    .sort((a, b) => {
+      const levelDelta = getFruitSkillLevel(b, "assimilate") - getFruitSkillLevel(a, "assimilate");
+      if (levelDelta !== 0) return levelDelta;
+      return getFactionMastery(b) - getFactionMastery(a);
+    });
+
+  return candidates[0] || null;
+}
+
+function resolveFruitSpawnPlans(baseType) {
+  if (!FRUIT_FACTION_IDS.includes(baseType)) {
+    return [{ type: baseType, spawnMeta: null }];
+  }
+
+  const factionType = pickAssimilationFaction(baseType);
+  const type = factionType || baseType;
+  const isInvestedResult = getFactionMastery(type) > 0;
+  const copies = isInvestedResult ? getFactionCopyCount(type) : 1;
+  return Array.from({ length: copies }, (_, copyIndex) => ({
+    type,
+    spawnMeta: {
+      factionType: isInvestedResult ? type : null,
+      assimilated: Boolean(factionType),
+      copyIndex,
+      copyScoreScale: copyIndex === 0 ? 1 : FACTION_COPY_SCORE_SCALE,
+    },
+  }));
+}
 
 function createInitialState() {
   return {
@@ -334,6 +776,10 @@ function createInitialState() {
     bossWarningCountdownStarted: false,
     bossWarningLastCue: null,
     penaltyScore: 0,
+    missCount: 0,
+    bombHitCount: 0,
+    comboBreakCount: 0,
+    comboBreakShield: 0,
     combo: 0,
     maxCombo: 0,
     level: 1,
@@ -354,37 +800,38 @@ function createInitialState() {
     cutPieces: [],
     slashFx: [],
     selectedTalents: [],
-    previousBestScore: Number(localStorage.getItem("fruit-survivor-3d-best-score") || 0),
-    bestScore: Number(localStorage.getItem("fruit-survivor-3d-best-score") || 0),
+    talentLevels: {},
+    factions: createInitialFactions(),
+    factionRuntime: createInitialFactionRuntime(),
+    debugMode: DEBUG_MODE,
+    previousBestScore: platform.storage.getNumber(STORAGE_KEYS.bestScore, 0),
+    bestScore: platform.storage.getNumber(STORAGE_KEYS.bestScore, 0),
+    bestStage: Math.max(1, platform.storage.getNumber(STORAGE_KEYS.bestStage, 1)),
     deathReason: "时间结束",
-    flow: { combo: 0, burst: 0, lightning: 0, precision: 0, boss: 0, survival: 0 },
+    frenzyTriggered: false,
+    bossCrackReason: "",
+    startedAt: nowSeconds(),
+    pauseReason: "",
+    flow: {
+      locked: null, lockedAt: null,
+      tagCount: { apple: 0, pear: 0, coconut: 0, egg: 0, lemon: 0, avocado: 0, mushroom: 0, onion: 0, sausage: 0 },
+      rerollsLeft: 1, synergyBonus: 0,
+    },
     mods: createBaseMods(),
   };
 }
 
 function createBaseMods() {
   return {
-    comboWindow: 0.72,
-    comboBonus: 0,
-    hitPadding: 0,
-    splashRadius: 0,
-    splashTargets: 0,
-    coconutBonus: 0,
-    chainCount: 0,
-    chainRadius: 1.45,
-    lightningScore: 0,
-    gradeBonus: 0,
-    bossScoreBonus: 0,
-    bossTimeBonus: 0,
-    penaltyReduction: 0,
-    afterimage: false,
-    pulse: false,
-    beam: false,
+    comboBonus: 0, comboCap: 3.2,
+    hitPadding: 0, splashRadius: 0, splashTargets: 0, coconutBonus: 0,
+    chainCount: 0, chainRadius: 1.45, lightningScore: 0,
+    gradeBonus: 0, gradeWindow: 0, perfectStack: 0, perfectCap: 10, perfectShield: false, perfectAura: false,
+    bossScoreBonus: 0, bossTimeBonus: 0, penaltyReduction: 0,
+    afterimage: false, pulse: false, beam: false,
+    frenzyTimeBonus: 0, frenzyEarly: false, frenzySpawn: false, frenzyAfterMult: 0,
+    xpBoost: 0, xpReduction: 0, xpDouble: 0,
   };
-}
-
-function getStageTarget(stage) {
-  return Math.round(1000 + 500 * stage * (stage - 1));
 }
 
 function createMaterials() {
@@ -430,6 +877,7 @@ function createMaterials() {
     }),
     durian: makeFruit(0x8a6a35, 0.8),
     durianSpike: makeFruit(0xd7bd65, 0.82),
+    fallbackBadge: new THREE.MeshBasicMaterial({ color: 0xffdf38, transparent: true, opacity: 0.92 }),
     tray: new THREE.MeshBasicMaterial({ color: 0x07110e, transparent: true, opacity: 0.14 }),
     trayLine: new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.1 }),
     highlight: new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.2 }),
@@ -437,6 +885,7 @@ function createMaterials() {
     slash: new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.88 }),
     lightning: new THREE.MeshBasicMaterial({ color: 0x36d6e7, transparent: true, opacity: 0.82 }),
     burst: new THREE.MeshBasicMaterial({ color: 0xffcf3f, transparent: true, opacity: 0.8 }),
+    crack: new THREE.MeshBasicMaterial({ color: 0x2b0b08, transparent: true, opacity: 0.84, depthWrite: false }),
   };
 }
 
@@ -544,8 +993,11 @@ async function loadGameAssets() {
 
   assetState.loading = true;
   assetState.error = null;
+  assetState.failed = [];
+  assetState.fallbackTypes.clear();
   ui.startButton.disabled = true;
   ui.startButton.textContent = "模型加载中...";
+  renderAssetStatus();
 
   try {
     const response = await fetch(CUTTABLE_ASSET_URL);
@@ -560,6 +1012,7 @@ async function loadGameAssets() {
           assetState.full.set(pair.name, full.scene);
           assetState.half.set(pair.name, half.scene);
         } catch (error) {
+          assetState.failed.push(pair.name);
           console.warn(`failed to load cuttable model: ${pair.name}`, error);
         }
       }),
@@ -569,6 +1022,7 @@ async function loadGameAssets() {
       const danger = await loadGltf(DANGER_MODEL_URL);
       assetState.danger.set("barrel", danger.scene);
     } catch (error) {
+      assetState.failed.push("barrel");
       console.warn("failed to load danger model", error);
     }
 
@@ -576,6 +1030,7 @@ async function loadGameAssets() {
       const strawberry = await loadGltf(STRAWBERRY_MODEL_URL);
       assetState.full.set("strawberry", strawberry.scene);
     } catch (error) {
+      assetState.failed.push("strawberry");
       console.warn("failed to load strawberry model", error);
     }
 
@@ -587,6 +1042,7 @@ async function loadGameAssets() {
     assetState.loading = false;
     ui.startButton.disabled = false;
     ui.startButton.textContent = assetState.ready ? "开始闯关" : "模型降级启动";
+    renderAssetStatus();
   }
 }
 
@@ -596,12 +1052,110 @@ function loadGltf(url) {
   });
 }
 
-function startRound() {
-  if (assetState.loading) return;
-  Object.assign(state, createInitialState());
-  entityGroup.clear();
+function syncSettingsUi() {
+  ui.soundToggle.checked = settings.sound;
+  ui.hapticToggle.checked = settings.haptics;
+  ui.batteryToggle.checked = settings.batterySaver;
+}
+
+function updateStartRecords() {
+  ui.bestScore.textContent = platform.storage.getNumber(STORAGE_KEYS.bestScore, 0).toLocaleString("zh-CN");
+  ui.bestStage.textContent = String(Math.max(1, platform.storage.getNumber(STORAGE_KEYS.bestStage, 1)));
+}
+
+function openSettings() {
+  syncSettingsUi();
+  show(ui.settingsOverlay);
+}
+
+function closeSettings() {
+  hide(ui.settingsOverlay);
+}
+
+function shouldShowTutorial() {
+  return FORCE_TUTORIAL || (!DEBUG_MODE && platform.storage.get(STORAGE_KEYS.tutorialSeen, "0") !== "1");
+}
+
+function showTutorial(afterClose = null, force = false) {
+  if (!force && !shouldShowTutorial()) {
+    if (afterClose) afterClose();
+    return;
+  }
+  tutorial.index = 0;
+  tutorial.afterClose = afterClose;
+  hide(ui.startOverlay);
+  renderTutorial();
+  show(ui.tutorialOverlay);
+}
+
+function renderTutorial() {
+  const step = TUTORIAL_STEPS[tutorial.index];
+  ui.tutorialTitle.textContent = step.title;
+  ui.tutorialText.textContent = step.text;
+  ui.tutorialDots.innerHTML = TUTORIAL_STEPS.map((_, index) => `<span class="${index === tutorial.index ? "active" : ""}"></span>`).join("");
+  ui.tutorialNextButton.textContent = tutorial.index >= TUTORIAL_STEPS.length - 1 ? "开始闯关" : "下一步";
+}
+
+function closeTutorial(saveSeen = true) {
+  if (saveSeen) platform.storage.set(STORAGE_KEYS.tutorialSeen, "1");
+  hide(ui.tutorialOverlay);
+  const afterClose = tutorial.afterClose;
+  tutorial.afterClose = null;
+  if (afterClose) afterClose();
+  else show(ui.startOverlay);
+}
+
+function setPaused(paused, reason = "manual") {
+  if (!state.running || state.over || state.phase === "stage_result") return;
+  if (!paused && !ui.levelOverlay.classList.contains("hidden")) return;
+  if (paused && state.paused) return;
+  if (!paused && !state.paused) return;
+  state.paused = paused;
+  state.pauseReason = paused ? reason : "";
+  if (paused) {
+    ui.pauseState.textContent = `第 ${state.stage} 关 / ${state.score.toLocaleString("zh-CN")} 分 / 目标 ${state.stageTarget}`;
+    show(ui.pauseOverlay);
+  } else {
+    hide(ui.pauseOverlay);
+    clock.getDelta();
+  }
+}
+
+function goHome() {
+  state.running = false;
+  state.paused = true;
+  state.over = false;
+  clearActiveObjects();
   fxGroup.clear();
   slashLayer.innerHTML = "";
+  state.particles = [];
+  state.cutPieces = [];
+  state.slashFx = [];
+  hide(ui.pauseOverlay);
+  hide(ui.resultOverlay);
+  hide(ui.levelOverlay);
+  hide(ui.settingsOverlay);
+  hide(ui.tutorialOverlay);
+  hideBossWarningOverlay();
+  show(ui.startOverlay);
+  updateStartRecords();
+  updateHud();
+}
+
+function startRound(options = {}) {
+  if (assetState.loading) return;
+  if (!options.skipTutorial && shouldShowTutorial()) {
+    showTutorial(() => startRound({ ...options, skipTutorial: true }));
+    return;
+  }
+  unlockAudio();
+  clearActiveObjects();
+  Object.assign(state, createInitialState());
+  fxGroup.clear();
+  slashLayer.innerHTML = "";
+  state.particles = [];
+  state.cutPieces = [];
+  state.slashFx = [];
   state.running = true;
   state.paused = false;
   state.over = false;
@@ -609,12 +1163,18 @@ function startRound() {
   hide(ui.startOverlay);
   hide(ui.resultOverlay);
   hide(ui.levelOverlay);
+  hide(ui.pauseOverlay);
   hideBossWarningOverlay();
   updateHud();
+  playSound("start");
+}
+
+function getActiveObjectLimit() {
+  return state.frenzyActive ? FRENZY_ACTIVE_OBJECTS : MAX_ACTIVE_OBJECTS;
 }
 
 function spawnWave(elapsed) {
-  const openSlots = MAX_ACTIVE_OBJECTS - state.objects.length - state.pendingSpawns.length;
+  const openSlots = getActiveObjectLimit() - state.objects.length - state.pendingSpawns.length;
   if (openSlots <= 0) return;
 
   const pool = getSpawnPool(elapsed);
@@ -626,18 +1186,27 @@ function spawnWave(elapsed) {
   const launchDelays = Array.from({ length: count }, (_, index) => index * 0.085 + Math.random() * 0.12);
   shuffle(launchDelays);
 
+  let queuedFruitCount = 0;
+  const fruitSpawnBudget = Math.max(count, Math.min(getActiveObjectLimit() + FACTION_EXTRA_SPAWN_BUFFER, openSlots + FACTION_EXTRA_SPAWN_BUFFER - (wantsDanger ? 1 : 0)));
   for (let i = 0; i < count; i += 1) {
-    const type = pool[Math.floor(Math.random() * pool.length)];
-    state.pendingSpawns.push({
-      delay: launchDelays[i],
-      type,
-      waveIndex: i,
-      waveCount: count,
-      waveCenter,
-      waveWidth,
-      waveApexY,
-      elapsed,
-    });
+    const baseType = pool[Math.floor(Math.random() * pool.length)];
+    const spawnPlans = resolveFruitSpawnPlans(baseType);
+    for (let copyIndex = 0; copyIndex < spawnPlans.length; copyIndex += 1) {
+      if (queuedFruitCount >= fruitSpawnBudget) break;
+      const plan = spawnPlans[copyIndex];
+      state.pendingSpawns.push({
+        delay: launchDelays[i] + copyIndex * 0.035,
+        type: plan.type,
+        waveIndex: i + copyIndex * 0.17,
+        waveCount: count,
+        waveCenter,
+        waveWidth,
+        waveApexY,
+        elapsed,
+        spawnMeta: plan.spawnMeta,
+      });
+      queuedFruitCount += 1;
+    }
   }
 
   if (wantsDanger) {
@@ -657,7 +1226,7 @@ function spawnWave(elapsed) {
   }
 }
 
-function spawnObject(type, waveIndex = 0, waveCount = 1, waveCenter = 0, waveWidth = 1.4, elapsed = 0, waveApexY = 1.6, dangerEdgeSide = 0, fixedX = null) {
+function spawnObject(type, waveIndex = 0, waveCount = 1, waveCenter = 0, waveWidth = 1.4, elapsed = 0, waveApexY = 1.6, dangerEdgeSide = 0, fixedX = null, spawnMeta = null) {
   const data = FRUITS[type];
   const mesh = createFruitMesh(type, data);
   const waveT = waveCount <= 1 ? 0.5 : waveIndex / (waveCount - 1);
@@ -670,23 +1239,30 @@ function spawnObject(type, waveIndex = 0, waveCount = 1, waveCenter = 0, waveWid
   const apexY = THREE.MathUtils.clamp(waveApexY + (Math.random() - 0.5) * 0.18, WORLD.bottom + 3.1, WORLD.top - 1.3);
   const verticalSpeed = Math.sqrt(Math.max(0.1, 2 * 5.35 * Math.max(0.1, apexY - launchY))) + levelLift;
 
-  const object = {
+  const object = Object.assign(getObjectWrapper(), {
     id: state.fruitId++,
     type,
     label: data.label,
     score: data.score,
+    factionType: spawnMeta?.factionType ?? type,
+    assimilated: Boolean(spawnMeta?.assimilated),
+    copyIndex: spawnMeta?.copyIndex ?? 0,
+    copyScoreScale: spawnMeta?.copyScoreScale ?? 1,
     danger: Boolean(data.danger),
     frenzyTarget: Boolean(data.frenzyTarget),
     radius: data.size * 0.9,
     minHitRadius: data.frenzyTarget ? 22 : 34,
     mesh,
+    fallbackModel: Boolean(mesh.userData?.fallbackModel),
     velocity: new THREE.Vector3(laneDrift, data.danger ? verticalSpeed * 1.08 : data.frenzyTarget ? verticalSpeed * 0.88 : verticalSpeed, (Math.random() - 0.5) * 0.18),
     spin: new THREE.Vector3(Math.random() * 2.5, Math.random() * 3, Math.random() * 2.5),
     elite: null,
     cut: false,
     apexY,
     visualTime: 0,
-  };
+    visibleTime: 0,
+    wasVisible: false,
+  });
 
   if (!object.danger && elapsed > 20 && Math.random() < (elapsed > 42 ? 0.28 : 0.14)) {
     object.elite = Math.random() > 0.5 ? "split" : "fast";
@@ -742,6 +1318,8 @@ function createFruitMesh(type, data) {
   }
 
   const fallback = createFallbackFruitMesh(type, data);
+  assetState.fallbackTypes.add(type);
+  renderAssetStatus();
   if (data.frenzyTarget) decorateStrawberryTarget(fallback);
   return fallback;
 }
@@ -836,6 +1414,9 @@ function createFallbackFruitMesh(type, data) {
   const group = new THREE.Group();
   const size = data.size;
   const material = materials[type] ?? materials.apple;
+  group.userData.fallbackModel = true;
+  group.userData.assetName = data.assetName;
+
   const main = new THREE.Mesh(reusable.box, material);
   main.scale.set(size, size, size);
   group.add(main);
@@ -844,6 +1425,12 @@ function createFallbackFruitMesh(type, data) {
   highlight.scale.set(size * 0.36, size * 0.06, size * 0.36);
   highlight.position.set(-size * 0.16, size * 0.52, size * 0.18);
   group.add(highlight);
+
+  const badge = new THREE.Mesh(reusable.box, materials.fallbackBadge);
+  badge.scale.set(size * 0.16, size * 0.3, size * 0.08);
+  badge.position.set(size * 0.45, size * 0.58, size * 0.42);
+  badge.renderOrder = 6;
+  group.add(badge);
 
   if (type === "durian") {
     for (let i = 0; i < 10; i += 1) {
@@ -865,13 +1452,14 @@ function update(dt) {
   if (state.phase === "normal") {
     state.spawnTimer -= dt;
     const elapsed = ROUND_SECONDS - state.timeLeft;
-    if (!state.midEventTriggered && elapsed >= MID_EVENT_ELAPSED) {
+    const midEventAt = state.mods.frenzyEarly ? 25 : MID_EVENT_ELAPSED;
+    if (!state.midEventTriggered && elapsed >= midEventAt) {
       startMidStageEvent(elapsed);
     }
     if (state.midEventActive) updateMidStageEvent(dt);
     if (state.frenzyActive) updateFrenzy(dt);
     updatePendingSpawns(dt);
-    if (!state.midEventActive && !state.frenzyActive && state.spawnTimer <= 0 && state.objects.length + state.pendingSpawns.length < MAX_ACTIVE_OBJECTS) {
+    if (!state.midEventActive && !state.frenzyActive && state.spawnTimer <= 0 && state.objects.length + state.pendingSpawns.length < getActiveObjectLimit()) {
       spawnWave(elapsed);
       state.spawnTimer = getWaveInterval(elapsed);
     }
@@ -882,10 +1470,6 @@ function update(dt) {
 
   updateObjects(dt);
   updateFx(dt);
-
-  if (performance.now() / 1000 - state.lastCutAt > state.mods.comboWindow) {
-    state.combo = 0;
-  }
 
   if (state.timeLeft <= 0 && state.phase === "normal") {
     startBossWarningPhase();
@@ -901,7 +1485,6 @@ function startMidStageEvent(elapsed) {
   state.midEventActive = true;
   state.midEventTimer = MID_EVENT_SECONDS;
   state.spawnTimer = MID_EVENT_SECONDS + 0.25;
-  state.pendingSpawns = [];
 
   const bombCount = THREE.MathUtils.randInt(MID_EVENT_BOMB_MIN, MID_EVENT_BOMB_MAX);
   const lanes = buildBombBarrageLanes(bombCount);
@@ -933,6 +1516,8 @@ function startMidStageEvent(elapsed) {
   });
 
   showFloatingText(centerScreenPoint(), "狂暴草莓!", "frenzy");
+  playSound("strawberry");
+  platform.haptics.medium();
 }
 
 function buildBombBarrageLanes(count) {
@@ -958,14 +1543,16 @@ function startFrenzyPhase(origin) {
   clearHazardsAndPending();
   state.midEventActive = false;
   state.frenzyActive = true;
-  state.frenzyTimeLeft = FRENZY_SECONDS;
+  state.frenzyTriggered = true;
+  state.frenzyTimeLeft = FRENZY_SECONDS + (state.mods.frenzyTimeBonus || 0);
   state.frenzySpawnTimer = 0;
   state.frenzyPacksRemaining = FRENZY_PACKS;
   state.frenzyPackIndex = 0;
-  state.frenzyScore = 0;
-  state.spawnTimer = FRENZY_SECONDS + 0.25;
+  state.spawnTimer = state.frenzyTimeLeft + 0.25;
   triggerEventImpact("fx-frenzy-pop");
   burst(origin, 0xffcf3f, 36);
+  playSound("strawberry");
+  platform.haptics.heavy();
   showFloatingText(projectToScreen(origin), "狂暴喷涌!", "frenzy");
 }
 
@@ -981,6 +1568,7 @@ function updateFrenzy(dt) {
 
   if (state.frenzyTimeLeft <= 0) {
     state.frenzyActive = false;
+    state.pendingSpawns = state.pendingSpawns.filter((plan) => !plan.frenzyPack);
     state.spawnTimer = 0;
     showFloatingText(centerScreenPoint(), "喷涌结束", "stage");
   }
@@ -993,18 +1581,29 @@ function spawnFrenzyPack(packIndex) {
   const isFinisher = packIndex >= FRENZY_PACKS - FRENZY_FINISHER_PACKS;
   const pack = buildFrenzyPack(pattern, isFinisher);
 
+  let queuedFruitCount = 0;
+  const fruitSpawnBudget = Math.min(FRENZY_ACTIVE_OBJECTS, count + FACTION_EXTRA_SPAWN_BUFFER);
   for (let i = 0; i < count; i += 1) {
-    state.pendingSpawns.push({
-      delay: i * FRENZY_FRUIT_STAGGER,
-      type: NORMAL_FRUIT_POOL[Math.floor(Math.random() * NORMAL_FRUIT_POOL.length)],
-      waveIndex: i,
-      waveCount: count,
-      waveCenter: pack.center,
-      waveWidth: pack.width,
-      waveApexY: pack.apex + pack.apexOffsets[i],
-      elapsed,
-      fixedX: pack.fixedXs[i],
-    });
+    const baseType = NORMAL_FRUIT_POOL[Math.floor(Math.random() * NORMAL_FRUIT_POOL.length)];
+    const spawnPlans = resolveFruitSpawnPlans(baseType);
+    for (let copyIndex = 0; copyIndex < spawnPlans.length; copyIndex += 1) {
+      if (queuedFruitCount >= fruitSpawnBudget) break;
+      const plan = spawnPlans[copyIndex];
+      state.pendingSpawns.push({
+        delay: i * FRENZY_FRUIT_STAGGER + copyIndex * 0.018,
+        type: plan.type,
+        waveIndex: i + copyIndex * 0.16,
+        waveCount: count,
+        waveCenter: pack.center,
+        waveWidth: pack.width,
+        waveApexY: pack.apex + pack.apexOffsets[i],
+        elapsed,
+        fixedX: Number.isFinite(pack.fixedXs[i]) ? pack.fixedXs[i] + (copyIndex === 0 ? 0 : (copyIndex - 0.5) * 0.12) : pack.fixedXs[i],
+        frenzyPack: true,
+        spawnMeta: plan.spawnMeta,
+      });
+      queuedFruitCount += 1;
+    }
   }
 }
 
@@ -1047,10 +1646,10 @@ function startBossPhase() {
   hideBossWarningOverlay();
   clearActiveObjects();
   state.phase = "boss";
-  state.timeLeft = BOSS_SECONDS + state.mods.bossTimeBonus;
+  state.timeLeft = BOSS_SECONDS + state.mods.bossTimeBonus + getFruitSkillLevel("avocado", "boss_time") * 0.25;
   state.bossHits = 0;
-  state.bossScore = 0;
   state.bossCracked = false;
+  state.bossCrackReason = "";
   state.combo = 0;
   state.lastCutAt = -999;
   spawnBossObject();
@@ -1090,6 +1689,8 @@ function updateBossWarning(dt) {
   if (cue > 0 && cue !== state.bossWarningLastCue) {
     state.bossWarningLastCue = cue;
     triggerEventImpact("fx-boss-warning");
+    playSound("bossWarning");
+    platform.haptics.light();
     showBossWarningOverlay("countdown", cue);
   }
 
@@ -1147,7 +1748,7 @@ function spawnBossObject() {
   const duration = state.timeLeft;
   mesh.position.set(0, startY, 0.12);
 
-  const object = {
+  const object = Object.assign(getObjectWrapper(), {
     id: state.fruitId++,
     type,
     label: bossData.label,
@@ -1167,13 +1768,37 @@ function spawnBossObject() {
     cut: false,
     cracked: false,
     crackStage: 0,
+    crackMarks: [],
     pulse: 0,
     lastBossHitAt: -999,
-  };
+  });
 
   state.boss = object;
   state.objects.push(object);
   entityGroup.add(mesh);
+}
+
+function applyBossCrackVisual(object, targetStage = object.crackStage) {
+  if (!object?.mesh) return;
+  object.crackMarks ||= [];
+  const marks = [
+    { x: -0.16, y: 0.16, z: 0.28, length: 0.76, angle: -0.44 },
+    { x: 0.2, y: -0.04, z: 0.31, length: 0.92, angle: 0.52 },
+    { x: -0.02, y: -0.2, z: 0.34, length: 0.68, angle: -0.86 },
+    { x: 0.05, y: 0.24, z: 0.37, length: 1.08, angle: 0.14 },
+  ];
+
+  while (object.crackMarks.length < Math.min(targetStage, marks.length)) {
+    const index = object.crackMarks.length;
+    const markData = marks[index];
+    const mark = new THREE.Mesh(reusable.box, materials.crack);
+    mark.position.set(markData.x, markData.y, markData.z);
+    mark.rotation.set(0, 0, markData.angle);
+    mark.scale.set(0.035, markData.length, 0.035);
+    mark.renderOrder = 12;
+    object.mesh.add(mark);
+    object.crackMarks.push(mark);
+  }
 }
 
 function finishBossPhase() {
@@ -1223,11 +1848,11 @@ function startNextStage() {
   state.frenzySpawnTimer = 0;
   state.frenzyPacksRemaining = 0;
   state.frenzyPackIndex = 0;
-  state.frenzyScore = 0;
   state.bossWarningTimer = 0;
   state.bossWarningCountdownStarted = false;
   state.bossWarningLastCue = null;
   state.penaltyScore = 0;
+  state.flow.rerollsLeft = 1;
   state.combo = 0;
   state.spawnTimer = 0;
   state.lastCutAt = -999;
@@ -1245,6 +1870,7 @@ function startNextStage() {
 }
 
 function clearActiveObjects() {
+  state.objects.forEach((object) => releaseObjectWrapper(object));
   entityGroup.clear();
   state.objects = [];
   state.pendingSpawns = [];
@@ -1252,7 +1878,7 @@ function clearActiveObjects() {
 }
 
 function clearHazardsAndPending() {
-  state.pendingSpawns = [];
+  state.pendingSpawns = state.pendingSpawns.filter((plan) => !FRUITS[plan.type]?.danger);
   for (let i = state.objects.length - 1; i >= 0; i -= 1) {
     if (state.objects[i].danger) removeObject(i);
   }
@@ -1261,8 +1887,16 @@ function clearHazardsAndPending() {
 function updatePendingSpawns(dt) {
   for (let i = state.pendingSpawns.length - 1; i >= 0; i -= 1) {
     const plan = state.pendingSpawns[i];
+    if (plan.frenzyPack && !state.frenzyActive) {
+      state.pendingSpawns.splice(i, 1);
+      continue;
+    }
     plan.delay -= dt;
     if (plan.delay <= 0) {
+      if (state.objects.length >= getActiveObjectLimit()) {
+        plan.delay = 0.04;
+        continue;
+      }
       spawnObject(
         plan.type,
         plan.waveIndex,
@@ -1273,10 +1907,29 @@ function updatePendingSpawns(dt) {
         plan.waveApexY,
         plan.dangerEdgeSide ?? 0,
         plan.fixedX ?? null,
+        plan.spawnMeta ?? null,
       );
       state.pendingSpawns.splice(i, 1);
     }
   }
+}
+
+function updateObjectVisibility(object, dt) {
+  const screen = projectToScreen(object.mesh.position);
+  const viewport = platform.device.getViewport();
+  const radius = Math.max(object.minHitRadius ?? 34, object.radius * 76);
+  const insideSafeFrame =
+    screen.x >= -radius * 0.35 &&
+    screen.x <= viewport.width + radius * 0.35 &&
+    screen.y >= 72 &&
+    screen.y <= viewport.height - 24;
+
+  if (insideSafeFrame) {
+    object.visibleTime = (object.visibleTime || 0) + dt;
+    if (object.visibleTime >= 0.14) object.wasVisible = true;
+  }
+
+  return { screen, radius, insideSafeFrame };
 }
 
 function updateObjects(dt) {
@@ -1294,14 +1947,17 @@ function updateObjects(dt) {
     object.mesh.rotation.y += object.spin.y * dt;
     object.mesh.rotation.z += object.spin.z * dt;
     if (object.frenzyTarget) updateFrenzyTargetVisual(object, dt);
+    const visibility = updateObjectVisibility(object, dt);
 
     if (object.velocity.y < 0 && object.mesh.position.y < WORLD.bottom - 1.15) {
-      const missPoint = projectToScreen(object.mesh.position);
+      const missPoint = clampScreenPoint(visibility.screen);
       removeObject(i);
       if (object.frenzyTarget) {
         showFloatingText(missPoint, "草莓错过", "stage");
-      } else if (!object.danger && state.phase === "normal" && !state.frenzyActive) {
-        applyScorePenalty(0.05, 6, `${object.label}漏掉`, missPoint);
+      } else if (!object.danger && state.phase === "normal" && !state.frenzyActive && object.wasVisible) {
+        handleMissedFruit(object, missPoint);
+      } else if (!object.danger && DEBUG_MODE && !object.wasVisible) {
+        showFloatingText(missPoint, `${object.label}未入镜`, "stage");
       }
     }
   }
@@ -1343,6 +1999,38 @@ function updateBossObject(object, dt) {
   }
 }
 
+function disposeMaterial(material) {
+  if (Array.isArray(material)) {
+    material.forEach(disposeMaterial);
+    return;
+  }
+  material?.dispose?.();
+}
+
+function removeParticleAt(index) {
+  const particle = state.particles[index];
+  if (!particle) return;
+  fxGroup.remove(particle.mesh);
+  disposeMaterial(particle.mesh.material);
+  state.particles.splice(index, 1);
+}
+
+function removeSlashFxAt(index) {
+  const slash = state.slashFx[index];
+  if (!slash) return;
+  fxGroup.remove(slash.mesh);
+  slash.mesh.geometry?.dispose?.();
+  disposeMaterial(slash.mesh.material);
+  state.slashFx.splice(index, 1);
+}
+
+function removeCutPieceAt(index) {
+  const piece = state.cutPieces[index];
+  if (!piece) return;
+  fxGroup.remove(piece.mesh);
+  state.cutPieces.splice(index, 1);
+}
+
 function updateFx(dt) {
   for (let i = state.particles.length - 1; i >= 0; i -= 1) {
     const particle = state.particles[i];
@@ -1351,10 +2039,7 @@ function updateFx(dt) {
     particle.life -= dt;
     particle.mesh.material.opacity = Math.max(0, particle.life / particle.maxLife);
     if (particle.life <= 0) {
-      fxGroup.remove(particle.mesh);
-      particle.mesh.geometry.dispose();
-      particle.mesh.material.dispose();
-      state.particles.splice(i, 1);
+      removeParticleAt(i);
     }
   }
 
@@ -1363,10 +2048,7 @@ function updateFx(dt) {
     slash.life -= dt;
     slash.mesh.material.opacity = Math.max(0, slash.life / slash.maxLife) * slash.opacity;
     if (slash.life <= 0) {
-      fxGroup.remove(slash.mesh);
-      slash.mesh.geometry.dispose();
-      slash.mesh.material.dispose();
-      state.slashFx.splice(i, 1);
+      removeSlashFxAt(i);
     }
   }
 
@@ -1383,16 +2065,190 @@ function updateFx(dt) {
     piece.mesh.scale.copy(piece.baseScale).multiplyScalar(0.7 + fade * 0.3);
 
     if (piece.life <= 0) {
-      fxGroup.remove(piece.mesh);
-      state.cutPieces.splice(i, 1);
+      removeCutPieceAt(i);
     }
   }
 }
 
 function removeObject(index) {
   const object = state.objects[index];
+  if (!object) return null;
   entityGroup.remove(object.mesh);
   state.objects.splice(index, 1);
+  releaseObjectWrapper(object);
+  return object;
+}
+
+function getObjectScoreBase(object) {
+  const valueLevel = getFruitSkillLevel(object.type, "value");
+  const valueMultiplier = valueLevel >= FRUIT_BASE_SKILL_DEFS.value.maxLevel ? 2 : 1;
+  const scale = Number.isFinite(object.copyScoreScale) ? object.copyScoreScale : 1;
+  return Math.max(0, Math.round((object.score + valueLevel * 2) * valueMultiplier * scale));
+}
+
+function createFactionCutBonus() {
+  return {
+    scoreAdd: 0,
+    scoreMultiplier: 1,
+    gradeBonus: 0,
+    comboBonusRate: 0,
+    comboCapBonus: 0,
+    extraXp: 0,
+    extraCombo: 0,
+    shieldGain: 0,
+    splashBoost: 0,
+    splashRadius: 0,
+    burstChain: false,
+    pulse: false,
+    chainCount: 0,
+    chainRadius: 1.45,
+    lightningScore: 0,
+    beam: false,
+    afterimageChance: 0,
+    splitChance: 0,
+    slowNearby: 0,
+    bonusFruitType: null,
+    bonusFruitCount: 0,
+    text: "",
+  };
+}
+
+function getFruitFactionCutBonus(object, grade) {
+  const type = object.type;
+  const bonus = createFactionCutBonus();
+  if (getFactionMastery(type) <= 0) return bonus;
+
+  const runtime = getFactionRuntime(type);
+  switch (object.type) {
+    case "apple":
+      bonus.comboBonusRate += getFruitSkillLevel(type, "combo_window") * 0.003;
+      bonus.scoreAdd += Math.floor(Math.min(60, state.combo) * getFruitSkillLevel(type, "combo_score") * 0.1);
+      if (state.combo >= 20) bonus.scoreAdd += getFruitSkillLevel(type, "combo_fever") * 8;
+      bonus.comboCapBonus += getFruitSkillLevel(type, "combo_limit") * 0.35;
+      if (state.combo >= 12) bonus.text = "苹果连击";
+      break;
+    case "pear":
+      bonus.extraCombo += Math.floor((getFruitSkillLevel(type, "combo_window") + 2) / 3);
+      if (getFruitSkillLevel(type, "combo_echo") > 0) {
+        runtime.shieldMarks += 1;
+        const threshold = Math.max(3, 7 - getFruitSkillLevel(type, "combo_echo"));
+        if (runtime.shieldMarks >= threshold) {
+          runtime.shieldMarks = 0;
+          bonus.shieldGain = 1 + Math.floor(getFruitSkillLevel(type, "precision_shield") / 2);
+          bonus.text = "连击回响";
+        }
+      }
+      if (grade?.key === "perfect") bonus.shieldGain += Math.floor(getFruitSkillLevel(type, "precision_shield") / 3);
+      break;
+    case "lemon":
+      bonus.gradeBonus += getFruitSkillLevel(type, "precision_focus") * 0.04;
+      if (grade?.key === "good") bonus.gradeBonus += getFruitSkillLevel(type, "precision_aura") * 0.05;
+      bonus.comboCapBonus += getFruitSkillLevel(type, "precision_cap") * 0.25;
+      if (grade?.key === "perfect" && Math.random() < getFruitSkillLevel(type, "beam") * 0.18) bonus.beam = true;
+      if (Math.abs(object.mesh.position.y - object.apexY) <= 0.55) {
+        bonus.slowNearby = Math.max(bonus.slowNearby, 0.86);
+        bonus.text = "柠檬准心";
+      }
+      break;
+    case "egg":
+      bonus.extraXp += getFruitSkillLevel(type, "xp_boost") * 8;
+      if (getFruitSkillLevel(type, "xp_boost") > 0) bonus.text = "经验汲取";
+      break;
+    case "avocado":
+      if (getFruitSkillLevel(type, "combo_echo") > 0 || getFruitSkillLevel(type, "steady_hand") > 0) {
+        runtime.shieldMarks += 1 + Math.floor(getFruitSkillLevel(type, "combo_echo") / 3);
+        if (runtime.shieldMarks >= Math.max(3, 6 - getFruitSkillLevel(type, "steady_hand"))) {
+          runtime.shieldMarks = 0;
+          bonus.shieldGain = 1 + Math.floor(getFruitSkillLevel(type, "perfect_shield") / 2);
+          bonus.text = "稳手护切";
+        }
+      }
+      break;
+    case "coconut":
+      if (getFruitSkillLevel(type, "splash") > 0) {
+        bonus.splashBoost = Math.min(5, 1 + Math.floor((getFruitSkillLevel(type, "splash") + getFruitSkillLevel(type, "burst_coconut")) / 2));
+        bonus.splashRadius = 1.05 + getFruitSkillLevel(type, "splash_big") * 0.16;
+        bonus.scoreAdd += getFruitSkillLevel(type, "burst_coconut") * 8;
+        bonus.burstChain = getFruitSkillLevel(type, "burst_overload") > 0;
+        runtime.marks += 1;
+        if (getFruitSkillLevel(type, "burst_nova") > 0 && runtime.marks >= Math.max(4, 9 - getFruitSkillLevel(type, "burst_nova"))) {
+          runtime.marks = 0;
+          bonus.pulse = true;
+        }
+        bonus.text = "椰子爆汁";
+      }
+      break;
+    case "mushroom":
+      if (getFruitSkillLevel(type, "chain") > 0) {
+        bonus.chainCount = Math.min(6, getFruitSkillLevel(type, "chain") + Math.floor(getFruitSkillLevel(type, "chain_plus") / 2));
+        bonus.chainRadius = 1.25 + getFruitSkillLevel(type, "chain_plus") * 0.12;
+        bonus.lightningScore = getFruitSkillLevel(type, "chain_overload") * 12;
+        bonus.burstChain = getFruitSkillLevel(type, "chain_spread") > 0;
+        if (grade?.key === "perfect" && Math.random() < getFruitSkillLevel(type, "chain_beam") * 0.16) bonus.beam = true;
+        bonus.text = "蘑菇雷链";
+      }
+      break;
+    case "onion":
+      bonus.gradeBonus += getFruitSkillLevel(type, "precision_focus") * 0.03;
+      if (grade?.key === "good") bonus.extraCombo += getFruitSkillLevel(type, "precision_shield") > 0 ? 1 : 0;
+      bonus.slowNearby = Math.max(bonus.slowNearby, 0.9 - getFruitSkillLevel(type, "precision_aura") * 0.04);
+      bonus.comboCapBonus += getFruitSkillLevel(type, "precision_cap") * 0.18;
+      if (getFruitSkillLevel(type, "precision_focus") > 0 || getFruitSkillLevel(type, "precision_aura") > 0) bonus.text = "洋葱慢切";
+      break;
+    case "sausage":
+      bonus.splitChance = Math.min(0.65, getFruitSkillLevel(type, "wider_cut") * 0.05 + getFruitSkillLevel(type, "combo_storm") * 0.08);
+      bonus.afterimageChance = Math.min(0.6, getFruitSkillLevel(type, "afterimage") * 0.16);
+      bonus.scoreAdd += Math.floor(Math.min(60, state.combo) * getFruitSkillLevel(type, "combo_score") * 0.08);
+      if (bonus.splitChance > 0 || bonus.afterimageChance > 0) bonus.text = "香肠残影";
+      break;
+    default:
+      break;
+  }
+  return bonus;
+}
+
+function queueBonusFruit(type, origin, count = 1) {
+  const openSlots = getActiveObjectLimit() + FACTION_EXTRA_SPAWN_BUFFER - state.objects.length - state.pendingSpawns.length;
+  const safeCount = Math.min(Math.max(0, openSlots), Math.max(0, count));
+  for (let i = 0; i < safeCount; i += 1) {
+    state.pendingSpawns.push({
+      delay: 0.08 + i * 0.06,
+      type,
+      waveIndex: i,
+      waveCount: safeCount,
+      waveCenter: THREE.MathUtils.clamp(origin.x, WORLD.left + 0.8, WORLD.right - 0.8),
+      waveWidth: 0.55,
+      waveApexY: THREE.MathUtils.clamp(origin.y + 0.7, WORLD.bottom + 3.1, WORLD.top - 1.4),
+      elapsed: ROUND_SECONDS - state.timeLeft,
+      spawnMeta: {
+        factionType: type,
+        assimilated: false,
+        copyIndex: i + 1,
+        copyScoreScale: FACTION_COPY_SCORE_SCALE,
+      },
+    });
+  }
+}
+
+function applyNearbySlow(origin, factor) {
+  if (!Number.isFinite(factor) || factor <= 0 || factor >= 1) return;
+  state.objects.forEach((target) => {
+    if (target.cut || target.danger || target.boss || target.frenzyTarget) return;
+    if (target.mesh.position.distanceTo(origin) > 1.45) return;
+    target.velocity.multiplyScalar(factor);
+  });
+}
+
+function breakCombo(label) {
+  if (state.comboBreakShield > 0) {
+    state.comboBreakShield -= 1;
+    showFloatingText(centerScreenPoint(), "护切保连", "upgrade");
+    return false;
+  }
+  if (state.combo > 0) state.comboBreakCount += 1;
+  state.combo = 0;
+  state.deathReason = label;
+  return true;
 }
 
 function addScore(points) {
@@ -1403,16 +2259,40 @@ function addScore(points) {
   return value;
 }
 
-function applyScorePenalty(rate, minimum, label, screenPoint = null) {
-  const adjustedRate = rate * Math.max(0.25, 1 - state.mods.penaltyReduction);
-  const penalty = Math.max(minimum, Math.ceil(state.score * adjustedRate));
+function applyScorePenalty(rate, _minimum, label, screenPoint = null) {
+  if (DEBUG_RUNTIME.noPenalty) return;
+  const adjustedRate = rate * Math.max(0.25, 1 - getPenaltyReduction());
+  const baseScore = Math.max(0, state.stageScore);
+  const penalty = Math.min(baseScore, Math.max(0, Math.ceil(baseScore * adjustedRate)));
+  const viewport = platform.device.getViewport();
   state.score = Math.max(0, state.score - penalty);
   state.stageScore = Math.max(0, state.stageScore - penalty);
   state.penaltyScore += penalty;
-  state.combo = 0;
+  if (label.includes("漏掉")) state.missCount += 1;
+  if (label.includes("危险桶")) state.bombHitCount += 1;
+  breakCombo(`${label} -${penalty}`);
   state.deathReason = `${label} -${penalty}`;
+  playSound("penalty");
+  platform.haptics.medium();
   triggerEventImpact("fx-damage");
-  showFloatingText(screenPoint ?? { x: window.innerWidth * 0.5, y: window.innerHeight * 0.44 }, `-${penalty}`, "penalty");
+  showFloatingText(screenPoint ?? { x: viewport.width * 0.5, y: viewport.height * 0.44 }, penalty > 0 ? `-${penalty}` : "MISS", "penalty");
+}
+
+function getPenaltyReduction() {
+  return Math.min(0.75,
+    (state.mods.penaltyReduction || 0) +
+    getFruitSkillLevel("avocado", "steady_hand") * 0.08 +
+    getFruitSkillLevel("pear", "steady_hand") * 0.04
+  );
+}
+
+function handleMissedFruit(object, screenPoint) {
+  if (DEBUG_RUNTIME.noPenalty) return;
+  state.missCount += 1;
+  const broke = breakCombo(`${object.label}漏掉`);
+  playSound("penalty");
+  platform.haptics.light();
+  showFloatingText(screenPoint, broke ? "断连" : "护切", "penalty");
 }
 
 function cutObject(object, index, cutPoint, isEcho = false, sliceMeta = null) {
@@ -1431,47 +2311,85 @@ function cutObject(object, index, cutPoint, isEcho = false, sliceMeta = null) {
   if (liveIndex < 0) return;
   index = liveIndex;
   object.cut = true;
+  const effectOrigin = object.mesh.position.clone();
 
   if (object.danger) {
-    burst(object.mesh.position, 0x8a6a35, 18);
+    const penaltyPoint = sliceMeta?.screenPoint ?? projectToScreen(object.mesh.position);
+    burst(effectOrigin, 0x8a6a35, 18);
     removeObject(index);
-    applyScorePenalty(0.1, 28, "切到危险桶", sliceMeta?.screenPoint ?? projectToScreen(object.mesh.position));
+    applyScorePenalty(0.1, 0, "切到危险桶", penaltyPoint);
     return;
   }
 
-  const now = performance.now() / 1000;
-  state.combo = now - state.lastCutAt <= state.mods.comboWindow ? state.combo + 1 : 1;
+  const now = nowSeconds();
+  state.combo = Math.max(0, state.combo) + 1;
   state.lastCutAt = now;
-  state.maxCombo = Math.max(state.maxCombo, state.combo);
 
-  let score = object.score;
-  if (object.type === "coconut") score += state.mods.coconutBonus;
+  let score = getObjectScoreBase(object);
   const grade = sliceMeta?.grade ?? getSliceGrade(1, 0);
+  const factionBonus = getFruitFactionCutBonus(object, grade);
+  if (factionBonus.extraCombo > 0) state.combo += factionBonus.extraCombo;
+  if (factionBonus.shieldGain > 0) state.comboBreakShield = Math.min(5, state.comboBreakShield + factionBonus.shieldGain);
+  state.maxCombo = Math.max(state.maxCombo, state.combo);
+  score += factionBonus.scoreAdd;
+  score = Math.round(score * factionBonus.scoreMultiplier);
   const perfect = grade.key === "perfect";
-  score = Math.round(score * (grade.multiplier + state.mods.gradeBonus));
-  const multiplier = Math.min(3.2, 1 + state.combo * (0.012 + state.mods.comboBonus));
+  if (state.mods.perfectStack !== undefined) {
+    if (perfect) state.mods.perfectStack = Math.min(state.mods.perfectCap || 10, state.mods.perfectStack + 1);
+    else if (grade.key === "good") { if (!state.mods.perfectShield || state.mods.perfectStack < 5) state.mods.perfectStack = Math.max(0, state.mods.perfectStack - 1); }
+  }
+  const gradeMult = grade.multiplier + state.mods.gradeBonus + factionBonus.gradeBonus + (state.mods.perfectStack || 0) * 0.02;
+  score = Math.round(score * gradeMult);
+  const comboCap = (state.mods.comboCap || 3.2) + factionBonus.comboCapBonus;
+  const multiplier = Math.min(comboCap, 1 + state.combo * (0.012 + state.mods.comboBonus + factionBonus.comboBonusRate));
   score = Math.round(score * multiplier);
+  if (state.mods.frenzyAfterMult > 0 && !state.frenzyActive) score = Math.round(score * (1 + state.mods.frenzyAfterMult));
   const screenPoint = sliceMeta?.screenPoint ?? projectToScreen(object.mesh.position);
 
   addScore(score);
-  gainXp(Math.max(10, Math.round(score * 0.3)));
-  burst(object.mesh.position, state.frenzyActive ? 0xffcf3f : FRUITS[object.type].color, state.frenzyActive ? 14 : perfect ? 18 : 12);
+  gainXp(Math.max(10, Math.round(score * 0.3)) + factionBonus.extraXp);
+  playSound(state.frenzyActive ? "frenzyCut" : perfect ? "perfect" : "cut");
+  if (perfect) platform.haptics.light();
+  burst(effectOrigin, state.frenzyActive ? 0xffcf3f : FRUITS[object.type].color, state.frenzyActive ? 14 : perfect ? 18 : 12);
   showFloatingText(screenPoint, state.frenzyActive ? `狂切 +${score}` : `${grade.label} +${score}`, state.frenzyActive ? "frenzy" : grade.key);
   if (!isEcho) recordSwipeHit(object, score, sliceMeta?.screenPoint);
   spawnCutPieces(object);
 
   if (object.elite === "split") splitObject(object);
+  if (factionBonus.splitChance > 0 && Math.random() < factionBonus.splitChance) splitObject(object);
   removeObject(index);
 
-  if (state.mods.splashTargets > 0) splashHit(object.mesh.position);
-  if (state.mods.chainCount > 0) chainHit(object.mesh.position, state.mods.chainCount);
-  if (state.mods.pulse && state.combo > 0 && state.combo % 18 === 0) pulseHit();
-  if (state.mods.beam && perfect) beamHit(object.mesh.position.x);
+  if (factionBonus.bonusFruitType && factionBonus.bonusFruitCount > 0) {
+    queueBonusFruit(factionBonus.bonusFruitType, effectOrigin, factionBonus.bonusFruitCount);
+  }
+  if (factionBonus.slowNearby > 0) applyNearbySlow(effectOrigin, factionBonus.slowNearby);
+  if (factionBonus.text) showFloatingText(screenPoint, factionBonus.text, "upgrade");
 
-  if (!isEcho && state.mods.afterimage) {
+  if (factionBonus.splashBoost > 0) {
+    const oldTargets = state.mods.splashTargets;
+    const oldRadius = state.mods.splashRadius;
+    state.mods.splashTargets = Math.max(state.mods.splashTargets, factionBonus.splashBoost);
+    state.mods.splashRadius = Math.max(state.mods.splashRadius, factionBonus.splashRadius || (object.type === "coconut" ? 1.35 : 1.05));
+    splashHit(effectOrigin);
+    if (factionBonus.burstChain) {
+      state.mods.splashTargets = Math.max(1, Math.floor(state.mods.splashTargets / 2));
+      state.mods.splashRadius *= 0.58;
+      splashHit(effectOrigin);
+    }
+    state.mods.splashTargets = oldTargets;
+    state.mods.splashRadius = oldRadius;
+  }
+  if (state.mods.splashTargets > 0) splashHit(effectOrigin);
+  if (factionBonus.chainCount > 0) chainHit(effectOrigin, factionBonus.chainCount, factionBonus.chainRadius, factionBonus.lightningScore);
+  if (factionBonus.pulse) pulseHit();
+  if (state.mods.pulse && state.combo > 0 && state.combo % 18 === 0) pulseHit();
+  if (state.mods.beam && perfect) beamHit(effectOrigin.x);
+  if (factionBonus.beam) beamHit(effectOrigin.x);
+
+  if (!isEcho && (state.mods.afterimage || Math.random() < factionBonus.afterimageChance)) {
     window.setTimeout(() => {
-      const from = object.mesh.position.clone().add(new THREE.Vector3(-1.2, 0.4, 0));
-      const to = object.mesh.position.clone().add(new THREE.Vector3(1.2, -0.4, 0));
+      const from = effectOrigin.clone().add(new THREE.Vector3(-1.2, 0.4, 0));
+      const to = effectOrigin.clone().add(new THREE.Vector3(1.2, -0.4, 0));
       slashWorld(from, to, materials.burst);
       hitByWorldSegment(from, to, true);
     }, 80);
@@ -1485,6 +2403,8 @@ function cutFrenzyTarget(object, sliceMeta = null) {
   const score = addScore(object.score);
   gainXp(Math.max(12, Math.round(score * 0.25)));
   showFloatingText(sliceMeta?.screenPoint ?? projectToScreen(origin), `草莓狂暴 +${score}`, "frenzy");
+  playSound("strawberry");
+  platform.haptics.heavy();
   removeObject(liveIndex);
   startFrenzyPhase(origin);
 }
@@ -1498,15 +2418,17 @@ function triggerEventImpact(className) {
 
 function cutBossObject(object, sliceMeta = null) {
   if (state.phase !== "boss") return;
-  const now = performance.now() / 1000;
+  const now = nowSeconds();
   if (now - object.lastBossHitAt < 0.065) return;
   object.lastBossHitAt = now;
 
-  state.combo = now - state.lastCutAt <= state.mods.comboWindow ? state.combo + 1 : 1;
+  state.combo = Math.max(0, state.combo) + 1;
   state.lastCutAt = now;
   state.maxCombo = Math.max(state.maxCombo, state.combo);
   state.bossHits += 1;
   object.pulse = 1;
+  playSound("bossHit");
+  platform.haptics.light();
   const nextCrackStage = Math.min(4, Math.floor(state.bossHits / 5));
 
   const grade = sliceMeta?.grade ?? getSliceGrade(1, 0);
@@ -1519,6 +2441,7 @@ function cutBossObject(object, sliceMeta = null) {
   if (!state.bossCracked && nextCrackStage > object.crackStage) {
     object.crackStage = nextCrackStage;
     object.pulse = 1.35;
+    applyBossCrackVisual(object, nextCrackStage);
     triggerEventImpact("fx-boss-warning");
     burst(object.mesh.position, 0xff8a35, 12 + nextCrackStage * 4);
     showFloatingText(point, `裂纹 ${nextCrackStage}/4`, "boss");
@@ -1536,11 +2459,15 @@ function cutBossObject(object, sliceMeta = null) {
 function crackBossObject(object, reason) {
   if (!object || state.bossCracked) return;
   state.bossCracked = true;
+  state.bossCrackReason = reason;
   object.cracked = true;
   object.crackStage = 4;
   object.pulse = 1.65;
+  applyBossCrackVisual(object, 4);
   const bonus = addScore((BOSS_CRACK_BONUS + state.stage * 10) * (1 + state.mods.bossScoreBonus));
   state.bossScore += bonus;
+  playSound("bossCrack");
+  platform.haptics.heavy();
   burst(object.mesh.position, FRUITS[object.type].color, 32);
   showFloatingText(projectToScreen(object.mesh.position), `${reason} +${bonus}`, "boss");
 }
@@ -1563,6 +2490,7 @@ function spawnCutPieces(object) {
     mesh.rotateZ(side * 0.28);
 
     fxGroup.add(mesh);
+    while (state.cutPieces.length >= FX_LIMITS.cutPieces) removeCutPieceAt(0);
     state.cutPieces.push({
       mesh,
       baseScale: mesh.scale.clone(),
@@ -1591,6 +2519,7 @@ function spawnBossCutPieces(object) {
     mesh.rotateZ(side * 0.36);
 
     fxGroup.add(mesh);
+    while (state.cutPieces.length >= FX_LIMITS.cutPieces) removeCutPieceAt(0);
     state.cutPieces.push({
       mesh,
       baseScale: mesh.scale.clone(),
@@ -1603,24 +2532,36 @@ function spawnBossCutPieces(object) {
 }
 
 function splitObject(object) {
+  if (!object || object.danger || object.boss || object.frenzyTarget) return;
+  const splitType = FRUIT_FACTION_IDS.includes(object.type) ? object.type : "egg";
+  const splitData = FRUITS[splitType];
   for (let i = 0; i < 2; i += 1) {
-    const splitType = "egg";
-    const mesh = createFruitMesh(splitType, FRUITS[splitType]);
+    const mesh = createFruitMesh(splitType, splitData);
     mesh.scale.setScalar(0.72);
     mesh.position.copy(object.mesh.position);
-    const child = {
+    const child = Object.assign(getObjectWrapper(), {
       id: state.fruitId++,
       type: splitType,
-      label: "咕咕蛋碎",
-      score: 9,
+      label: `${splitData.label}分裂体`,
+      score: splitData.score,
+      factionType: object.factionType ?? splitType,
+      assimilated: Boolean(object.assimilated),
+      copyIndex: (object.copyIndex || 0) + i + 1,
+      copyScoreScale: FACTION_COPY_SCORE_SCALE,
       danger: false,
+      frenzyTarget: false,
       radius: 0.28,
+      minHitRadius: 30,
       mesh,
       velocity: new THREE.Vector3(i === 0 ? -0.95 : 0.95, 3.7, (Math.random() - 0.5) * 0.18),
       spin: new THREE.Vector3(3, 3, 2),
       elite: null,
       cut: false,
-    };
+      apexY: object.mesh.position.y + 1.2,
+      visualTime: 0,
+      visibleTime: 0,
+      wasVisible: true,
+    });
     state.objects.push(child);
     entityGroup.add(mesh);
   }
@@ -1637,7 +2578,7 @@ function splashHit(origin) {
     const entry = targets[i];
     const liveIndex = state.objects.findIndex((object) => object.id === entry.object.id);
     if (liveIndex >= 0) {
-      addScore(entry.object.score + 8);
+      addScore(getObjectScoreBase(entry.object) + 8);
       burst(entry.object.mesh.position, 0xffcf3f, 10);
       spawnCutPieces(entry.object);
       removeObject(liveIndex);
@@ -1645,19 +2586,19 @@ function splashHit(origin) {
   }
 }
 
-function chainHit(origin, count) {
+function chainHit(origin, count, radius = state.mods.chainRadius, scoreBonus = state.mods.lightningScore) {
   let current = origin.clone();
   for (let i = 0; i < count; i += 1) {
     const target = state.objects
       .map((object, index) => ({ object, index, distance: object.mesh.position.distanceTo(current) }))
-      .filter((entry) => !entry.object.danger && entry.distance <= state.mods.chainRadius)
+      .filter((entry) => !entry.object.danger && entry.distance <= radius)
       .sort((a, b) => a.distance - b.distance)[0];
 
     if (!target) return;
     const from = current.clone();
     current = target.object.mesh.position.clone();
     slashWorld(from, current, materials.lightning);
-    addScore(target.object.score + state.mods.lightningScore);
+    addScore(getObjectScoreBase(target.object) + scoreBonus);
     burst(current, 0x36d6e7, 9);
     spawnCutPieces(target.object);
     removeObject(target.index);
@@ -1672,7 +2613,7 @@ function pulseHit() {
     .sort((a, b) => b.index - a.index);
 
   targets.forEach((entry) => {
-    addScore(entry.object.score + 14);
+    addScore(getObjectScoreBase(entry.object) + 14);
     burst(entry.object.mesh.position, 0xffcf3f, 10);
     spawnCutPieces(entry.object);
     removeObject(entry.index);
@@ -1689,7 +2630,7 @@ function beamHit(x) {
     .sort((a, b) => b.index - a.index);
 
   targets.forEach((entry) => {
-    addScore(entry.object.score + 10);
+    addScore(getObjectScoreBase(entry.object) + 10);
     burst(entry.object.mesh.position, 0x36d6e7, 9);
     spawnCutPieces(entry.object);
     removeObject(entry.index);
@@ -1697,14 +2638,39 @@ function beamHit(x) {
 }
 
 function gainXp(amount) {
-  if (state.phase !== "normal" || state.stageXpUpgradeTaken) return;
-  state.xp += amount;
-  if (state.xp >= state.xpTarget) {
-    state.xp -= state.xpTarget;
-    state.xpTarget += 105;
-    state.stageXpUpgradeTaken = true;
-    awardUpgradePoint("连切升级点");
+  if (state.phase !== "normal" || state.stageXpUpgradeTaken) {
+    const overflowRate = getXpOverflowRate();
+    if (overflowRate > 0 && state.xp >= state.xpTarget) {
+      const overflowScore = Math.floor(state.xp / overflowRate);
+      if (overflowScore > 0) {
+        addScore(overflowScore);
+        state.xp %= overflowRate;
+      }
+    }
+    return;
   }
+  let totalAmount = amount + (state.mods.xpBoost || 0);
+  state.xp += totalAmount;
+  const target = Math.round(state.xpTarget * (1 - getXpReduction()));
+  if (state.xp >= target) {
+    state.xp -= target; state.xpTarget += 105; state.stageXpUpgradeTaken = true;
+    awardUpgradePoint("连切升级点");
+    if (Math.random() < getXpDoubleChance()) awardUpgradePoint("飞升额外");
+  }
+}
+
+function getXpReduction() {
+  return Math.min(0.35, (state.mods.xpReduction || 0) + getFruitSkillLevel("egg", "xp_speed") * 0.04);
+}
+
+function getXpDoubleChance() {
+  return Math.min(0.45, (state.mods.xpDouble || 0) + getFruitSkillLevel("egg", "xp_double") * 0.06);
+}
+
+function getXpOverflowRate() {
+  const level = getFruitSkillLevel("egg", "xp_overflow");
+  if (level <= 0) return 0;
+  return Math.max(6, 11 - level * 2);
 }
 
 function maybeOpenScheduledUpgrade() {
@@ -1719,73 +2685,143 @@ function awardUpgradePoint(label) {
   updateHud();
 }
 
-function openUpgradeSequence(kicker = "升级选择", title = "消耗升级点", afterComplete = null) {
-  const available = TALENTS.filter((talent) => !state.selectedTalents.includes(talent.id));
-  if (state.upgradePoints <= 0 || available.length === 0) {
-    if (available.length === 0) state.upgradePoints = 0;
-    return false;
-  }
+function isFruitFactionTalent(talent) {
+  return talent?.id?.startsWith("fruit_") && FRUIT_FACTION_IDS.includes(talent.tag);
+}
 
+function getTalentCurrentLevel(talent) {
+  if (!talent) return 0;
+  if (isFruitFactionTalent(talent)) return getFruitSkillLevel(talent.tag, talent.skillId);
+  return state.talentLevels[talent.id] || 0;
+}
+
+function isTalentAvailable(talent) {
+  if (!talent) return false;
+  if (talent.minMastery && getFactionMastery(talent.tag) < talent.minMastery) return false;
+  const currentLevel = getTalentCurrentLevel(talent);
+  if (talent.repeatable) return currentLevel < (talent.maxLevel || Infinity);
+  return !state.selectedTalents.includes(talent.id);
+}
+
+function isTalentCompatibleWithFactionFocus(talent) {
+  return Boolean(talent);
+}
+
+function getAvailableTalents() {
+  return ALL_TALENTS.filter((talent) => isTalentAvailable(talent) && isTalentCompatibleWithFactionFocus(talent));
+}
+
+function hasAvailableTalent() {
+  return getAvailableTalents().length > 0;
+}
+
+function applyTalentSelection(talent) {
+  const nextLevel = getTalentCurrentLevel(talent) + 1;
+  state.talentLevels[talent.id] = nextLevel;
+  talent.apply(nextLevel);
+  if (!state.selectedTalents.includes(talent.id)) state.selectedTalents.push(talent.id);
+  state.upgradesTaken += 1;
+  state.level += 1;
+}
+
+function openUpgradeSequence(kicker = "升级选择", title = "消耗升级点", afterComplete = null) {
+  const available = getAvailableTalents();
+  if (state.upgradePoints <= 0 || available.length === 0) { if (available.length === 0) state.upgradePoints = 0; return false; }
   return openUpgrade(kicker, `${title}（剩余 ${state.upgradePoints} 点）`, () => {
-    if (state.upgradePoints > 0 && TALENTS.some((talent) => !state.selectedTalents.includes(talent.id))) {
-      openUpgradeSequence("继续强化", "继续消耗升级点", afterComplete);
-      return;
+    if (state.upgradePoints > 0 && hasAvailableTalent()) {
+      openUpgradeSequence("继续强化", "继续消耗升级点", afterComplete); return;
     }
     if (afterComplete) afterComplete();
   });
 }
 
+function getUpgradeChoices() {
+  const available = getAvailableTalents();
+  if (available.length === 0) return [];
+  const priorityType = getUpgradePriorityFactionType(available);
+  const priorityPool = priorityType ? available.filter((talent) => talent.tag === priorityType) : [];
+  const otherPool = priorityType ? available.filter((talent) => talent.tag !== priorityType) : [...available];
+  const choices = [];
+
+  while (choices.length < 3 && priorityPool.length + otherPool.length > 0) {
+    const shouldUsePriority = priorityPool.length > 0 && (otherPool.length === 0 || Math.random() < UPGRADE_PRIORITY_SLOT_CHANCE);
+    const pool = shouldUsePriority ? priorityPool : otherPool.length > 0 ? otherPool : priorityPool;
+    choices.push(pool.splice(Math.floor(Math.random() * pool.length), 1)[0]);
+  }
+  return choices;
+}
+
+function getUpgradePriorityFactionType(available = getAvailableTalents()) {
+  const availableTypes = new Set(available.map((talent) => talent.tag));
+  return FRUIT_FACTION_IDS
+    .filter((type) => availableTypes.has(type))
+    .map((type) => ({ type, mastery: getFactionMastery(type) }))
+    .filter((entry) => entry.mastery > 0)
+    .sort((a, b) => b.mastery - a.mastery)[0]?.type || null;
+}
+
+function detectFlowLock() {
+  state.flow.locked = getDominantFactionType();
+  state.flow.lockedAt = Object.values(state.flow.tagCount).reduce((a, b) => a + b, 0);
+}
+
+function checkFlowSynergy() {
+  state.flow.synergyBonus = 0;
+}
+
+function applyReroll(kicker, title, afterPick) {
+  if (state.flow.rerollsLeft > 0) { state.flow.rerollsLeft -= 1; renderUpgradePanel(kicker, title, afterPick); return; }
+  if (state.upgradePoints >= 2) { state.upgradePoints -= 2; renderUpgradePanel(kicker, `${title}（消耗 2 点重随）`, afterPick); updateHud(); return; }
+}
+
 function openUpgrade(kicker = "升级", title = "选择本局强化", afterPick = null) {
   if (state.paused) return false;
-  const available = TALENTS.filter((talent) => !state.selectedTalents.includes(talent.id));
-  shuffle(available);
-  const choices = available.slice(0, 3);
-  if (choices.length === 0) {
-    return false;
-  }
+  state.flow.rerollsLeft = 1;
+  renderUpgradePanel(kicker, title, afterPick);
+  show(ui.levelOverlay); updateHud(); return true;
+}
 
+function renderUpgradePanel(kicker, title, afterPick) {
+  const choices = getUpgradeChoices();
+  if (choices.length === 0) { hide(ui.levelOverlay); state.paused = false; if (afterPick) afterPick(); return; }
   state.paused = true;
   state.pendingUpgradeAction = typeof afterPick === "function" ? afterPick : null;
-  ui.levelKicker.textContent = kicker;
-  ui.levelTitle.textContent = title;
-  ui.levelChoices.innerHTML = "";
-
+  ui.levelKicker.textContent = kicker; ui.levelTitle.textContent = title; ui.levelChoices.innerHTML = "";
   choices.forEach((talent) => {
-    const button = document.createElement("button");
-    button.className = "choice-card";
-    button.dataset.tag = talent.tag;
-    button.innerHTML = `<span>${tagName(talent.tag)}</span><strong>${talent.name}</strong><span>${talent.desc}</span>`;
+    const button = document.createElement("button"); button.className = "choice-card"; button.dataset.tag = talent.tag;
+    const isFlowTag = getDominantFactionType() === talent.tag && getFactionMastery(talent.tag) > 0;
+    const flowTag = isFlowTag ? `<span class="flow-tag">主 ${FLOWS[talent.tag]?.name || tagName(talent.tag)}</span>` : `<span class="flow-tag">${FLOWS[talent.tag]?.name || tagName(talent.tag)}</span>`;
+    const currentTalentLevel = getTalentCurrentLevel(talent);
+    const levelLabel = talent.repeatable ? ` Lv.${currentTalentLevel} → ${currentTalentLevel + 1}` : "";
+    const mastery = getFactionMastery(talent.tag);
+    button.innerHTML = `${flowTag}<span>${tagName(talent.tag)}｜${talent.skillLabel || "技能"}${levelLabel}｜流派Lv ${mastery}</span><strong>${talent.name}</strong><span>${describeTalent(talent, currentTalentLevel + 1)}</span>`;
     button.addEventListener("click", () => {
-      talent.apply();
-      state.selectedTalents.push(talent.id);
-      state.upgradesTaken += 1;
-      state.level += 1;
+      applyTalentSelection(talent);
       state.upgradePoints = Math.max(0, state.upgradePoints - 1);
-      const nextAction = state.pendingUpgradeAction;
-      state.pendingUpgradeAction = null;
-      state.paused = false;
-      hide(ui.levelOverlay);
-      updateHud();
-      if (state.upgradePoints > 0 && !TALENTS.some((item) => !state.selectedTalents.includes(item.id))) {
-        state.upgradePoints = 0;
-      }
+      detectFlowLock(); checkFlowSynergy();
+      const nextAction = state.pendingUpgradeAction; state.pendingUpgradeAction = null; state.paused = false;
+      hide(ui.levelOverlay); updateHud();
+      if (state.upgradePoints > 0 && !hasAvailableTalent()) state.upgradePoints = 0;
       if (nextAction) nextAction();
     });
     ui.levelChoices.appendChild(button);
   });
-
-  show(ui.levelOverlay);
-  updateHud();
-  return true;
+  if (state.flow.rerollsLeft > 0 || state.upgradePoints >= 2) {
+    const rerollBtn = document.createElement("button"); rerollBtn.className = "reroll-button";
+    rerollBtn.textContent = state.flow.rerollsLeft > 0 ? "免费重随 (1)" : "花 2 点重随";
+    rerollBtn.addEventListener("click", () => applyReroll(kicker, title, afterPick));
+    ui.levelChoices.appendChild(rerollBtn);
+  }
 }
 
 function tagName(tag) {
-  if (tag === "combo") return "连击";
-  if (tag === "burst") return "爆炸";
-  if (tag === "lightning") return "雷电";
-  if (tag === "precision") return "准心";
-  if (tag === "boss") return "Boss";
-  return "稳手";
+  const names = { combo: "连击", burst: "爆炸", lightning: "雷电", precision: "准心", boss: "Boss", survival: "稳手", apple: "苹果", pear: "梨", coconut: "椰壳", egg: "鸡蛋", lemon: "柠檬", avocado: "牛油果", mushroom: "蘑菇", onion: "洋葱", sausage: "香肠", frenzy: "狂暴", xp: "经验", chaos: "混沌" };
+  return names[tag] || tag;
+}
+
+function describeTalent(talent, nextLevel) {
+  if (typeof talent.describe === "function") return talent.describe(nextLevel);
+  return talent.desc || "";
 }
 
 function endRound(reason) {
@@ -1798,10 +2834,29 @@ function endRound(reason) {
 
   if (state.score > state.bestScore) {
     state.bestScore = state.score;
-    localStorage.setItem("fruit-survivor-3d-best-score", String(state.bestScore));
+    if (!state.debugMode) platform.storage.setNumber(STORAGE_KEYS.bestScore, state.bestScore);
+  }
+  if (state.stage > state.bestStage) {
+    state.bestStage = state.stage;
+    if (!state.debugMode) platform.storage.setNumber(STORAGE_KEYS.bestStage, state.bestStage);
   }
 
   renderResult();
+}
+
+function buildChallengeText() {
+  return [
+    "【果切幸存者3D挑战卡】",
+    `闯到：第${state.stage}关`,
+    `分数：${state.score.toLocaleString("zh-CN")}`,
+    `最大连击：${state.maxCombo}`,
+    `流派：${getFlowName()}`,
+    `狂暴得分：${state.frenzyScore.toLocaleString("zh-CN")}`,
+    `Boss得分：${state.bossScore.toLocaleString("zh-CN")}`,
+    `扣分：-${state.penaltyScore.toLocaleString("zh-CN")}（漏${state.missCount} / 桶${state.bombHitCount}）`,
+    `结果：${state.deathReason}`,
+    "同一局，你来试试。",
+  ].join("\n");
 }
 
 function renderResult() {
@@ -1818,66 +2873,192 @@ function renderResult() {
   ui.resultScore.textContent = state.score.toLocaleString("zh-CN");
   ui.resultCombo.textContent = String(state.maxCombo);
   ui.resultFlow.textContent = flow;
+  ui.resultFrenzy.textContent = state.frenzyScore.toLocaleString("zh-CN");
+  ui.resultBoss.textContent = `${state.bossScore.toLocaleString("zh-CN")}${state.bossCrackReason ? `｜${state.bossCrackReason}` : ""}`;
+  ui.resultPenalty.textContent = `-${state.penaltyScore.toLocaleString("zh-CN")} / 漏${state.missCount} 桶${state.bombHitCount}`;
   ui.resultReason.textContent = state.deathReason;
   ui.resultCompare.textContent = `${compare}｜${stageSummary}`;
+  if (state.score > state.previousBestScore) playSound("record");
+  updateStartRecords();
   show(ui.resultOverlay);
+}
+
+function downloadChallengeCard() {
+  const cardCanvas = document.createElement("canvas");
+  cardCanvas.width = 720;
+  cardCanvas.height = 1280;
+  const ctx = cardCanvas.getContext("2d");
+  const gradient = ctx.createLinearGradient(0, 0, 0, cardCanvas.height);
+  gradient.addColorStop(0, "#143126");
+  gradient.addColorStop(0.48, "#0b1612");
+  gradient.addColorStop(1, "#020605");
+  ctx.fillStyle = gradient;
+  ctx.fillRect(0, 0, cardCanvas.width, cardCanvas.height);
+
+  ctx.fillStyle = "rgba(255, 207, 63, 0.14)";
+  for (let i = 0; i < 7; i += 1) {
+    ctx.beginPath();
+    ctx.arc(80 + i * 110, 210 + (i % 2) * 60, 88, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  ctx.fillStyle = "#ffcf3f";
+  ctx.font = "700 34px Microsoft YaHei, sans-serif";
+  ctx.fillText("Fruit Survivor 3D", 56, 104);
+  ctx.fillStyle = "#f8f7f1";
+  ctx.font = "900 76px Microsoft YaHei, sans-serif";
+  ctx.fillText("果切幸存者", 56, 188);
+
+  ctx.fillStyle = "#ffcf3f";
+  ctx.font = "900 118px Microsoft YaHei, sans-serif";
+  ctx.fillText(state.score.toLocaleString("zh-CN"), 56, 350);
+  ctx.fillStyle = "#b9c8bf";
+  ctx.font = "600 30px Microsoft YaHei, sans-serif";
+  ctx.fillText(`第 ${state.stage} 关 / 最大连击 ${state.maxCombo}`, 60, 400);
+
+  const rows = [
+    ["流派", getFlowName()],
+    ["狂暴得分", state.frenzyScore.toLocaleString("zh-CN")],
+    ["Boss得分", state.bossScore.toLocaleString("zh-CN")],
+    ["扣分", `-${state.penaltyScore.toLocaleString("zh-CN")} / 漏${state.missCount} 桶${state.bombHitCount}`],
+    ["结果", state.deathReason],
+  ];
+  rows.forEach(([label, value], index) => {
+    const y = 510 + index * 104;
+    ctx.fillStyle = "rgba(255,255,255,0.07)";
+    roundRect(ctx, 56, y - 50, 608, 76, 18);
+    ctx.fill();
+    ctx.fillStyle = "#b9c8bf";
+    ctx.font = "600 24px Microsoft YaHei, sans-serif";
+    ctx.fillText(label, 88, y - 8);
+    ctx.fillStyle = "#f8f7f1";
+    ctx.font = "800 30px Microsoft YaHei, sans-serif";
+    ctx.fillText(String(value).slice(0, 20), 246, y - 8);
+  });
+
+  ctx.fillStyle = "rgba(29, 213, 138, 0.9)";
+  ctx.font = "800 34px Microsoft YaHei, sans-serif";
+  ctx.fillText("同一局，你来试试。", 56, 1110);
+  ctx.fillStyle = "#b9c8bf";
+  ctx.font = "500 24px Microsoft YaHei, sans-serif";
+  ctx.fillText("本地原型分享卡", 56, 1162);
+
+  cardCanvas.toBlob((blob) => {
+    if (!blob) return;
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `fruit-survivor-${state.score}.png`;
+    link.click();
+    window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }, "image/png");
+}
+
+function roundRect(ctx, x, y, width, height, radius) {
+  ctx.beginPath();
+  ctx.moveTo(x + radius, y);
+  ctx.lineTo(x + width - radius, y);
+  ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+  ctx.lineTo(x + width, y + height - radius);
+  ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+  ctx.lineTo(x + radius, y + height);
+  ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+  ctx.lineTo(x, y + radius);
+  ctx.quadraticCurveTo(x, y, x + radius, y);
+  ctx.closePath();
+}
+
+function renderDebugPanel() {
+  if (!DEBUG_MODE || !ui.debugText) return;
+  const snapshot = getDebugSnapshot();
+  ui.debugText.textContent = [
+    `phase: ${snapshot.phase}`,
+    `running: ${snapshot.running} paused: ${snapshot.paused}`,
+    `stage: ${snapshot.stage} score: ${snapshot.score} stageScore: ${snapshot.stageScore}`,
+    `time: ${snapshot.timeLeft.toFixed(1)} speed: ${DEBUG_RUNTIME.speed}`,
+    `objects: ${snapshot.objects.length} pending: ${snapshot.pendingCount}`,
+    `assets: full ${assetState.full.size}/${assetState.cutPairs.length} fallback ${assetState.fallbackTypes.size} failed ${assetState.failed.length}`,
+    `event: ${snapshot.frenzyActive ? "frenzy" : snapshot.midEventActive ? "strawberry" : "none"}`,
+    `boss: ${snapshot.bossHits}/${BOSS_CRACK_HITS} cracked=${snapshot.bossCracked}`,
+    `targets: ${snapshot.objects.slice(0, 4).map((object) => `${object.type}@${Math.round(object.screen.x)},${Math.round(object.screen.y)} r${Math.round(object.radiusPx)} v${object.wasVisible ? 1 : 0}${object.fallbackModel ? " fb" : ""}`).join(" | ") || "-"}`,
+    `fx: p${state.particles.length} c${state.cutPieces.length} s${state.slashFx.length}`,
+    `perf: ${snapshot.perfTier}`,
+  ].join("\n");
+}
+
+function renderAssetStatus() {
+  if (!ui.assetStatus) return;
+  const fallbackCount = assetState.fallbackTypes.size;
+  const failedCount = assetState.failed.length;
+  const shouldShow = DEBUG_MODE || assetState.loading || fallbackCount > 0 || failedCount > 0 || assetState.error;
+
+  if (!shouldShow) {
+    ui.assetStatus.classList.add("hidden");
+    return;
+  }
+
+  ui.assetStatus.classList.remove("hidden");
+  if (assetState.loading) {
+    ui.assetStatus.textContent = "模型加载中";
+  } else if (failedCount > 0 || fallbackCount > 0 || assetState.error) {
+    ui.assetStatus.textContent = `模型降级 ${fallbackCount || failedCount}`;
+  } else {
+    ui.assetStatus.textContent = `模型 ${assetState.full.size}/${assetState.cutPairs.length}`;
+  }
 }
 
 function updateHud() {
   ui.root.dataset.phase = state.phase;
   ui.root.dataset.event = state.frenzyActive ? "frenzy" : state.midEventActive ? "strawberry" : "normal";
-  ui.penalty.textContent = state.penaltyScore > 0 ? `-${state.penaltyScore}` : "0";
+  ui.penalty.textContent = state.penaltyScore > 0 ? `扣分 -${state.penaltyScore.toLocaleString("zh-CN")}` : "";
+  ui.penalty.dataset.active = state.penaltyScore > 0 ? "1" : "0";
   ui.score.textContent = state.score.toLocaleString("zh-CN");
   ui.timer.textContent = getTimerText();
-  ui.combo.textContent = String(state.combo);
+  ui.combo.textContent = String(Math.max(0, state.combo));
   ui.flow.textContent = getFlowName();
   const upgradePips = state.upgradePoints > 0 ? `<em class="upgrade-pips">✦x${state.upgradePoints}</em>` : "";
+  const stageProgress = Math.min(100, (state.stageScore / Math.max(1, state.stageTarget)) * 100);
+  const xpTarget = Math.max(1, Math.round(state.xpTarget * (1 - (state.mods.xpReduction || 0))));
+  const xpProgress = Math.min(100, (state.xp / xpTarget) * 100);
+
   if (state.phase === "boss") {
-    ui.level.innerHTML = `BOSS 破核 ${Math.min(state.bossHits, BOSS_CRACK_HITS)}/${BOSS_CRACK_HITS}${state.bossCracked ? " 裂核" : ""}`;
-    ui.xpBar.style.width = `${Math.min(100, (state.bossHits / BOSS_CRACK_HITS) * 100)}%`;
+    ui.level.innerHTML = `破核 ${Math.min(state.bossHits, BOSS_CRACK_HITS)}/${BOSS_CRACK_HITS}${state.bossCracked ? " 裂核" : ""}`;
+    ui.stageBar.style.width = `${Math.min(100, (state.bossHits / BOSS_CRACK_HITS) * 100)}%`;
   } else if (state.phase === "boss_warning") {
-    const warningText = state.bossWarningCountdownStarted ? `BOSS 倒计时 ${Math.max(1, Math.ceil(state.bossWarningTimer))}` : "等待清场";
+    const warningText = state.bossWarningCountdownStarted ? `倒计时 ${Math.max(1, Math.ceil(state.bossWarningTimer))}` : "等待清场";
     ui.level.innerHTML = warningText;
-    ui.xpBar.style.width = state.bossWarningCountdownStarted ? `${Math.max(0, 100 - (state.bossWarningTimer / (BOSS_WARNING_COUNTDOWN + 0.25)) * 100)}%` : "0%";
+    ui.stageBar.style.width = state.bossWarningCountdownStarted ? `${Math.max(0, 100 - (state.bossWarningTimer / (BOSS_WARNING_COUNTDOWN + 0.25)) * 100)}%` : `${stageProgress}%`;
   } else {
-    ui.level.innerHTML = `第${state.stage}关 ${state.stageScore}/${state.stageTarget}${upgradePips}`;
-    ui.xpBar.style.width = `${Math.min(100, (state.stageScore / state.stageTarget) * 100)}%`;
+    ui.level.innerHTML = `第${state.stage}关 ${state.stageScore}/${state.stageTarget}`;
+    ui.stageBar.style.width = `${stageProgress}%`;
   }
+  ui.xpBar.style.width = `${xpProgress}%`;
+  ui.xpValue.innerHTML = `${state.xp}/${xpTarget}${upgradePips}`;
+  renderAssetStatus();
+  renderDebugPanel();
 }
 
 function getTimerText() {
   if (state.phase === "boss") return `B${Math.ceil(state.timeLeft)}`;
   if (state.phase === "boss_warning") {
-    if (!state.bossWarningCountdownStarted) return "...";
+    if (!state.bossWarningCountdownStarted) return "清场";
     return String(Math.max(1, Math.ceil(state.bossWarningTimer)));
   }
   return String(Math.ceil(state.timeLeft));
 }
 
 function getFlowName() {
-  const ranked = Object.entries(state.flow).sort((a, b) => b[1] - a[1]);
-  if (!ranked[0] || ranked[0][1] <= 0) return "未成流";
-  const names = {
-    combo: "连击疾切流",
-    burst: "爆汁清屏流",
-    lightning: "雷光追切流",
-    precision: "准心完切流",
-    boss: "破核狂切流",
-    survival: "稳手保分流",
-  };
-  if (ranked[1] && ranked[1][1] > 0 && ranked[1][1] >= ranked[0][1] - 1) {
-    return `${names[ranked[0][0]].slice(0, 2)}${names[ranked[1][0]].slice(0, 2)}混切流`;
-  }
-  return names[ranked[0][0]];
+  const dominant = getDominantFactionType();
+  if (!dominant) return "未成流";
+  const mastery = getFactionMastery(dominant);
+  const name = FLOWS[dominant]?.name || tagName(dominant);
+  return `${name} 流派Lv.${mastery}`;
 }
 
 function getSliceGrade(offsetRatio, swipeLength) {
-  if (offsetRatio <= 0.28 && swipeLength >= 28) {
-    return { key: "perfect", label: "PERFECT", multiplier: 1.55 };
-  }
-  if (offsetRatio <= 0.62) {
-    return { key: "great", label: "GREAT", multiplier: 1.25 };
-  }
+  const gw = state.mods.gradeWindow || 0;
+  if (offsetRatio <= 0.28 + gw && swipeLength >= 28) return { key: "perfect", label: "PERFECT", multiplier: 1.55 };
+  if (offsetRatio <= 0.62 + gw) return { key: "great", label: "GREAT", multiplier: 1.25 };
   return { key: "good", label: "GOOD", multiplier: 1 };
 }
 
@@ -1902,6 +3083,8 @@ function finishSwipeCombo() {
     state.combo = Math.max(state.combo, count);
     state.maxCombo = Math.max(state.maxCombo, state.combo);
     gainXp(Math.max(8, Math.round(bonus * 0.25)));
+    playSound("combo");
+    platform.haptics.light();
     showFloatingText(state.activeSwipePoint, `${count}连切 +${bonus}`, "combo");
   }
 
@@ -1956,6 +3139,7 @@ function addSlashDom(from, to) {
   mark.style.left = `${from.x}px`;
   mark.style.top = `${from.y}px`;
   mark.style.transform = `rotate(${Math.atan2(dy, dx)}rad)`;
+  trimDomFx(".slash-mark", FX_LIMITS.slashMarks - 1);
   slashLayer.appendChild(mark);
   window.setTimeout(() => mark.remove(), 280);
 
@@ -1971,12 +3155,28 @@ function showFloatingText(point, text, tone = "good") {
   mark.textContent = text;
   mark.style.left = `${point.x}px`;
   mark.style.top = `${point.y}px`;
+  trimDomFx(".float-text", FX_LIMITS.floatingTexts - 1);
   slashLayer.appendChild(mark);
   window.setTimeout(() => mark.remove(), 620);
 }
 
+function trimDomFx(selector, maxBeforeAdd) {
+  const nodes = slashLayer.querySelectorAll(selector);
+  const extra = nodes.length - maxBeforeAdd;
+  for (let i = 0; i < extra; i += 1) nodes[i].remove();
+}
+
 function centerScreenPoint() {
-  return { x: window.innerWidth * 0.5, y: window.innerHeight * 0.46 };
+  const viewport = platform.device.getViewport();
+  return { x: viewport.width * 0.5, y: viewport.height * 0.46 };
+}
+
+function clampScreenPoint(point, margin = 28) {
+  const viewport = platform.device.getViewport();
+  return {
+    x: THREE.MathUtils.clamp(point.x, margin, viewport.width - margin),
+    y: THREE.MathUtils.clamp(point.y, margin, viewport.height - margin),
+  };
 }
 
 function slashWorld(from, to, material, width = 0.08) {
@@ -1987,6 +3187,7 @@ function slashWorld(from, to, material, width = 0.08) {
   mesh.position.copy(center);
   mesh.lookAt(to);
   mesh.rotateX(Math.PI / 2);
+  while (state.slashFx.length >= FX_LIMITS.slashFx) removeSlashFxAt(0);
   fxGroup.add(mesh);
   state.slashFx.push({ mesh, life: 0.22, maxLife: 0.22, opacity: material.opacity ?? 0.88 });
 }
@@ -2011,7 +3212,7 @@ function projectToScreen(position) {
 }
 
 function burst(position, color, count) {
-  const particleCount = Math.min(count, 8);
+  const particleCount = Math.min(count, Math.max(3, Math.round(8 * getPerformanceBudget().particleScale)));
   for (let i = 0; i < particleCount; i += 1) {
     const material = new THREE.MeshBasicMaterial({
       color,
@@ -2026,14 +3227,15 @@ function burst(position, color, count) {
       life: 0.42 + Math.random() * 0.18,
       maxLife: 0.6,
     };
+    while (state.particles.length >= FX_LIMITS.particles) removeParticleAt(0);
     state.particles.push(particle);
     fxGroup.add(mesh);
   }
 }
 
 function resize() {
-  const width = window.innerWidth;
-  const height = window.innerHeight;
+  const { width, height } = platform.device.getViewport();
+  renderer.setPixelRatio(platform.device.getPixelRatio());
   renderer.setSize(width, height, false);
   const aspect = width / height;
   const halfHeight = VIEW.height / 2;
@@ -2052,7 +3254,9 @@ function resize() {
 }
 
 function animate() {
-  const dt = Math.min(0.033, clock.getDelta());
+  const rawDt = Math.min(0.033, clock.getDelta());
+  const dt = rawDt * Math.max(0.1, DEBUG_RUNTIME.speed);
+  reportFrameCost(rawDt);
   update(dt);
   renderer.render(scene, camera);
   requestAnimationFrame(animate);
@@ -2062,6 +3266,7 @@ function getDebugSnapshot() {
   return {
     running: state.running,
     paused: state.paused,
+    debugMode: state.debugMode,
     phase: state.phase,
     stage: state.stage,
     timeLeft: state.timeLeft,
@@ -2077,12 +3282,19 @@ function getDebugSnapshot() {
     frenzyScore: state.frenzyScore,
     bossHits: state.bossHits,
     bossCracked: state.bossCracked,
+    perfTier: perfState.tier,
+    dominantFaction: getDominantFactionType(),
+    factions: getFactionDebugState(),
     pendingCount: state.pendingSpawns.length,
     objects: state.objects.map((object) => ({
       id: object.id,
       type: object.type,
       label: object.label,
+      scoreBase: getObjectScoreBase(object),
+      copyScoreScale: object.copyScoreScale ?? 1,
       danger: object.danger,
+      wasVisible: Boolean(object.wasVisible),
+      fallbackModel: Boolean(object.fallbackModel),
       position: object.mesh.position.toArray(),
       screen: projectToScreen(object.mesh.position),
       radiusPx: Math.max(34, object.radius * 76) + state.mods.hitPadding * 100,
@@ -2090,7 +3302,199 @@ function getDebugSnapshot() {
   };
 }
 
-window.__fruitDebug = getDebugSnapshot;
+function getFactionDebugState() {
+  return Object.fromEntries(FRUIT_FACTION_IDS.map((type) => [type, {
+    mastery: getFactionMastery(type),
+    tier: getFactionTier(type),
+    skills: { ...getFaction(type).skills },
+  }]));
+}
+
+function resetStageRuntimeForDebug() {
+  clearActiveObjects();
+  hideBossWarningOverlay();
+  state.running = true;
+  state.paused = false;
+  state.over = false;
+  state.phase = "normal";
+  state.timeLeft = ROUND_SECONDS;
+  state.spawnTimer = 999;
+  state.midEventTriggered = false;
+  state.midEventActive = false;
+  state.midEventTimer = 0;
+  state.frenzyActive = false;
+  state.frenzyTimeLeft = 0;
+  state.frenzySpawnTimer = 0;
+  state.frenzyPacksRemaining = 0;
+  state.frenzyPackIndex = 0;
+  state.boss = null;
+  state.bossHits = 0;
+  state.bossCracked = false;
+  state.bossCrackReason = "";
+  state.bossWarningTimer = 0;
+  state.bossWarningCountdownStarted = false;
+  state.bossWarningLastCue = null;
+  state.combo = 0;
+  state.lastCutAt = -999;
+  state.debugMode = true;
+}
+
+function startDebugScenario(name = "normal-wave") {
+  if (!DEBUG_MODE) return false;
+  if (!state.running) startRound();
+  resetStageRuntimeForDebug();
+
+  if (name === "normal-wave") {
+    state.timeLeft = ROUND_SECONDS - 6;
+    spawnWave(6);
+  } else if (name === "bomb-wave") {
+    state.timeLeft = ROUND_SECONDS - 24;
+    startMidStageEvent(24);
+    state.pendingSpawns = state.pendingSpawns.filter((plan) => plan.type === "durian");
+  } else if (name === "strawberry-event") {
+    state.timeLeft = ROUND_SECONDS - MID_EVENT_ELAPSED;
+    startMidStageEvent(MID_EVENT_ELAPSED);
+  } else if (name === "frenzy-100") {
+    state.timeLeft = ROUND_SECONDS - (MID_EVENT_ELAPSED + 2);
+    startFrenzyPhase(new THREE.Vector3(0, 1.6, 0));
+  } else if (name === "boss-warning") {
+    state.timeLeft = 0;
+    startBossWarningPhase();
+    updateBossWarning(0.01);
+  } else if (name === "boss-crack") {
+    startBossPhase();
+    state.bossHits = BOSS_CRACK_HITS - 1;
+    state.timeLeft = BOSS_SECONDS;
+  } else if (name === "stage-clear") {
+    state.stageScore = state.stageTarget;
+    state.score = Math.max(state.score, state.stageTarget);
+    finishStage();
+  } else if (name === "stage-fail") {
+    state.stageScore = 0;
+    state.score = 0;
+    endRound(`第${state.stage}关未达标 0/${state.stageTarget}`);
+  } else {
+    spawnWave(6);
+  }
+
+  updateHud();
+  return true;
+}
+
+function maybeAutoStartDebugScenario() {
+  if (!DEBUG_MODE || !DEBUG_SCENARIO) return;
+  startDebugScenario(DEBUG_SCENARIO);
+}
+
+function installDebugApi() {
+  window.__fruitDebug = getDebugSnapshot;
+  window.__fruitStartScenario = startDebugScenario;
+  window.__fruitSpawn = (type, options = {}) => {
+    if (!DEBUG_MODE) return false;
+    if (!state.running) startRound();
+    spawnObject(
+      type,
+      options.waveIndex ?? 0,
+      options.waveCount ?? 1,
+      options.waveCenter ?? 0,
+      options.waveWidth ?? 1.4,
+      ROUND_SECONDS - state.timeLeft,
+      options.waveApexY ?? 1.8,
+      options.dangerEdgeSide ?? 0,
+      options.fixedX ?? null,
+    );
+    updateHud();
+    return true;
+  };
+  window.__fruitClearObjects = () => {
+    clearActiveObjects();
+    updateHud();
+  };
+  window.__fruitSetStage = (stage) => {
+    const nextStage = Math.max(1, Math.round(Number(stage) || 1));
+    state.stage = nextStage;
+    state.stageTarget = getStageTarget(nextStage);
+    updateHud();
+  };
+  window.__fruitSetTime = (seconds) => {
+    state.timeLeft = Math.max(0, Number(seconds) || 0);
+    updateHud();
+  };
+  window.__fruitSetScore = (score) => {
+    const value = Math.max(0, Math.round(Number(score) || 0));
+    state.score = value;
+    state.stageScore = value;
+    updateHud();
+  };
+  window.__fruitSetSpeed = (multiplier) => {
+    DEBUG_RUNTIME.speed = Math.max(0.1, Number(multiplier) || 1);
+  };
+  window.__fruitUpgradeFaction = (type, times = 1, skillId = "assimilate") => {
+    if (!DEBUG_MODE || !FRUIT_FACTION_IDS.includes(type)) return false;
+    if (!getFruitSkillDef(type, skillId)) return false;
+    const count = Math.max(1, Math.round(Number(times) || 1));
+    let upgraded = false;
+    for (let i = 0; i < count; i += 1) {
+      upgraded = upgradeFruitFactionSkill(type, skillId) || upgraded;
+    }
+    updateHud();
+    return upgraded;
+  };
+  window.__fruitUpgradeSkill = window.__fruitUpgradeFaction;
+  window.__fruitResolveSpawnPlans = (baseType) => {
+    if (!DEBUG_MODE || !FRUIT_FACTION_IDS.includes(baseType)) return [];
+    return resolveFruitSpawnPlans(baseType).map((plan) => ({
+      type: plan.type,
+      factionType: plan.spawnMeta?.factionType ?? null,
+      assimilated: Boolean(plan.spawnMeta?.assimilated),
+      copyIndex: plan.spawnMeta?.copyIndex ?? 0,
+      copyScoreScale: plan.spawnMeta?.copyScoreScale ?? 1,
+    }));
+  };
+  window.__fruitAvailableTalents = () => {
+    if (!DEBUG_MODE) return [];
+    return getAvailableTalents().map((talent) => ({
+      id: talent.id,
+      tag: talent.tag,
+      name: talent.name,
+      skillId: talent.skillId,
+      skillLabel: talent.skillLabel,
+      level: getTalentCurrentLevel(talent),
+      maxLevel: talent.maxLevel || null,
+      fruitFaction: isFruitFactionTalent(talent),
+    }));
+  };
+  window.__fruitUpgradePriority = () => {
+    if (!DEBUG_MODE) return null;
+    return getUpgradePriorityFactionType();
+  };
+  window.__fruitUpgradeChoices = () => {
+    if (!DEBUG_MODE) return [];
+    return getUpgradeChoices().map((talent) => ({
+      id: talent.id,
+      tag: talent.tag,
+      skillId: talent.skillId,
+      name: talent.name,
+    }));
+  };
+  window.__fruitOpenUpgrade = (points = 1) => {
+    if (!DEBUG_MODE) return false;
+    if (!state.running) startRound({ skipTutorial: true });
+    state.upgradePoints = Math.max(1, Math.round(Number(points) || 1));
+    return openUpgradeSequence("Debug 升级", "水果技能树验证");
+  };
+  window.__fruitForceBoss = () => startDebugScenario("boss-warning");
+  window.__fruitForceFrenzy = () => startDebugScenario("frenzy-100");
+
+  if (DEBUG_MODE) {
+    ui.debugPanel.classList.remove("hidden");
+    ui.debugPanel.setAttribute("aria-hidden", "false");
+    ui.debugPanel.querySelectorAll("[data-scenario]").forEach((button) => {
+      button.addEventListener("click", () => startDebugScenario(button.dataset.scenario));
+    });
+    renderDebugPanel();
+  }
+}
 
 function show(element) {
   element.classList.remove("hidden");
@@ -2157,22 +3561,77 @@ canvas.addEventListener("pointercancel", () => {
 ui.startButton.addEventListener("click", startRound);
 ui.retryButton.addEventListener("click", startRound);
 ui.copyButton.addEventListener("click", async () => {
-  const text = `【果切幸存者3D挑战卡】\n闯到：第${state.stage}关\n分数：${state.score}\n最大连击：${state.maxCombo}\n流派：${getFlowName()}\n结果：${state.deathReason}\n同一局，你来试试。`;
-  try {
-    await navigator.clipboard.writeText(text);
-    ui.copyButton.textContent = "文案已复制";
-  } catch {
-    ui.copyButton.textContent = "复制失败";
-  }
+  const result = await platform.clipboard.writeText(buildChallengeText());
+  ui.copyButton.textContent = result.ok ? "文案已复制" : "复制失败";
   window.setTimeout(() => {
     ui.copyButton.textContent = "复制挑战文案";
   }, 1200);
 });
+ui.downloadCardButton.addEventListener("click", downloadChallengeCard);
+ui.settingsButton.addEventListener("click", openSettings);
+ui.closeSettingsButton.addEventListener("click", closeSettings);
+ui.soundToggle.addEventListener("change", () => {
+  settings.sound = ui.soundToggle.checked;
+  saveSettings();
+  if (settings.sound) {
+    unlockAudio();
+    playSound("start");
+  }
+});
+ui.hapticToggle.addEventListener("change", () => {
+  settings.haptics = ui.hapticToggle.checked;
+  saveSettings();
+  if (settings.haptics) platform.haptics.light();
+});
+ui.batteryToggle.addEventListener("change", () => {
+  settings.batterySaver = ui.batteryToggle.checked;
+  saveSettings();
+  applyPerformancePreference();
+});
+ui.replayTutorialButton.addEventListener("click", () => {
+  closeSettings();
+  showTutorial(null, true);
+});
+ui.clearRecordsButton.addEventListener("click", () => {
+  platform.storage.remove(STORAGE_KEYS.bestScore);
+  platform.storage.remove(STORAGE_KEYS.bestStage);
+  state.bestScore = 0;
+  state.bestStage = 1;
+  updateStartRecords();
+  ui.clearRecordsButton.textContent = "已清空";
+  window.setTimeout(() => {
+    ui.clearRecordsButton.textContent = "清空记录";
+  }, 1200);
+});
+ui.tutorialNextButton.addEventListener("click", () => {
+  if (tutorial.index < TUTORIAL_STEPS.length - 1) {
+    tutorial.index += 1;
+    renderTutorial();
+  } else {
+    closeTutorial(true);
+  }
+});
+ui.tutorialSkipButton.addEventListener("click", () => closeTutorial(true));
+ui.pauseButton.addEventListener("click", () => setPaused(true, "manual"));
+ui.resumeButton.addEventListener("click", () => setPaused(false));
+ui.restartButton.addEventListener("click", () => startRound({ skipTutorial: true }));
+ui.homeButton.addEventListener("click", goHome);
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" || event.key.toLowerCase() === "p") {
+    if (state.running && !state.over) setPaused(!state.paused, "manual");
+  }
+});
+
+platform.lifecycle.onHide(() => setPaused(true, "lifecycle"));
 
 window.addEventListener("resize", resize);
 
 resize();
 buildWorld();
+syncSettingsUi();
+updateStartRecords();
 updateHud();
-loadGameAssets();
+installDebugApi();
+loadGameAssets().then(maybeAutoStartDebugScenario);
 animate();

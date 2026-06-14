@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>果切幸存者 3D 初版</title>
     <link rel="icon" href="data:," />
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./style.css?v=20260613-hud3" />
     <script type="importmap">
       {
         "imports": {
@@ -34,37 +34,42 @@
         </div>
       </div>
 
-      <section class="hud">
-        <div class="hud-row">
-          <div class="hud-chip hud-penalty">
-            <span class="hud-label">扣分</span>
-            <strong id="penaltyValue">0</strong>
-          </div>
-          <div class="hud-chip hud-score">
-            <span class="hud-label">分数</span>
-            <strong id="scoreValue">0</strong>
-          </div>
-          <div class="hud-chip hud-time">
-            <span class="hud-label">时间</span>
-            <strong id="timerValue">60</strong>
-          </div>
-        </div>
+      <section class="hud hud-compact">
+        <div class="hud-mainline">
+          <div class="hud-left-cluster">
+            <div class="hud-score-pill hud-stat">
+              <span class="hud-label">分数</span>
+              <strong id="scoreValue">0</strong>
+            </div>
 
-        <div class="hud-row hud-row-secondary">
-          <div class="hud-chip">
-            <span class="hud-label">连击</span>
-            <strong id="comboValue">0</strong>
+            <div class="xp-strip">
+              <div class="xp-head">
+                <span class="xp-label">经验</span>
+                <strong id="xpValue" class="xp-value">0/110</strong>
+              </div>
+              <div class="xp-track"><div id="xpBar" class="xp-fill"></div></div>
+            </div>
           </div>
-          <div class="hud-chip hud-flow">
-            <span class="hud-label">流派</span>
-            <strong id="flowValue">未成流</strong>
-          </div>
-        </div>
 
-        <div class="xp-strip">
-          <span id="levelValue">第1关 0/1000</span>
-          <div class="xp-track"><div id="xpBar" class="xp-fill"></div></div>
+          <div class="hud-center-cluster">
+            <div class="strip-head hud-stage-copy">
+              <span id="levelValue">第1关 0/1000</span>
+              <strong id="timerValue">60</strong>
+            </div>
+            <div class="stage-track"><div id="stageBar" class="stage-fill"></div></div>
+            <strong id="penaltyValue" class="penalty-inline"></strong>
+          </div>
+
+          <div class="hud-right-cluster">
+            <div class="hud-combo-flow">
+              <span class="hud-label">连击</span>
+              <strong id="comboValue">0</strong>
+              <span id="flowValue" class="hud-micro">未成流</span>
+            </div>
+            <button id="pauseButton" class="icon-button pause-button" aria-label="暂停">暂停</button>
+          </div>
         </div>
+        <span id="assetStatusValue" class="hud-micro asset-status hidden">模型OK</span>
       </section>
 
       <div id="slashLayer" class="slash-layer"></div>
@@ -73,7 +78,62 @@
         <div class="modal start-modal">
           <p class="kicker">Fruit Survivor 3D</p>
           <h1>果切幸存者</h1>
+          <p class="start-subtitle">60 秒切分，5 秒 Boss 狂切。</p>
+          <div class="start-features">
+            <span>一刀多切</span>
+            <span>草莓狂暴</span>
+            <span>Boss 破核</span>
+          </div>
+          <div class="start-records">
+            <span>最高分 <strong id="bestScoreValue">0</strong></span>
+            <span>最高关 <strong id="bestStageValue">1</strong></span>
+          </div>
           <button id="startButton" class="primary-button">开始闯关</button>
+          <button id="settingsButton" class="secondary-button">设置</button>
+        </div>
+      </section>
+
+      <section id="tutorialOverlay" class="overlay hidden">
+        <div class="modal tutorial-modal">
+          <p id="tutorialKicker" class="kicker">新手引导</p>
+          <h2 id="tutorialTitle">一刀多切</h2>
+          <div id="tutorialDemo" class="tutorial-demo">
+            <span></span><span></span><span></span>
+          </div>
+          <p id="tutorialText" class="tutorial-text">划过多个食材，连切越多越爽。</p>
+          <div id="tutorialDots" class="tutorial-dots"></div>
+          <div class="tutorial-actions">
+            <button id="tutorialSkipButton" class="secondary-button">跳过</button>
+            <button id="tutorialNextButton" class="primary-button">下一步</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="settingsOverlay" class="overlay hidden">
+        <div class="modal settings-modal">
+          <p class="kicker">设置</p>
+          <h2>手感设置</h2>
+          <label class="setting-row"><span>音效</span><input id="soundToggle" type="checkbox" checked /></label>
+          <label class="setting-row"><span>震动</span><input id="hapticToggle" type="checkbox" checked /></label>
+          <label class="setting-row"><span>省电模式</span><input id="batteryToggle" type="checkbox" /></label>
+          <div class="result-actions">
+            <button id="replayTutorialButton" class="secondary-button">重看教程</button>
+            <button id="clearRecordsButton" class="secondary-button">清空记录</button>
+            <button id="closeSettingsButton" class="primary-button">返回</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="pauseOverlay" class="overlay hidden">
+        <div class="modal pause-modal">
+          <p class="kicker">暂停</p>
+          <h2>刀先收一收</h2>
+          <div class="pause-state" id="pauseState">第 1 关 / 0 分</div>
+          <div class="result-actions">
+            <button id="resumeButton" class="primary-button">继续</button>
+            <button id="restartButton" class="secondary-button">重新开始</button>
+            <button id="homeButton" class="secondary-button">回到开始页</button>
+          </div>
         </div>
       </section>
 
@@ -92,17 +152,31 @@
           <div class="result-list">
             <div><span>最大连击</span><strong id="resultCombo">0</strong></div>
             <div><span>本局流派</span><strong id="resultFlow">未成流</strong></div>
+            <div><span>狂暴得分</span><strong id="resultFrenzy">0</strong></div>
+            <div><span>Boss 得分</span><strong id="resultBoss">0</strong></div>
+            <div><span>扣分总额</span><strong id="resultPenalty">0</strong></div>
             <div><span>结果</span><strong id="resultReason">时间结束</strong></div>
             <div><span>对比</span><strong id="resultCompare">首把成绩已入账</strong></div>
           </div>
           <div class="result-actions">
             <button id="retryButton" class="primary-button">再来一局</button>
             <button id="copyButton" class="secondary-button">复制挑战文案</button>
+            <button id="downloadCardButton" class="secondary-button">下载挑战卡</button>
           </div>
         </div>
       </section>
+
+      <aside id="debugPanel" class="debug-panel hidden" aria-hidden="true">
+        <strong>DEBUG</strong>
+        <pre id="debugText">waiting</pre>
+        <div class="debug-actions">
+          <button data-scenario="strawberry-event">草莓</button>
+          <button data-scenario="frenzy-100">狂暴</button>
+          <button data-scenario="boss-warning">Boss</button>
+        </div>
+      </aside>
     </main>
 
-    <script type="module" src="./src/game.js"></script>
+    <script type="module" src="./src/game.js?v=20260612-final4"></script>
   </body>
 </html>
