@@ -382,6 +382,10 @@ const FACTION_EXTRA_SPAWN_BUFFER = 4;
 const FACTION_TIER_THRESHOLDS = [3, 6, 10, 15];
 const FRUIT_BASE_SKILL_IDS = ["assimilate", "split", "value"];
 const UPGRADE_PRIORITY_SLOT_CHANCE = 0.4;
+const FRUIT_MATERIAL_SATURATION = 1.34;
+const FRUIT_MATERIAL_CONTRAST = 1.1;
+const FRUIT_MATERIAL_BRIGHTNESS = 0.025;
+const FRUIT_MATERIAL_COLOR_BIAS = 0.28;
 
 const FRUIT_FACTIONS = {
   apple: { name: "苹果连击流", talentName: "苹果连击", flowPack: "combo", desc: "苹果三件套 + 旧连击流技能包。" },
@@ -1389,27 +1393,60 @@ function createAssetModel(assetName, data, variant = "full") {
 }
 
 function applyModelPalette(group, data, variant) {
-  if (!data.tintModel) return;
-
   const tint = new THREE.Color(data.color);
   const emissiveBoost = data.danger ? 0.2 : variant === "half" ? 0.1 : 0.07;
 
   group.traverse((child) => {
     if (!child.isMesh || !child.material) return;
 
-    const tintMaterial = (material) => {
+    const tuneMaterial = (material) => {
       const clone = material.clone();
-      if (clone.color) clone.color.copy(tint);
-      if (clone.map) clone.map = null;
-      if (clone.emissive) clone.emissive.copy(tint).multiplyScalar(emissiveBoost);
-      if (clone.metalness !== undefined) clone.metalness = 0;
-      if (clone.roughness !== undefined) clone.roughness = 0.5;
+      if (data.tintModel) {
+        if (clone.color) clone.color.copy(tint);
+        if (clone.map) clone.map = null;
+        if (clone.emissive) clone.emissive.copy(tint).multiplyScalar(emissiveBoost);
+        if (clone.metalness !== undefined) clone.metalness = 0;
+        if (clone.roughness !== undefined) clone.roughness = 0.5;
+      } else if (!data.danger) {
+        enhanceFruitMaterialColor(clone, data, variant);
+      }
       clone.needsUpdate = true;
       return clone;
     };
 
-    child.material = Array.isArray(child.material) ? child.material.map(tintMaterial) : tintMaterial(child.material);
+    child.material = Array.isArray(child.material) ? child.material.map(tuneMaterial) : tuneMaterial(child.material);
   });
+}
+
+function enhanceFruitMaterialColor(material, data, variant) {
+  const accent = new THREE.Color(data.color);
+  let lowColorBoost = 0;
+  if (material.color) {
+    const originalHsl = {};
+    material.color.getHSL(originalHsl);
+    lowColorBoost = (originalHsl.s < 0.28 ? 0.12 : 0) + (originalHsl.l < 0.36 ? 0.16 : 0);
+    const colorBias = THREE.MathUtils.clamp((variant === "half" ? FRUIT_MATERIAL_COLOR_BIAS + 0.06 : FRUIT_MATERIAL_COLOR_BIAS) + lowColorBoost, 0, 0.56);
+    material.color.lerp(accent, colorBias);
+    boostColorSaturation(material.color, variant === "half" ? 1.22 : 1);
+  }
+  if (material.emissive) {
+    if (lowColorBoost > 0) {
+      material.emissive.copy(accent).multiplyScalar(0.055 + lowColorBoost * 0.08);
+    } else {
+      boostColorSaturation(material.emissive, 0.55);
+      material.emissive.multiplyScalar(1.08);
+    }
+  }
+  if (material.roughness !== undefined) material.roughness = Math.max(0.38, material.roughness * 0.92);
+  if (material.metalness !== undefined) material.metalness = Math.min(0.08, material.metalness);
+}
+
+function boostColorSaturation(color, intensity = 1) {
+  const hsl = {};
+  color.getHSL(hsl);
+  const saturation = THREE.MathUtils.clamp(hsl.s * (1 + (FRUIT_MATERIAL_SATURATION - 1) * intensity) + 0.04 * intensity, 0, 1);
+  const lightness = THREE.MathUtils.clamp((hsl.l - 0.5) * (1 + (FRUIT_MATERIAL_CONTRAST - 1) * intensity) + 0.5 + FRUIT_MATERIAL_BRIGHTNESS * intensity, 0, 1);
+  color.setHSL(hsl.h, saturation, lightness);
 }
 
 function decorateGameplayMesh(group, data) {

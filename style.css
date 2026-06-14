@@ -55,6 +55,7 @@ button {
   height: 100%;
   display: block;
   touch-action: none;
+  filter: saturate(1.18) contrast(1.08) brightness(1.05);
 }
 
 .event-fx-layer {
