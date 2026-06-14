@@ -671,11 +671,19 @@ function upgradeFruitFactionSkill(type, skillId) {
   if (currentLevel >= skill.maxLevel) return false;
 
   faction.skills[skillId] = currentLevel + 1;
+  if (skillId === "assimilate") touchAssimilationOrder(type);
   state.flow.tagCount[type] = (state.flow.tagCount[type] || 0) + 1;
 
   const mastery = getFactionMastery(type);
   showFloatingText(centerScreenPoint(), `${FRUIT_FACTIONS[type].talentName}·${skill.label} Lv.${faction.skills[skillId]}｜流派Lv.${mastery}`, "upgrade");
   return true;
+}
+
+function touchAssimilationOrder(type) {
+  if (!FRUIT_FACTION_IDS.includes(type)) return;
+  if (!state.assimilationOrder) state.assimilationOrder = [];
+  state.assimilationOrder = state.assimilationOrder.filter((entry) => entry !== type);
+  state.assimilationOrder.push(type);
 }
 
 function upgradeFruitFaction(type) {
@@ -708,19 +716,16 @@ function getFactionCopyCount(type) {
   return 1 + Math.min(2, Math.max(0, extraCopies));
 }
 
+function getAssimilationOrder() {
+  const ordered = (state.assimilationOrder || []).filter((type) => getFruitSkillLevel(type, "assimilate") > 0);
+  const missing = FRUIT_FACTION_IDS.filter((type) => getFruitSkillLevel(type, "assimilate") > 0 && !ordered.includes(type));
+  return [...ordered, ...missing];
+}
+
 function pickAssimilationFaction(baseType) {
-  if (getFactionMastery(baseType) > 0) return null;
-
-  const candidates = FRUIT_FACTION_IDS
-    .filter((type) => type !== baseType && getFruitSkillLevel(type, "assimilate") > 0)
-    .filter((type) => Math.random() < getFactionAssimilationRate(type))
-    .sort((a, b) => {
-      const levelDelta = getFruitSkillLevel(b, "assimilate") - getFruitSkillLevel(a, "assimilate");
-      if (levelDelta !== 0) return levelDelta;
-      return getFactionMastery(b) - getFactionMastery(a);
-    });
-
-  return candidates[0] || null;
+  return getAssimilationOrder().reduce((currentType, type) => (
+    Math.random() < getFactionAssimilationRate(type) ? type : currentType
+  ), baseType);
 }
 
 function resolveFruitSpawnPlans(baseType) {
@@ -728,15 +733,15 @@ function resolveFruitSpawnPlans(baseType) {
     return [{ type: baseType, spawnMeta: null }];
   }
 
-  const factionType = pickAssimilationFaction(baseType);
-  const type = factionType || baseType;
+  const type = pickAssimilationFaction(baseType);
+  const assimilated = type !== baseType;
   const isInvestedResult = getFactionMastery(type) > 0;
   const copies = isInvestedResult ? getFactionCopyCount(type) : 1;
   return Array.from({ length: copies }, (_, copyIndex) => ({
     type,
     spawnMeta: {
       factionType: isInvestedResult ? type : null,
-      assimilated: Boolean(factionType),
+      assimilated,
       copyIndex,
       copyScoreScale: copyIndex === 0 ? 1 : FACTION_COPY_SCORE_SCALE,
     },
@@ -802,6 +807,7 @@ function createInitialState() {
     selectedTalents: [],
     talentLevels: {},
     factions: createInitialFactions(),
+    assimilationOrder: [],
     factionRuntime: createInitialFactionRuntime(),
     debugMode: DEBUG_MODE,
     previousBestScore: platform.storage.getNumber(STORAGE_KEYS.bestScore, 0),
@@ -3284,6 +3290,7 @@ function getDebugSnapshot() {
     bossCracked: state.bossCracked,
     perfTier: perfState.tier,
     dominantFaction: getDominantFactionType(),
+    assimilationOrder: getAssimilationOrder(),
     factions: getFactionDebugState(),
     pendingCount: state.pendingSpawns.length,
     objects: state.objects.map((object) => ({
