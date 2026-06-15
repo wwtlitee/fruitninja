@@ -370,7 +370,7 @@ const FRUITS = {
   coconut: { label: "椰壳", color: 0xa8744f, score: 24, size: 0.66, assetName: "coconut" },
   mushroom: { label: "蘑菇", color: 0xff766f, score: 19, size: 0.58, assetName: "mushroom" },
   onion: { label: "洋葱", color: 0xd0a4ff, score: 20, size: 0.58, assetName: "onion" },
-  sausage: { label: "香肠", color: 0xff5a1f, score: 14, size: 0.6, assetName: "sausage", fullScale: 1.45, tintModel: true },
+  sausage: { label: "香肠", color: 0xff5a1f, score: 14, size: 0.6, assetName: "sausage", fullScale: 1.45 },
   strawberry: { label: "狂暴草莓", color: 0xff2f55, score: 80, size: 0.44, assetName: "strawberry", frenzyTarget: true },
   durian: { label: "蜂巢桶", color: 0x9a6a3a, score: 0, size: 0.64, assetName: "barrel", danger: true },
 };
